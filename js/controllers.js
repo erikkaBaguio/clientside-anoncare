@@ -48,3 +48,17 @@ angular.module('myApp').controller('logoutController',
             };
 
         }]);
+
+
+/*
+ * Source: http://stackoverflow.com/questions/12592472/how-to-highlight-a-current-menu-item
+ */
+
+angular.module('myApp').controller('NavigationController',
+    ['$scope', '$location',
+        function ($scope, $location) {
+
+            $scope.isCurrentPath = function (path) {
+                return $location.path() == path;
+            };
+        }]);
