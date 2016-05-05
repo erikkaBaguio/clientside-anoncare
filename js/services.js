@@ -3,12 +3,6 @@
  * Services - API caller(functions)
  */
 
-
-/**
- * Created by Erikks on 4/7/2016.
- * Services - API caller (functions)
- */
-
 angular.module('myApp').factory('AuthService',
     ['$q', '$timeout', '$http',
         function ($q, $timeout, $http) {
