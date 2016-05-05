@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    padding: 0;
+    line-height: 18px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+p {
+    font-size: 1.25em;
+    line-height: 1.6;
+    color: #000;
+}
+
+hr {
+    max-width: 400px;
+    border-color: #999999;
+}
+
+.brand,
+.address-bar {
+    display: none;
+}
+
+#wrap {
+    background: #fff;
+    position: relative;
+    text-align: left;
+    margin: 0 auto;
+    width: auto;
+}
+
+.boxshadow {
+    -moz-box-shadow: 0 0 9px #8F1A1A;
+    -webkit-box-shadow: 0 0 9px #8F1A1A;
+}
+
+.header {
+    background: #A03741;
+    padding: 10px;
+    font-size: 11px;
+    height: 90px;
+    line-height: 14px;
+}
+
+.header-dashboard{
+    background: #A03741;
+    padding: 10px;
+    font-size: 11px;;
+    height: 50px;
+    line-height: 10px;
+}
+
+.content {
+    /*margin-left: 20px;*/
+    min-height: auto;
+    width: 100%;
+    background: url('../img/2.jpg') left top fixed no-repeat;
+}
+
+.content img{
+    width: 840px;
+    border:1px solid #ccc;
+}
+
+.footer {
+    background: #33151F left no-repeat;
+    color: #333;
+    font-size: 11px;
+    clear: both;
+    padding: 10px;
+    font-size: 11px;
+    border-top: 5px solid #6F6F6F;
+    color: #999;
+    height: 60px;
+    line-height: 14px;
+    font-family: Verdana, Arial, Helvetica, sans-serif
+}
