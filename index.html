@@ -28,19 +28,40 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
-    <div id="log-in-page" class="container">
+
+    <div id="log-in-page" class="container" style="display:none">
         <div class="page-header"></div>
-        <form id="login-form" class="col-md-12">
-            <div class="login-card">
-                <form class="form-signin"><span class="reauth-email"> </span>
-                    <input class="form-control" type="email" required="" placeholder="Username" autofocus="" id="username" name="username">
-                    <input class="form-control" type="password" required="" placeholder="Password" id="password" name="password">
-                    <button class="btn btn-primary btn-block btn-lg btn-signin" type="submit">Sign in</button>
-                </form><a href="#" class="forgot-password">Forgot your password?</a></div>
-        </form>
-        <div id="home" class="home"></div>
+          <div id="log-in-page" class="container">
+
+              <div class="page-header">
+                  <h1>Please Login</h1>
+              </div>
+
+              <!-- Simple Login - START -->
+              <form id="login-form" class="col-md-12" method="post" onsubmit="return false">
+                  <div class="form-group">
+                      <input id="username" name="username" type="text" class="form-control input-lg" placeholder="username">
+                  </div>
+                  <div class="form-group">
+                      <input id="password" name="password" type="password" class="form-control input-lg" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                      <button onclick="signin();" class="btn btn-primary btn-lg btn-block">Sign In</button>
+                  </div>
+              </form>
+              <!-- Simple Login - END -->
+
+          </div>
     </div>
-    <div id="admin-page">
+
+
+
+
+<!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
+
+
+<!-- ADMIN PAGE DIVISION -->
+    <div id="admin-page" style="display:none">
         <div class="container-fluid">
             <header id="main-header-admin" class="main-header">
                 
@@ -121,7 +142,15 @@
             </div>
         </div>
     </div>
-    <div id="doctor-page">
+<!-- ADMIN PAGE DIVISION END -->
+
+
+
+<!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
+
+
+<!-- DOCTOR PAGE DIVISION -->
+    <div id="doctor-page" style="display:none">
         <div class="container-fluid">
             <header id="main-header-doctor" class="main-header">
                 
@@ -248,7 +277,15 @@
             </div>
         </div>
     </div>
-    <div id="nurse-page">
+<!-- DOCTOR PAGE DIVISION END -->
+
+
+
+<!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
+
+
+<!-- NURSE PAGE DIVISION -->
+    <div id="nurse-page" style="display:none">
         <div class="container-fluid">
             <header id="main-header-nurse" class="main-header">
                 
@@ -375,6 +412,16 @@
             </div>
         </div>
     </div>
+<!-- NURSE PAGE DIVSION END -->
+
+
+
+<!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
+
+
+
+
+
     <footer class="text-muted">
         <div class="pull-right hidden-xs">
           <b>Version</b> 1.0.0
@@ -383,17 +430,11 @@
     </footer>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/app.min.js"></script>
-    <script src="assets/js/bootstrap3-wysihtml5.all.min.js"></script>
     <script src="assets/js/bootstrap-datepicker.js"></script>
-    <script src="assets/js/dashboard.js"></script>
-    <script src="assets/js/dataTables.bootstrap.min.js"></script>
     <script src="assets/js/daterangepicker.js"></script>
     <script src="assets/js/demo.js"></script>
     <script src="assets/js/fastclick.min.js"></script>
     <script src="assets/js/jquery.dataTables.min.js"></script>
-    <script src="assets/js/jquery.inputmask.date.extensions.js"></script>
-    <script src="assets/js/jquery.inputmask.extensions.js"></script>
     <script src="assets/js/jquery.inputmask.js"></script>
     <script src="assets/js/jquery.knob.js"></script>
     <script src="assets/js/jquery.min.js"></script>
@@ -405,6 +446,7 @@
     <script src="assets/js/moment.min.js"></script>
     <script src="assets/js/morris.min.js"></script>
     <script src="assets/js/select2.full.min.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
