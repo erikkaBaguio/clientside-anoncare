@@ -34,6 +34,8 @@ function decryptCookie(){
 	var myCookie = readCookie('user_tk');
 	var data = JSON.stringify({'token':myCookie});
 
+    $('#login-loading-image').show();
+
 	$.ajax({
 
 		type:"POST",
@@ -45,6 +47,7 @@ function decryptCookie(){
 	    success: function(results){
 	    	auth_user = results.token;
 	    	home();
+	    	$('#login-loading-image').hide();
 
 	    },
 
@@ -53,6 +56,7 @@ function decryptCookie(){
 	    	console.log(stats);
 	    	$('#log-in-page').show();
 	    	$('#footer').show();
+	    	$('#login-loading-image').hide();
 	    }
 
 	});
