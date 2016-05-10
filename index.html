@@ -601,10 +601,10 @@
                                               <label>Attending Physician</label>
                                               <select id="attending-physician" class="form-control select2" style="width: 100%;">
                                                   <option selected="selected">Doctors</option>
-                                                  <option>WWWW</option>
-                                                  <option>XXXX</option>
-                                                  <option>YYYY</option>
-                                                  <option>ZZZZ</option>
+                                                  <option value="1">WWWW</option>
+                                                  <option value="2">XXXX</option>
+                                                  <option value="3">YYYY</option>
+                                                  <option value="4">ZZZZ</option>
                                               </select>
                                           </div>
                                       </div>
@@ -613,7 +613,7 @@
                                   </div><!-- /.box-body -->
                                   <div class="box-footer">
                                       <button type="submit" class="btn btn-danger pull-right" style="margin: 5px">Clear</button>
-                                      <button type="submit" class="btn btn-success pull-right" style="margin: 5px">Submit</button>
+                                      <button id="submit-button" type="submit" class="btn btn-success pull-right" onclick="storeAssessment();" style="margin: 5px">Submit</button>
                                   </div><!-- /.box-footer -->
                               </div><!-- /.box -->
                             </section>
