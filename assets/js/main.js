@@ -339,7 +339,7 @@ function storeAssessment(){
     						   'attending_physician':attending_physician
     						})
 
-    $.({
+    $.ajax({
     	type:"POST",
     	url: "http://localhost:8051/api/anoncare/assessment",
     	contentType:"application/json; charset=utf-8",
