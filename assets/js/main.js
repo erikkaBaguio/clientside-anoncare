@@ -207,7 +207,8 @@ function storeUser(){
 	var password = $('#password').val();
 	var role_id = $('#role_id').val();
 
-	var data = JSON.stringify({'fname':fname, 'mname':mname, 'lname':lname, 'email':email, 'password':password, 'role_id':role_id});
+	var data = JSON.stringify({fname:String(fname), mname:String(mname), lname:String(lname),
+						email:String(email), username:String(username), password:String(password), role_id:role_id});
 
 	$.ajax({
 
