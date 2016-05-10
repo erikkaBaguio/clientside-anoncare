@@ -24,7 +24,7 @@ function eraseCookie(name) {
 	$('#add-user-form').hide(0);
 
 	$('#log-in-alert').html(
-		'<div class="alert alert-success"><strong>Success ' +
+		'<div class="alert alert-warning"><strong>Success ' +
 		 '!</strong> Successfully logged out.</div>');
 }
 
@@ -150,6 +150,8 @@ function signin(){
 						'<div class="alert alert-success"><strong>Welcome ' + 
 						results.data[0].fname +
 						 '!</strong> Successfully logged in.</div>');
+
+					$("#welcome-alert-admin").fadeTo(2000, 500).slideUp(500);
 				}
 
 				if(results.data[0].role == 2){
@@ -176,4 +178,9 @@ function signin(){
 		}
 
 	});
+}
+
+
+function storeUser(){
+
 }
