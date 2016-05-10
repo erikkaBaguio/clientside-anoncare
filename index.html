@@ -29,422 +29,489 @@
 
 <body class="hold-transition skin-blue sidebar-mini">
 
-<div id="log-in-page" class="container" style="display:none">
-    <div class="page-header"></div>
-    <div id="log-in-page" class="container">
+    <div id="log-in-page" class="container" style="display:none">
+        <div class="page-header"></div>
+          <div id="log-in-page" class="container">
 
-        <div class="page-header">
-            <h1>Please Login</h1>
-        </div>
+              <div class="page-header">
+                  <h1>Please Login</h1>
+              </div>
 
-        <!-- Simple Login - START -->
-        <form id="login-form" class="col-md-12" method="post" onsubmit="return false">
-            <div class="form-group">
-                <input id="username" name="username" type="text" class="form-control input-lg" placeholder="username">
-            </div>
-            <div class="form-group">
-                <input id="password" name="password" type="password" class="form-control input-lg"
-                       placeholder="Password">
-            </div>
-            <div class="form-group">
-                <button onclick="signin();" class="btn btn-primary btn-lg btn-block">Sign In</button>
-            </div>
-        </form>
-        <!-- Simple Login - END -->
+              <div id="log-in-alert"></div>
+              <!-- Simple Login - START -->
+              <form id="login-form" class="col-md-12" method="post" onsubmit="return false">
+                  <div class="form-group">
+                      <input id="username" name="username" type="text" class="form-control input-lg" placeholder="username">
+                  </div>
+                  <div class="form-group">
+                      <input id="password" name="password" type="password" class="form-control input-lg" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                      <button onclick="signin();" class="btn btn-primary btn-lg btn-block">Sign In</button>
+                  </div>
+              </form>
+              <!-- Simple Login - END -->
 
+          </div>
     </div>
-</div>
+
+
 
 
 <!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
 
 
 <!-- ADMIN PAGE DIVISION -->
-<div id="admin-page" style="display:none">
-    <div class="container-fluid">
-        <header id="main-header-admin" class="main-header">
-
-            <!-- Logo -->
-            <a href="#/landing.html" class="logo">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini">A<b>C</b></span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg">Anon<b>Care</b></span>
-            </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown notifications-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-user"></i>
-                                <span class="hidden-xs">Alexander Pierce</span>
-                                <i class="fa fa-chevron-down"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <li>
-                                            <a href="#">
-                                              Reset Password
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" onclick="eraseCookie('user_tk');">
-                                              Logout
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+    <div id="admin-page" style="display:none">
+        <div class="container-fluid">
+            <header id="main-header-admin" class="main-header">
+                
+        <!-- Logo -->
+        <a href="#/landing.html" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini">A<b>C</b></span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg">Anon<b>Care</b></span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- User Account: style can be found in dropdown.less -->
+              <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-user"></i>
+                  <span class="hidden-xs">Alexander Pierce</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-aqua"></i> Reset Password
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" onclick="eraseCookie('user_tk');">
+                          <i class="fa fa-users text-aqua"></i> Logout
+                        </a>
+                      </li>                      
                     </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+            </header>
+            <div class="row">
+                <div class="col-md-3">
+                    <section id="sidebar-admin" class="sidebar">
+                        <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="active treeview">
+              <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span> 
+                <i class="fa fa-angle-right pull-right"></i>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="#" onclick="$('#add-user-form').show();">
+                <i class="fa fa-plus"></i> <span>Add User</span>
+                <i class="fa fa-angle-right pull-right"></i>
+              </a>              
+            </li>
+          </ul>
+                    </section>
                 </div>
-            </nav>
+                <div class="col-md-9" id="content-admin">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <section class="content-header">
 
-        </header>
-        <div class="row">
-            <div class="col-md-3">
-                <section id="sidebar-admin" class="sidebar">
-                    <!-- sidebar menu: : style can be found in sidebar.less -->
-                    <ul class="sidebar-menu">
-                        <li class="active treeview">
-                            <a href="#">
-                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-plus"></i> <span>Add User</span>
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-            </div>
-            <div class="col-md-9" id="content-admin">
-                <div class="row">
-                    <div class="col-md-12">
-                        <section class="content-header">
-                            <div id="welcome-alert-admin" class="alert alert-success">
-                            </div>
-                            <h1>Welcome </h1>
-                        </section>
+                                <div id="welcome-alert-admin">
+                                </div>
+
+                                
+                                <!-- FORM FOR ADDING USER -->
+
+                                <div id="add-user-form" class="col-md-8 col-md-offset-2" style="display:none">
+                                    <form class="form-horizontal custom-form">
+                                        <h1>Register Form</h1>
+                                        <div class="form-group">
+                                            <div class="col-sm-4 label-column">
+                                                <label for="name-input-field" class="control-label">First Name</label>
+                                            </div>
+                                            <div class="col-sm-6 input-column">
+                                                <input type="text" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-4 label-column">
+                                                <label for="name-input-field" class="control-label">Middle Name</label>
+                                            </div>
+                                            <div class="col-sm-6 input-column">
+                                                <input type="text" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-4 label-column">
+                                                <label for="name-input-field" class="control-label">Last Name</label>
+                                            </div>
+                                            <div class="col-sm-6 input-column">
+                                                <input type="text" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-4 label-column">
+                                                <label for="email-input-field" class="control-label">Email Address</label>
+                                            </div>
+                                            <div class="col-sm-6 input-column">
+                                                <input type="email" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-4 label-column">
+                                                <label for="dropdown-input-field" class="control-label">User Role</label>
+                                            </div>
+                                            <div class="col-sm-4 input-column">
+                                                <div class="dropdown open">
+                                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="true" type="button">Roles <span class="caret"></span></button>
+                                                    <ul role="menu" class="dropdown-menu">
+                                                        <li role="presentation"><a href="#">1 - Doctor</a></li>
+                                                        <li role="presentation"><a href="#">2 - Nurse</a></li>
+                                                        <li role="presentation"><a href="#">3 - System Administrator</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-default submit-button" type="button">Register User</button>
+                                    </form>
+                                </div>
+
+                                <!-- END FORM FOR ADDING USER -->
+
+
+                            </section>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <!-- ADMIN PAGE DIVISION END -->
+
 
 
 <!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
 
 
 <!-- DOCTOR PAGE DIVISION -->
-<div id="doctor-page" style="display:none">
-    <div class="container-fluid">
-        <header id="main-header-doctor" class="main-header">
+    <div id="doctor-page" style="display:none">
+        <div class="container-fluid">
+            <header id="main-header-doctor" class="main-header">
+                
+        <!-- Logo -->
+        <a href="#/landing.html" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini">A<b>C</b></span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg">Anon<b>Care</b></span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
 
-            <!-- Logo -->
-            <a href="#/landing.html" class="logo">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini">A<b>C</b></span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg">Anon<b>Care</b></span>
-            </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
+              <!-- Notifications: style can be found in dropdown.less -->
+              <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i>
+                  <span class="label label-warning">3</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 3 notifications</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li>
+                        <a href="#">
 
-                        <!-- Notifications: style can be found in dropdown.less -->
-                        <li class="dropdown notifications-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-bell-o"></i>
-                                <span class="label label-warning">3</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 3 notifications</li>
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <li>
-                                            <a href="#">
+                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-red"></i> 5 new members joined
+                        </a>
+                      </li> 
+                    </ul>                     
+                  </li>
+                  <li class="footer"><a href="#">View all</a></li>
+                </ul>
+              </li>
 
-                                                <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-warning text-yellow"></i> Very long description here
-                                                that may not fit into the page and may cause design problems
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-users text-red"></i> 5 new members joined
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="footer"><a href="#">View all</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown notifications-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-user"></i>
-                                <span class="hidden-xs">Alexander Pierce</span>
-                                <i class="fa fa-chevron-down"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <li>
-                                            <a href="#">
-                                              Reset Password
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" onclick="eraseCookie('user_tk');">
-                                              Logout
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+              <!-- User Account: style can be found in dropdown.less -->
+              <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-user"></i>
+                  <span class="hidden-xs">Alexander Pierce</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-aqua"></i> Reset Password
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" onclick="eraseCookie('user_tk');">
+                          <i class="fa fa-users text-aqua"></i> Logout
+                        </a>
+                      </li>                      
                     </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+            </header>
+            <div class="row">
+                <div class="col-md-3">
+                    <section id="sidebar-doctor" class="sidebar">
+                        <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="active treeview">
+              <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span> 
+                <i class="fa fa-angle-right pull-right"></i>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-user"></i> <span>Doctor Referral</span>
+                <i class="fa fa-angle-right pull-right"></i>
+              </a>              
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-list"></i> <span>View Asssessments</span>
+                <i class="fa fa-angle-right pull-right"></i>
+              </a>              
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-list"></i> <span>View Patient</span>
+                <i class="fa fa-angle-right pull-right"></i>
+              </a>
+            </li>
+          </ul>
+                    </section>
                 </div>
-            </nav>
-
-        </header>
-        <div class="row">
-            <div class="col-md-3">
-                <section id="sidebar-doctor" class="sidebar">
-                    <!-- sidebar menu: : style can be found in sidebar.less -->
-                    <ul class="sidebar-menu">
-                        <li class="active treeview">
-                            <a href="#">
-                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-user"></i> <span>Doctor Referral</span>
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-list"></i> <span>View Asssessments</span>
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-list"></i> <span>View Patient</span>
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-            </div>
-            <div class="col-md-9" id="content-doctor">
-                <div class="row">
-                    <div class="col-md-12">
-                        <section class="content-header">
-                            <h1>Welcome </h1></section>
+                <div class="col-md-9" id="content-doctor">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <section class="content-header">
+                                <h1>Welcome </h1></section>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <!-- DOCTOR PAGE DIVISION END -->
+
 
 
 <!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
 
 
 <!-- NURSE PAGE DIVISION -->
-<div id="nurse-page" style="display:none">
-    <div class="container-fluid">
-        <header id="main-header-nurse" class="main-header">
+    <div id="nurse-page" style="display:none">
+        <div class="container-fluid">
+            <header id="main-header-nurse" class="main-header">
+                
+        <!-- Logo -->
+        <a href="#/landing.html" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini">A<b>C</b></span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg">Anon<b>Care</b></span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
 
-            <!-- Logo -->
-            <a href="#/landing.html" class="logo">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini">A<b>C</b></span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg">Anon<b>Care</b></span>
-            </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
+              <!-- Notifications: style can be found in dropdown.less -->
+              <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i>
+                  <span class="label label-warning">3</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 3 notifications</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li>
+                        <a href="#">
 
-                        <!-- Notifications: style can be found in dropdown.less -->
-                        <li class="dropdown notifications-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-bell-o"></i>
-                                <span class="label label-warning">3</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 3 notifications</li>
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <li>
-                                            <a href="#">
+                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-red"></i> 5 new members joined
+                        </a>
+                      </li> 
+                    </ul>                     
+                  </li>
+                  <li class="footer"><a href="#">View all</a></li>
+                </ul>
+              </li>
 
-                                                <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-warning text-yellow"></i> Very long description here
-                                                that may not fit into the page and may cause design problems
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-users text-red"></i> 5 new members joined
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="footer"><a href="#">View all</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown notifications-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-user"></i>
-                                <span class="hidden-xs">Alexander Pierce</span>
-                                <i class="fa fa-chevron-down"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <li>
-                                            <a href="#">
-                                              Reset Password
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" onclick="eraseCookie('user_tk');">
-                                              Logout
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+              <!-- User Account: style can be found in dropdown.less -->
+              <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-user"></i>
+                  <span class="hidden-xs">Alexander Pierce</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-aqua"></i> Reset Password
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" onclick="eraseCookie('user_tk');">
+                          <i class="fa fa-users text-aqua"></i> Logout
+                        </a>
+                      </li>                      
                     </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+            </header>
+            <div class="row">
+                <div class="col-md-3">
+                    <section id="sidebar-nurse" class="sidebar">
+                        <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="active treeview">
+              <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span> 
+                <i class="fa fa-angle-right pull-right"></i>
+              </a>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-plus"></i> <span>Add Asssessments</span>
+                <i class="fa fa-angle-right pull-right"></i>
+              </a>              
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-plus"></i> <span>Add Patient File</span>
+                <i class="fa fa-angle-right pull-right"></i>
+              </a>              
+            </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-list"></i> <span>View Patient</span>
+                <i class="fa fa-angle-right pull-right"></i>
+              </a>
+            </li>
+          </ul>
+                    </section>
                 </div>
-            </nav>
-
-        </header>
-        <div class="row">
-            <div class="col-md-3">
-                <section id="sidebar-nurse" class="sidebar">
-                    <!-- sidebar menu: : style can be found in sidebar.less -->
-                    <ul class="sidebar-menu">
-                        <li class="active treeview">
-                            <a href="#">
-                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-plus"></i> <span>Add Asssessments</span>
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-plus"></i> <span>Add Patient File</span>
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-list"></i> <span>View Patient</span>
-                                <i class="fa fa-angle-right pull-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-            </div>
-            <div class="col-md-9" id="content-nurse">
-                <div class="row">
-                    <div class="col-md-12">
-                        <section class="content-header">
-                            <h1>Welcome </h1></section>
+                <div class="col-md-9" id="content-nurse">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <section class="content-header">
+                                <h1>Welcome </h1></section>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <!-- NURSE PAGE DIVSION END -->
+
 
 
 <!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
 
 
-<footer class="text-muted">
-    <div class="pull-right hidden-xs">
-        <b>Version</b> 1.0.0
-    </div>
-    <strong>Copyright &copy; Anoncare 2016.</strong> All rights reserved.
-</footer>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/js/bootstrap-datepicker.js"></script>
-<script src="assets/js/daterangepicker.js"></script>
-<script src="assets/js/demo.js"></script>
-<script src="assets/js/fastclick.min.js"></script>
-<script src="assets/js/jquery.dataTables.min.js"></script>
-<script src="assets/js/jquery.inputmask.js"></script>
-<script src="assets/js/jquery.knob.js"></script>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.slimscroll.min.js"></script>
-<script src="assets/js/jquery.sparkline.min.js"></script>
-<script src="assets/js/jQuery-2.1.4.min.js"></script>
-<script src="assets/js/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="assets/js/jquery-jvectormap-world-mill-en.js"></script>
-<script src="assets/js/moment.min.js"></script>
-<script src="assets/js/morris.min.js"></script>
-<script src="assets/js/select2.full.min.js"></script>
-<script src="assets/js/main.js"></script>
+
+
+
+    <footer class="text-muted">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 1.0.0
+        </div>
+        <strong>Copyright &copy; Anoncare 2016.</strong> All rights reserved.
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-datepicker.js"></script>
+    <script src="assets/js/daterangepicker.js"></script>
+    <script src="assets/js/demo.js"></script>
+    <script src="assets/js/fastclick.min.js"></script>
+    <script src="assets/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/jquery.inputmask.js"></script>
+    <script src="assets/js/jquery.knob.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.slimscroll.min.js"></script>
+    <script src="assets/js/jquery.sparkline.min.js"></script>
+    <script src="assets/js/jQuery-2.1.4.min.js"></script>
+    <script src="assets/js/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="assets/js/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/morris.min.js"></script>
+    <script src="assets/js/select2.full.min.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
