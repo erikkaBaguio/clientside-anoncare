@@ -29,6 +29,11 @@
 
 <body class="hold-transition skin-blue sidebar-mini">
 
+    <center><div id="login-loading-image" style="vertical-align: middle;display:none">
+      <img src="assets/img/hourglass.gif">
+    </div>
+    </center>
+
     <div id="log-in-page" class="container" style="display:none">
         <div class="page-header"></div>
           <div id="log-in-page" class="container">
@@ -65,7 +70,7 @@
     <div id="admin-page" style="display:none">
         <div class="container-fluid">
             <header id="main-header-admin" class="main-header">
-                
+
         <!-- Logo -->
         <a href="#/landing.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -81,7 +86,9 @@
               <li class="dropdown notifications-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="fa fa-user"></i>
-                  <span class="hidden-xs">Alexander Pierce</span>
+                  <span id="admin-name" class="hidden-xs">
+
+                  </span>
                   <i class="fa fa-chevron-down"></i>
                 </a>
                 <ul class="dropdown-menu">
@@ -97,7 +104,7 @@
                         <a href="#" onclick="eraseCookie('user_tk');">
                           <i class="fa fa-sign-out"></i> Logout
                         </a>
-                      </li>                      
+                      </li>
                     </ul>
                   </li>
                 </ul>
@@ -114,7 +121,7 @@
           <ul class="sidebar-menu">
             <li class="active treeview">
               <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span> 
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 <i class="fa fa-angle-right pull-right"></i>
               </a>
             </li>
@@ -122,7 +129,7 @@
               <a href="#" onclick="$('#add-user-form').show();">
                 <i class="fa fa-plus"></i> <span>Add User</span>
                 <i class="fa fa-angle-right pull-right"></i>
-              </a>              
+              </a>
             </li>
           </ul>
                     </section>
@@ -135,7 +142,7 @@
                                 <div id="welcome-alert-admin">
                                 </div>
 
-                                
+
                                 <!-- FORM FOR ADDING USER -->
 
                                 <div id="add-user-form" class="col-md-8 col-md-offset-2" style="display:none">
@@ -204,7 +211,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <button id="submit_button" class="btn btn-default submit-button" type="button">Register User</button>
+                                        <button id="submit_button" class="btn btn-default submit-button" type="button" onclick="storeUser();">Register User</button>
                                     </form>
 
                                 </div>
@@ -235,7 +242,7 @@
     <div id="doctor-page" style="display:none">
         <div class="container-fluid">
             <header id="main-header-doctor" class="main-header">
-                
+
         <!-- Logo -->
         <a href="#/landing.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -274,8 +281,8 @@
                         <a href="#">
                           <i class="fa fa-users text-red"></i> 5 new members joined
                         </a>
-                      </li> 
-                    </ul>                     
+                      </li>
+                    </ul>
                   </li>
                   <li class="footer"><a href="#">View all</a></li>
                 </ul>
@@ -301,7 +308,7 @@
                         <a href="#" onclick="eraseCookie('user_tk');">
                           <i class="fa fa-sign-out"></i> Logout
                         </a>
-                      </li>                      
+                      </li>
                     </ul>
                   </li>
                 </ul>
@@ -318,7 +325,7 @@
           <ul class="sidebar-menu">
             <li class="active treeview">
               <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span> 
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 <i class="fa fa-angle-right pull-right"></i>
               </a>
             </li>
@@ -326,13 +333,13 @@
               <a href="#">
                 <i class="fa fa-user"></i> <span>Doctor Referral</span>
                 <i class="fa fa-angle-right pull-right"></i>
-              </a>              
+              </a>
             </li>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-list"></i> <span>View Asssessments</span>
                 <i class="fa fa-angle-right pull-right"></i>
-              </a>              
+              </a>
             </li>
             <li class="treeview">
               <a href="#">
@@ -370,7 +377,7 @@
     <div id="nurse-page" style="display:none">
         <div class="container-fluid">
             <header id="main-header-nurse" class="main-header">
-                
+
         <!-- Logo -->
         <a href="#/landing.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -409,8 +416,8 @@
                         <a href="#">
                           <i class="fa fa-users text-red"></i> 5 new members joined
                         </a>
-                      </li> 
-                    </ul>                     
+                      </li>
+                    </ul>
                   </li>
                   <li class="footer"><a href="#">View all</a></li>
                 </ul>
@@ -436,7 +443,7 @@
                         <a href="#" onclick="eraseCookie('user_tk');">
                           <i class="fa fa-sign-out"></i> Logout
                         </a>
-                      </li>                      
+                      </li>
                     </ul>
                   </li>
                 </ul>
@@ -453,7 +460,7 @@
           <ul class="sidebar-menu">
             <li class="active treeview">
               <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span> 
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 <i class="fa fa-angle-right pull-right"></i>
               </a>
             </li>
@@ -461,13 +468,13 @@
               <a href="#">
                 <i class="fa fa-plus"></i> <span>Add Asssessments</span>
                 <i class="fa fa-angle-right pull-right"></i>
-              </a>              
+              </a>
             </li>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-plus"></i> <span>Add Patient File</span>
                 <i class="fa fa-angle-right pull-right"></i>
-              </a>              
+              </a>
             </li>
             <li class="treeview">
               <a href="#">
@@ -505,12 +512,12 @@
 
 
     <div class="container-fluid">
-        <footer class="text-muted">
-            <div class="pull-right hidden-xs">
+      <footer id="footer" class="text-muted" style="display:none">
+          <div class="pull-right hidden-xs">
             <b>Version</b> 1.0.0
-            </div>
-            <strong>Copyright &copy; Anoncare 2016.</strong> All rights reserved.
-        </footer>
+          </div>
+          <strong>Copyright &copy; Anoncare 2016.</strong> All rights reserved.
+      </footer>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

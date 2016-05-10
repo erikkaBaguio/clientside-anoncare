@@ -12,3 +12,6 @@ ul.nav.nav-tabs.nav-justified{
   min-height: 600px;
 }
 
+#login-loading-image {
+	padding-top: 200px;
+}
