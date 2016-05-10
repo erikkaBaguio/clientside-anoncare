@@ -174,7 +174,15 @@ function signin(){
 				}
 
 				if(results.data[0].role == 3){
-					$('#nurse-page').show();
+					$('#nurse-page').show(0);
+					$('#welcome-alert-nurse').html(
+						'<div class="alert alert-success"><strong>Welcome ' + 
+						results.data[0].fname +
+						 '!</strong> Successfully logged in.</div>');
+
+					$('#nurse-name').html(results.data[0].fname + ' ' + results.data[0].lname);
+
+					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
 				}
 			}
 
