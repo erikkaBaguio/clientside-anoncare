@@ -181,12 +181,21 @@ function signin(){
 }
 
 
+function createUsername(fname, lname) {
+	var username = fname + "." + lname;
+	username = username.toLocaleLowerCase();
+
+	return username
+}
+
+
 function storeUser(){
 
 	var fname = $('#fname').val();
 	var mname = $('#mname').val();
 	var lname = $('#lname').val();
 	var email = $('#email').val();
+	var username = createUsername(fname, lname);
 	var password = $('#password').val();
 	var role_id = $('#role_id').val();
 
