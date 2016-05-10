@@ -90,6 +90,7 @@ function home(){
 
 				if(results.data[0].role == 1){
 					$('#admin-page').show(0);
+					$('#admin-name').html(results.data[0].fname + ' ' + results.data[0].lname);
 				}
 
 				if(results.data[0].role == 2){
