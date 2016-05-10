@@ -31,6 +31,12 @@ function decryptCookie(){
 	    	auth_user = results.token;
 	    	home();
 
+	    },
+
+	    error: function(e, stats, err){
+	    	console.log(err);
+	    	console.log(stats);
+	    	$('#log-in-page').show();
 	    }
 
 	});
@@ -40,19 +46,44 @@ function decryptCookie(){
 
 function home(){
 
+	var myCookie = readCookie('user_tk');
+
 	$.ajax({
 
 		type:"GET",
-	    url:"http://localhost:8051/api/anoncare/home",
-	    // dataType:"json",
+	    url:"http://localhost:8051/api/anoncare/home/" + myCookie,
+	    dataType:"json",
 
 	    success: function(results){
 
 	    	console.log(results)
 	    	console.log('check');
-	    	$('#home').show();
 	    	$('#login-form').hide();
-	    	alert('OWW YOU HAVE A COOKIE IN YOUR BROWSER SO I AUTOMATICALLY LOGGED YOU IN. PLEASE DO YOUR TESTING NOW');
+
+	    	if(results.status == 'OK'){
+				var token = results.token;
+				//user_tk is abbrev of user_token
+				document.cookie = "user_tk=" + token;
+				console.log(results.data[0].role);
+				$('#log-in-page').hide(0);
+
+				if(results.data[0].role == 1){
+					$('#admin-page').show(0);
+				}
+
+				if(results.data[0].role == 2){
+					$('#doctor-page').show(0);
+				}
+
+				if(results.data[0].role == 3){
+					$('#nurse-page').show();
+				}
+			}
+
+			if(results.status == 'FAILED'){
+				console.log('FAILED');
+			}
+
 	    },
 
 	    error: function(e, stats, err){
@@ -115,9 +146,6 @@ function signin(){
 				console.log('FAILED');
 			}
 
-			else{
-				alert('ERROR 404');
-			}
 
 		},
 
