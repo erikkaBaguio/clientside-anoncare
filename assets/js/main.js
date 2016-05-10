@@ -133,6 +133,9 @@ function signin(){
 
 	var data = JSON.stringify({'username':username, 'password':password});
 
+	$('#login-loading-image').show();
+	$('#log-in-page').hide();
+
 	$.ajax({
 
 		type:"POST",
@@ -142,7 +145,8 @@ function signin(){
 		dataType:"json",
 
 		success: function(results){
-			console.log(results.status);
+
+			$('#login-loading-image').hide();
 
 			if(results.status == 'OK'){
 				var token = results.token;
@@ -184,6 +188,7 @@ function signin(){
 		error: function(e, stats, err){
 			console.log(err);
 			console.log(stats);
+			$('#login-loading-image').hide();
 		}
 
 	});
