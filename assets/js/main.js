@@ -17,11 +17,11 @@ function readCookie(name) {
 function eraseCookie(name) {
     document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 
-    $('#log-in-page').show();
 	$('#admin-page').hide(0);
 	$('#nurse-page-page').hide(0);
 	$('#doctor-page-page').hide(0);
 	$('#add-user-form').hide(0);
+	$('#log-in-page').show();
 
 	$('#log-in-alert').html(
 		'<div class="alert alert-warning"><strong>Success ' +

@@ -146,7 +146,7 @@
                                                 <label for="name-input-field" class="control-label">First Name</label>
                                             </div>
                                             <div class="col-sm-6 input-column">
-                                                <input type="text" class="form-control" />
+                                                <input name="fname" type="text" class="form-control" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -154,7 +154,7 @@
                                                 <label for="name-input-field" class="control-label">Middle Name</label>
                                             </div>
                                             <div class="col-sm-6 input-column">
-                                                <input type="text" class="form-control" />
+                                                <input name="mname" type="text" class="form-control" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -162,7 +162,7 @@
                                                 <label for="name-input-field" class="control-label">Last Name</label>
                                             </div>
                                             <div class="col-sm-6 input-column">
-                                                <input type="text" class="form-control" />
+                                                <input name="lname" type="text" class="form-control" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -170,7 +170,7 @@
                                                 <label for="email-input-field" class="control-label">Email Address</label>
                                             </div>
                                             <div class="col-sm-6 input-column">
-                                                <input type="email" class="form-control" />
+                                                <input name="email" type="email" class="form-control" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -178,14 +178,13 @@
                                                 <label for="dropdown-input-field" class="control-label">User Role</label>
                                             </div>
                                             <div class="col-sm-4 input-column">
-                                                <div class="dropdown open">
-                                                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="true" type="button">Roles <span class="caret"></span></button>
-                                                    <ul role="menu" class="dropdown-menu">
-                                                        <li role="presentation"><a href="#">1 - Doctor</a></li>
-                                                        <li role="presentation"><a href="#">2 - Nurse</a></li>
-                                                        <li role="presentation"><a href="#">3 - System Administrator</a></li>
-                                                    </ul>
-                                                </div>
+                                                <select name="role_id">
+
+                                                  <option value="1">  1 - Doctor </option>
+                                                  <option value="2"> 2 - Nurse </option>
+                                                  <option value="3"> 3 - System Administrator </option>
+
+                                                </select>
                                             </div>
                                         </div>
                                         <button class="btn btn-default submit-button" type="button">Register User</button>
