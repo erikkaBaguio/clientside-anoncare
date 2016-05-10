@@ -17,10 +17,15 @@ function readCookie(name) {
 function eraseCookie(name) {
     document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 
-    $('#log-in-page').show();
 	$('#admin-page').hide(0);
 	$('#nurse-page-page').hide(0);
 	$('#doctor-page-page').hide(0);
+	$('#add-user-form').hide(0);
+	$('#log-in-page').show();
+
+	$('#log-in-alert').html(
+		'<div class="alert alert-warning"><strong>Success ' +
+		 '!</strong> Successfully logged out.</div>');
 }
 
 
@@ -141,7 +146,12 @@ function signin(){
 
 				if(results.data[0].role == 1){
 					$('#admin-page').show(0);
-					$('#welcome-alert-admin').html('<strong>Welcome ' + results.data[0].fname + '!</strong> Successfully logged in.');
+					$('#welcome-alert-admin').html(
+						'<div class="alert alert-success"><strong>Welcome ' + 
+						results.data[0].fname +
+						 '!</strong> Successfully logged in.</div>');
+
+					$("#welcome-alert-admin").fadeTo(2000, 500).slideUp(500);
 				}
 
 				if(results.data[0].role == 2){
@@ -154,7 +164,9 @@ function signin(){
 			}
 
 			if(results.status == 'FAILED'){
-				console.log('FAILED');
+				$('#log-in-alert').html(
+					'<div class="alert alert-danger"><strong>FAILED ' +
+					 '!</strong> Invalid username or password.</div>');
 			}
 
 
@@ -166,4 +178,39 @@ function signin(){
 		}
 
 	});
+}
+
+
+function storeUser(){
+
+	var fname = $('#fname').val();
+	var mname = $('#mname').val();
+	var lname = $('#lname').val();
+	var email = $('#email').val();
+	var password = $('#password').val();
+	var role_id = $('#role_id').val();
+
+
+}
+
+function checkPass(){
+	var pass1 = document.getElementById('pass1');
+	var pass2 = document.getElementById('pass2');
+	var message = document.getElementById('confirmMessage');
+	var goodColor = "#b6ffc7";
+	var goodColor_font = "#66cc66"
+	var badColor = "#ffdada";
+	var badColor_font = "#ff3f3f";
+	if(pass1.value == pass2.value){
+	  pass2.style.backgroundColor = goodColor;
+	  message.style.color = goodColor_font;
+	  message.innerHTML = "Passwords Match!"
+	  document.getElementById("submit_button").disabled = false;
+	}
+	else{
+	  pass2.style.backgroundColor = badColor;
+	  message.style.color = badColor_font;
+	  message.innerHTML = "Passwords Do Not Match!"
+	  document.getElementById("submit_button").disabled = true;
+	}
 }
