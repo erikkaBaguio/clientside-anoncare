@@ -52,6 +52,7 @@ function decryptCookie(){
 	    	console.log(err);
 	    	console.log(stats);
 	    	$('#log-in-page').show();
+	    	$('#footer').show();
 	    }
 
 	});
@@ -74,6 +75,7 @@ function home(){
 	    	console.log(results)
 	    	console.log('check');
 	    	$('#login-form').hide();
+	    	$('#footer').show();
 
 	    	if(results.status == 'OK'){
 				var token = results.token;
@@ -105,7 +107,7 @@ function home(){
 	    	console.log(err);
 	    	console.log(stats);
 	    	$('#login-form').show();
-	    	console.log( "auth user" + auth_user );
+	    	$('#footer').show();
 	    },
 
 	    beforeSend: function (xhrObj){
@@ -151,6 +153,8 @@ function signin(){
 						results.data[0].fname +
 						 '!</strong> Successfully logged in.</div>');
 
+					$('#admin-name').html(results.data[0].fname + ' ' + results.data[0].lname);
+
 					$("#welcome-alert-admin").fadeTo(2000, 500).slideUp(500);
 				}
 
@@ -190,6 +194,51 @@ function storeUser(){
 	var password = $('#password').val();
 	var role_id = $('#role_id').val();
 
+	var data = JSON.stringify({'fname':fname, 'mname':mname, 'lname':lname, 'email':email, 'password':password, 'role_id':role_id});
+
+	$.ajax({
+
+		type:"POST",
+		url:"http://localhost:8051/api/anoncare/user",
+		contentType:"application/json; charset=utf-8",
+		data:data,
+		dataType:"json",
+
+		success: function(results){
+
+			if(results.status == 'OK'){
+
+				$('#welcome-alert-admin').html(
+						'<div class="alert alert-success"><strong>Successfully added ' + 
+						fname + lname +
+						 '!</strong> with role id: '+ role_id +'</div>');
+				$("#welcome-alert-admin").fadeTo(2000, 500).slideUp(500);
+
+			}
+
+			if(results.status == 'FAILED'){
+				$('#welcome-alert-admin').html(
+						'<div class="alert alert-danger"><strong>Failed to add ' + 
+						fname + lname +
+						 '!</strong> with role id: '+ role_id +'</div>');
+				$("#welcome-alert-admin").fadeTo(2000, 500).slideUp(500);
+			}
+
+		},
+
+		error: function(e, stats, err){
+			console.log(err);
+			console.log(stats);
+		},
+
+		beforeSend: function (xhrObj){
+
+    		console.log("this is print this " + auth_user);
+      		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
+	    	
+        }
+
+	});
 
 }
 
