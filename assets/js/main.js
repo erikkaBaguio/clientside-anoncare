@@ -183,4 +183,34 @@ function signin(){
 
 function storeUser(){
 
+	var fname = $('#fname').val();
+	var mname = $('#mname').val();
+	var lname = $('#lname').val();
+	var email = $('#email').val();
+	var password = $('#password').val();
+	var role_id = $('#role_id').val();
+
+
+}
+
+function checkPass(){
+	var pass1 = document.getElementById('pass1');
+	var pass2 = document.getElementById('pass2');
+	var message = document.getElementById('confirmMessage');
+	var goodColor = "#b6ffc7";
+	var goodColor_font = "#66cc66"
+	var badColor = "#ffdada";
+	var badColor_font = "#ff3f3f";
+	if(pass1.value == pass2.value){
+	  pass2.style.backgroundColor = goodColor;
+	  message.style.color = goodColor_font;
+	  message.innerHTML = "Passwords Match!"
+	  document.getElementById("submit_button").disabled = false;
+	}
+	else{
+	  pass2.style.backgroundColor = badColor;
+	  message.style.color = badColor_font;
+	  message.innerHTML = "Passwords Do Not Match!"
+	  document.getElementById("submit_button").disabled = true;
+	}
 }
