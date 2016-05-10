@@ -8,3 +8,7 @@ ul.nav.nav-tabs.nav-justified{
   background-color:#a03741;
 }
 
+.skin-blue .container-fluid .row .sidebar-menu{
+  min-height: 600px;
+}
+
