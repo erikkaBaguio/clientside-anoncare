@@ -14,6 +14,16 @@ function readCookie(name) {
 }
 
 
+function eraseCookie(name) {
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+
+    $('#log-in-page').show();
+	$('#admin-page').hide(0);
+	$('#nurse-page-page').hide(0);
+	$('#doctor-page-page').hide(0);
+}
+
+
 function decryptCookie(){
 
 	var myCookie = readCookie('user_tk');
