@@ -28,13 +28,13 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
+  <center>
+      <div id="login-loading-image" style="vertical-align: middle;display:none">
+          <img src="assets/img/hourglass.gif">
+      </div>
+  </center>
 
-    <center><div id="login-loading-image" style="vertical-align: middle;display:none">
-      <img src="assets/img/hourglass.gif">
-    </div>
-    </center>
-
-    <div id="log-in-page" class="container" style="display:none">
+  <div id="log-in-page" class="container" style="display:none">
         <div class="page-header"></div>
           <div id="log-in-page" class="container">
 
@@ -61,78 +61,76 @@
     </div>
 
 
-
-
 <!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
 
 
 <!-- ADMIN PAGE DIVISION -->
+
     <div id="admin-page" style="display:none">
         <div class="container-fluid">
             <header id="main-header-admin" class="main-header">
 
-        <!-- Logo -->
-        <a href="#/landing.html" class="logo">
-          <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini">A<b>C</b></span>
-          <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg">Anon<b>Care</b></span>
-        </a>
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" role="navigation">
-          <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-              <!-- User Account: style can be found in dropdown.less -->
-              <li class="dropdown notifications-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-user"></i>
-                  <span id="admin-name" class="hidden-xs">
-
-                  </span>
-                  <i class="fa fa-chevron-down"></i>
+                <!-- Logo -->
+                <a href="#/landing.html" class="logo">
+                  <!-- mini logo for sidebar mini 50x50 pixels -->
+                  <span class="logo-mini">A<b>C</b></span>
+                  <!-- logo for regular state and mobile devices -->
+                  <span class="logo-lg">Anon<b>Care</b></span>
                 </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <!-- inner menu: contains the actual data -->
-                    <ul class="menu">
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-key"></i> Reset Password
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top" role="navigation">
+                  <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                      <!-- User Account: style can be found in dropdown.less -->
+                      <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          <i class="fa fa-user"></i>
+                          <span id="admin-name" class="hidden-xs">
+
+                          </span>
+                          <i class="fa fa-chevron-down"></i>
                         </a>
-                      </li>
-                      <li>
-                        <a href="#" onclick="eraseCookie('user_tk');">
-                          <i class="fa fa-sign-out"></i> Logout
-                        </a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                              <li>
+                                <a href="#">
+                                  <i class="fa fa-key"></i> Reset Password
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#" onclick="eraseCookie('user_tk');">
+                                  <i class="fa fa-sign-out"></i> Logout
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
                       </li>
                     </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </nav>
-
+                  </div>
+                </nav>
             </header>
             <div class="row">
                 <div class="col-md-3">
                     <section id="sidebar-admin" class="sidebar">
                         <!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">
-            <li class="active treeview">
-              <a href="#" onclick="$('#user-search-box').show();">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                <i class="fa fa-angle-right pull-right"></i>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#" onclick="$('#add-user-form').show();">
-                <i class="fa fa-plus"></i> <span>Add User</span>
-                <i class="fa fa-angle-right pull-right"></i>
-              </a>
-            </li>
-          </ul>
-          </section>
+                        <ul class="sidebar-menu">
+                          <li class="active treeview">
+                            <a href="#" onclick="$('#user-search-box').show();">
+                              <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                              <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                          </li>
+                          <li class="treeview">
+                            <a href="#" onclick="$('#add-user-form').show();">
+                              <i class="fa fa-plus"></i> <span>Add User</span>
+                              <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                          </li>
+                        </ul>
+                    </section>
                 </div>
                 <div class="col-md-9" id="content-admin">
                     <div class="row">
@@ -228,6 +226,7 @@
 
 
                                 <!-- USER SEARCH BOX -->
+
                                 <div id="user-search-box" class="col-md-11" style="margin-top: 10px">
                                     <form role="form">
                                         <div class="col-md-3">
@@ -249,6 +248,8 @@
                                         </div>
                                     </form>
                                 </div>
+
+                                <!-- END USER SEARCH BOX -->
 
                             </section>
                         </div>
@@ -274,113 +275,113 @@
         <div class="container-fluid">
             <header id="main-header-doctor" class="main-header">
 
-        <!-- Logo -->
-        <a href="#/landing.html" class="logo">
-          <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini">A<b>C</b></span>
-          <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg">Anon<b>Care</b></span>
-        </a>
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" role="navigation">
-          <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-
-              <!-- Notifications: style can be found in dropdown.less -->
-              <li class="dropdown notifications-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-bell-o"></i>
-                  <span class="label label-warning">3</span>
+                <!-- Logo -->
+                <a href="#/landing.html" class="logo">
+                  <!-- mini logo for sidebar mini 50x50 pixels -->
+                  <span class="logo-mini">A<b>C</b></span>
+                  <!-- logo for regular state and mobile devices -->
+                  <span class="logo-lg">Anon<b>Care</b></span>
                 </a>
-                <ul class="dropdown-menu">
-                  <li class="header">You have 3 notifications</li>
-                  <li>
-                    <!-- inner menu: contains the actual data -->
-                    <ul class="menu">
-                      <li>
-                        <a href="#">
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top" role="navigation">
+                  <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
 
-                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                      <!-- Notifications: style can be found in dropdown.less -->
+                      <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          <i class="fa fa-bell-o"></i>
+                          <span class="label label-warning">3</span>
                         </a>
+                        <ul class="dropdown-menu">
+                          <li class="header">You have 3 notifications</li>
+                          <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                              <li>
+                                <a href="#">
+
+                                  <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fa fa-users text-red"></i> 5 new members joined
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="footer"><a href="#">View all</a></li>
+                        </ul>
                       </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
+
+                      <!-- User Account: style can be found in dropdown.less -->
+                      <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          <i class="fa fa-user"></i>
+                          <span id="doctor-name" class="hidden-xs">
+                            
+                          </span>
+                          <i class="fa fa-chevron-down"></i>
                         </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-users text-red"></i> 5 new members joined
-                        </a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                              <li>
+                                <a href="#">
+                                  <i class="fa fa-key"></i> Reset Password
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#" onclick="eraseCookie('user_tk');">
+                                  <i class="fa fa-sign-out"></i> Logout
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
                       </li>
                     </ul>
-                  </li>
-                  <li class="footer"><a href="#">View all</a></li>
-                </ul>
-              </li>
-
-              <!-- User Account: style can be found in dropdown.less -->
-              <li class="dropdown notifications-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-user"></i>
-                  <span id="doctor-name" class="hidden-xs">
-                    
-                  </span>
-                  <i class="fa fa-chevron-down"></i>
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <!-- inner menu: contains the actual data -->
-                    <ul class="menu">
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-key"></i> Reset Password
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" onclick="eraseCookie('user_tk');">
-                          <i class="fa fa-sign-out"></i> Logout
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </nav>
+                  </div>
+                </nav>
 
             </header>
             <div class="row">
                 <div class="col-md-3">
                     <section id="sidebar-doctor" class="sidebar">
                         <!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">
-            <li class="active treeview">
-              <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                <i class="fa fa-angle-right pull-right"></i>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-user"></i> <span>Doctor Referral</span>
-                <i class="fa fa-angle-right pull-right"></i>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-list"></i> <span>View Asssessments</span>
-                <i class="fa fa-angle-right pull-right"></i>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-list"></i> <span>View Patient</span>
-                <i class="fa fa-angle-right pull-right"></i>
-              </a>
-            </li>
-          </ul>
+                      <ul class="sidebar-menu">
+                        <li class="active treeview">
+                          <a href="#">
+                            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                            <i class="fa fa-angle-right pull-right"></i>
+                          </a>
+                        </li>
+                        <li class="treeview">
+                          <a href="#">
+                            <i class="fa fa-user"></i> <span>Doctor Referral</span>
+                            <i class="fa fa-angle-right pull-right"></i>
+                          </a>
+                        </li>
+                        <li class="treeview">
+                          <a href="#">
+                            <i class="fa fa-list"></i> <span>View Asssessments</span>
+                            <i class="fa fa-angle-right pull-right"></i>
+                          </a>
+                        </li>
+                        <li class="treeview">
+                          <a href="#">
+                            <i class="fa fa-list"></i> <span>View Patient</span>
+                            <i class="fa fa-angle-right pull-right"></i>
+                          </a>
+                        </li>
+                      </ul>
                     </section>
                 </div>
                 <div class="col-md-9" id="content-doctor">
@@ -412,81 +413,81 @@
         <div class="container-fluid">
             <header id="main-header-nurse" class="main-header">
 
-        <!-- Logo -->
-        <a href="#/landing.html" class="logo">
-          <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini">A<b>C</b></span>
-          <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg">Anon<b>Care</b></span>
-        </a>
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" role="navigation">
-          <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-
-              <!-- Notifications: style can be found in dropdown.less -->
-              <li class="dropdown notifications-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-bell-o"></i>
-                  <span class="label label-warning">3</span>
+                <!-- Logo -->
+                <a href="#/landing.html" class="logo">
+                  <!-- mini logo for sidebar mini 50x50 pixels -->
+                  <span class="logo-mini">A<b>C</b></span>
+                  <!-- logo for regular state and mobile devices -->
+                  <span class="logo-lg">Anon<b>Care</b></span>
                 </a>
-                <ul class="dropdown-menu">
-                  <li class="header">You have 3 notifications</li>
-                  <li>
-                    <!-- inner menu: contains the actual data -->
-                    <ul class="menu">
-                      <li>
-                        <a href="#">
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top" role="navigation">
+                  <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
 
-                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                      <!-- Notifications: style can be found in dropdown.less -->
+                      <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          <i class="fa fa-bell-o"></i>
+                          <span class="label label-warning">3</span>
                         </a>
+                        <ul class="dropdown-menu">
+                          <li class="header">You have 3 notifications</li>
+                          <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                              <li>
+                                <a href="#">
+
+                                  <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fa fa-users text-red"></i> 5 new members joined
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="footer"><a href="#">View all</a></li>
+                        </ul>
                       </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
+
+                      <!-- User Account: style can be found in dropdown.less -->
+                      <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          <i class="fa fa-user"></i>
+                          <span id="nurse-name" class="hidden-xs">
+
+                          </span>
+                          <i class="fa fa-chevron-down"></i>
                         </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-users text-red"></i> 5 new members joined
-                        </a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                              <li>
+                                <a href="#">
+                                  <i class="fa fa-key"></i> Reset Password
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#" onclick="eraseCookie('user_tk');">
+                                  <i class="fa fa-sign-out"></i> Logout
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
                       </li>
                     </ul>
-                  </li>
-                  <li class="footer"><a href="#">View all</a></li>
-                </ul>
-              </li>
-
-              <!-- User Account: style can be found in dropdown.less -->
-              <li class="dropdown notifications-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-user"></i>
-                  <span id="nurse-name" class="hidden-xs">
-
-                  </span>
-                  <i class="fa fa-chevron-down"></i>
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <!-- inner menu: contains the actual data -->
-                    <ul class="menu">
-                      <li>
-                        <a href="#">
-                          <i class="fa fa-key"></i> Reset Password
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" onclick="eraseCookie('user_tk');">
-                          <i class="fa fa-sign-out"></i> Logout
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </nav>
+                  </div>
+                </nav>
 
             </header>
             <div class="row">
@@ -531,7 +532,7 @@
                             <section id="add-assessment-form" class="content-body">
                              
                               <!-- ASSESSMENT FORM -->
-                              <div class="box box-">
+                              <div class="box box-primary">
                                   <div class="box-header with-border">
                                       <h3 class="box-title" style="padding: 5px">Assessment</h3>
                                   </div><!-- /.box-header -->
@@ -634,15 +635,17 @@
 
 
 
+<!-- FOOTER -->
+<div class="container-fluid">
+  <footer id="footer" class="text-muted" style="display:none">
+      <div class="pull-right hidden-xs">
+        <b>Version</b> 1.0.0
+      </div>
+      <strong>Copyright &copy; Anoncare 2016.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- END FOOTER -->
 
-    <div class="container-fluid">
-      <footer id="footer" class="text-muted" style="display:none">
-          <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0.0
-          </div>
-          <strong>Copyright &copy; Anoncare 2016.</strong> All rights reserved.
-      </footer>
-    </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bootstrap-datepicker.js"></script>
