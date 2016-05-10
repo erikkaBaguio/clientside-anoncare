@@ -141,7 +141,10 @@ function signin(){
 
 				if(results.data[0].role == 1){
 					$('#admin-page').show(0);
-					$('#welcome-alert-admin').html('<strong>Welcome ' + results.data[0].fname + '!</strong> Successfully logged in.');
+					$('#welcome-alert-admin').html(
+						'<div class="alert alert-success"><strong>Welcome ' + 
+						results.data[0].fname +
+						 '!</strong> Successfully logged in.</div>');
 				}
 
 				if(results.data[0].role == 2){
@@ -154,7 +157,9 @@ function signin(){
 			}
 
 			if(results.status == 'FAILED'){
-				console.log('FAILED');
+				$('#log-in-alert').html(
+					'<div class="alert alert-danger"><strong>FAILED ' +
+					 '!</strong> Invalid username or password.</div>');
 			}
 
 
