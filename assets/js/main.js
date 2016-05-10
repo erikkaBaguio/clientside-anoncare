@@ -197,15 +197,17 @@ function signin(){
 
 function storeUser(){
 
-	var fname = $('#fname').val();
-	var mname = $('#mname').val();
-	var lname = $('#lname').val();
-	var email = $('#email').val();
-	var password = $('#password').val();
-	var role_id = $('#role_id').val();
+	var fname = $('#registration-fname').val();
+	var mname = $('#registration-mname').val();
+	var lname = $('#registration-lname').val();
+	var email = $('#registration-email').val();
+	var password = $('#pass1').val();
+	var username = $('#registration-username').val();
+	var role_id = $('#registration-role_id').val();
 
-	var data = JSON.stringify({'fname':fname, 'mname':mname, 'lname':lname, 'email':email, 'password':password, 'role_id':role_id});
+	var data = JSON.stringify({'fname':fname, 'mname':mname, 'lname':lname, 'username':username, 'email':email, 'password':password, 'role_id':role_id});
 
+	console.log('is this empty? ' + data);
 	$.ajax({
 
 		type:"POST",
@@ -215,6 +217,8 @@ function storeUser(){
 		dataType:"json",
 
 		success: function(results){
+
+			console.log(results.status);
 
 			if(results.status == 'OK'){
 
@@ -230,7 +234,7 @@ function storeUser(){
 				$('#welcome-alert-admin').html(
 						'<div class="alert alert-danger"><strong>Failed to add ' + 
 						fname + lname +
-						 '!</strong> with role id: '+ role_id +'</div>');
+						 '!</strong>'+ results.message +'</div>');
 				$("#welcome-alert-admin").fadeTo(2000, 500).slideUp(500);
 			}
 
@@ -243,7 +247,7 @@ function storeUser(){
 
 		beforeSend: function (xhrObj){
 
-    		console.log("this is print this " + auth_user);
+    		console.log(auth_user);
       		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
 	    	
         }

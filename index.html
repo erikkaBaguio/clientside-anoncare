@@ -146,14 +146,14 @@
                                 <!-- FORM FOR ADDING USER -->
 
                                 <div id="add-user-form" class="col-md-8 col-md-offset-2" style="display:none">
-                                    <form class="form-horizontal custom-form">
+                                    <form class="form-horizontal custom-form" onsubmit="return false">
                                         <h1>Register Form</h1>
                                         <div class="form-group">
                                             <div class="col-sm-4 label-column">
                                                 <label for="name-input-field" class="control-label">First Name</label>
                                             </div>
                                             <div class="col-sm-6 input-column">
-                                                <input name="fname" type="text" class="form-control" />
+                                                <input id="registration-fname" name="fname" type="text" class="form-control" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -161,7 +161,7 @@
                                                 <label for="name-input-field" class="control-label">Middle Name</label>
                                             </div>
                                             <div class="col-sm-6 input-column">
-                                                <input name="mname" type="text" class="form-control" />
+                                                <input id="registration-mname" name="mname" type="text" class="form-control" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -169,7 +169,15 @@
                                                 <label for="name-input-field" class="control-label">Last Name</label>
                                             </div>
                                             <div class="col-sm-6 input-column">
-                                                <input name="lname" type="text" class="form-control" />
+                                                <input id="registration-lname" name="lname" type="text" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-4 label-column">
+                                                <label for="name-input-field" class="control-label">Username</label>
+                                            </div>
+                                            <div class="col-sm-6 input-column">
+                                                <input id="registration-username" name="usernname" type="text" class="form-control" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -177,7 +185,7 @@
                                                 <label for="email-input-field" class="control-label">Email Address</label>
                                             </div>
                                             <div class="col-sm-6 input-column">
-                                                <input name="email" type="email" class="form-control" />
+                                                <input id="registration-email" name="email" type="email" class="form-control" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -202,7 +210,7 @@
                                                 <label for="dropdown-input-field" class="control-label">User Role</label>
                                             </div>
                                             <div class="col-sm-4 input-column">
-                                                <select name="role_id">
+                                                <select id="registration-role_id" name="role_id">
 
                                                   <option value="1">  1 - Doctor </option>
                                                   <option value="2"> 2 - Nurse </option>
@@ -211,7 +219,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <button id="submit_button" class="btn btn-default submit-button" type="button" onclick="storeUser();">Register User</button>
+                                        <button id="submit_button" class="btn btn-default submit-button" onclick="storeUser();">Register User</button>
                                     </form>
 
                                 </div>
