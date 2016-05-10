@@ -26,6 +26,8 @@ function eraseCookie(name) {
 	$('#log-in-alert').html(
 		'<div class="alert alert-warning"><strong>Success ' +
 		 '!</strong> Successfully logged out.</div>');
+
+	$('#footer').hide();
 }
 
 
@@ -112,7 +114,7 @@ function home(){
 	    	console.log(err);
 	    	console.log(stats);
 	    	$('#login-form').show();
-	    	$('#footer').show();
+	    	$('#footer').hide();
 	    },
 
 	    beforeSend: function (xhrObj){
@@ -195,6 +197,14 @@ function signin(){
 }
 
 
+function createUsername(fname, lname) {
+	var username = fname + "." + lname;
+	username = username.toLocaleLowerCase();
+
+	return username
+}
+
+
 function storeUser(){
 
 	var fname = $('#registration-fname').val();
@@ -207,7 +217,6 @@ function storeUser(){
 
 	var data = JSON.stringify({'fname':fname, 'mname':mname, 'lname':lname, 'username':username, 'email':email, 'password':password, 'role_id':role_id});
 
-	console.log('is this empty? ' + data);
 	$.ajax({
 
 		type:"POST",
