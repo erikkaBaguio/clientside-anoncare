@@ -131,6 +131,7 @@ function signin(){
 
 				if(results.data[0].role == 1){
 					$('#admin-page').show(0);
+					$('#welcome-alert-admin').html('<strong>Welcome ' + results.data[0].fname + '!</strong> Successfully logged in.');
 				}
 
 				if(results.data[0].role == 2){
