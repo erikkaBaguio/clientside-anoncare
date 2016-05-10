@@ -21,6 +21,7 @@ function eraseCookie(name) {
 	$('#admin-page').hide(0);
 	$('#nurse-page-page').hide(0);
 	$('#doctor-page-page').hide(0);
+	$('#add-user-form').hide(0);
 
 	$('#log-in-alert').html(
 		'<div class="alert alert-success"><strong>Success ' +
