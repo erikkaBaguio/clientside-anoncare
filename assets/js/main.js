@@ -171,6 +171,14 @@ function signin(){
 
 				if(results.data[0].role == 2){
 					$('#doctor-page').show(0);
+					$('#welcome-alert-doctor').html(
+						'<div class="alert alert-success"><strong>Welcome ' + 
+						results.data[0].fname +
+						 '!</strong> Successfully logged in.</div>');
+
+					$('#doctor-name').html(results.data[0].fname + ' ' + results.data[0].lname);
+
+					$("#welcome-alert-doctor").fadeTo(2000, 500).slideUp(500);
 				}
 
 				if(results.data[0].role == 3){
