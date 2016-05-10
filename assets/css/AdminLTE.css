@@ -528,6 +528,7 @@ a:hover, a:active, a:focus{
   list-style:none;
   margin:0;
   padding:0;
+  background: #1e282c;
 }
 
 .sidebar-menu > li{
@@ -572,6 +573,7 @@ a:hover, a:active, a:focus{
 
 .sidebar-menu li.active > .treeview-menu{
   display:block;
+  color: #f660ab;
 }
 
 .sidebar-menu .treeview-menu{
