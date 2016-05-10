@@ -237,6 +237,10 @@ function storeUser(){
 						 '!</strong> with role id: '+ role_id +'</div>');
 				$("#welcome-alert-admin").fadeTo(2000, 500).slideUp(500);
 
+				var form = document.getElementById("registration-form");
+				form.reset();
+				$('#confirmMessage').hide();
+
 			}
 
 			if(results.status == 'FAILED'){
