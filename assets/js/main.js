@@ -198,10 +198,26 @@ function signin(){
 
 				if(results.data[0].role == 2){
 					$('#doctor-page').show(0);
+					$('#welcome-alert-doctor').html(
+						'<div class="alert alert-success"><strong>Welcome ' +
+						results.data[0].fname +
+						 '!</strong> Successfully logged in.</div>');
+
+					$('#doctor-name').html(results.data[0].fname + ' ' + results.data[0].lname);
+
+					$("#welcome-alert-doctor").fadeTo(2000, 500).slideUp(500);
 				}
 
 				if(results.data[0].role == 3){
-					$('#nurse-page').show();
+					$('#nurse-page').show(0);
+					$('#welcome-alert-nurse').html(
+						'<div class="alert alert-success"><strong>Welcome ' +
+						results.data[0].fname +
+						 '!</strong> Successfully logged in.</div>');
+
+					$('#nurse-name').html(results.data[0].fname + ' ' + results.data[0].lname);
+
+					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
 				}
 
 				siginDecryption();
@@ -396,4 +412,58 @@ function checkPass(){
 	  message.innerHTML = "Passwords Do Not Match!"
 	  document.getElementById("submit_button").disabled = true;
 	}
+}
+
+
+function storeAssessment(){
+	var school_id = $('#school-id').val();
+    var age = $('#age').val();
+    var temperature = $('#temperature').val();
+    var pulse_rate= $('#pulse-rate').val();
+    var respiration_rate = $('#respiration-rate').val();
+    var blood_pressure = $('#blood-pressure').val();
+    var weight = $('#weight').val();
+    var chief_complaint = $('#chief-complaint').val();
+    var history_of_present_illness = $('#history-of-present-illness ').val();
+    var medications_taken = $('#medications-taken').val();
+    var diagnosis = $('#diagnosis').val();
+    var recommendation = $('#recommendation').val();
+    var attending_physician= $('#attending-physician').val();
+
+
+    var data = JSON.stringify({'school_id':school_id,
+    						   'age':age,
+    						   'temperature':temperature,
+    						   'pulse_rate':pulse_rate,
+    						   'respiration_rate':respiration_rate,
+    						   'blood_pressure':blood_pressure,
+    						   'weight':weight,
+    						   'chief_complaint':chief_complaint,
+    						   'history_of_present_illness':history_of_present_illness,
+    						   'medications_taken':medications_taken,
+    						   'diagnosis':diagnosis,
+    						   'recommendation':recommendation,
+    						   'attending_physician':attending_physician
+    						})
+
+    $.ajax({
+    	type:"POST",
+    	url: "http://localhost:8051/api/anoncare/assessment",
+    	contentType:"application/json; charset=utf-8",
+		data:data,
+		dataType:"json",
+
+		success: function(){
+
+		},
+		error: function(){
+
+		},
+		beforeSend: function (xhrObj){
+
+    		console.log(auth_user);
+      		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
+
+        }
+    })
 }
