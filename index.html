@@ -120,13 +120,13 @@
                         <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="active treeview">
-              <a href="#" onclick="$('#user-search-box').show();">
+              <a href="#" onclick="$('#user-search-box').show(); $('#add-user-form').hide();">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 <i class="fa fa-angle-right pull-right"></i>
               </a>
             </li>
             <li class="treeview">
-              <a href="#" onclick="$('#add-user-form').show();">
+              <a href="#" onclick="$('#add-user-form').show(); $('#user-search-box').hide();$('#view-user-table').hide();">
                 <i class="fa fa-plus"></i> <span>Add User</span>
                 <i class="fa fa-angle-right pull-right"></i>
               </a>
@@ -229,25 +229,40 @@
 
                                 <!-- USER SEARCH BOX -->
                                 <div id="user-search-box" class="col-md-11" style="margin-top: 10px">
-                                    <form role="form">
                                         <div class="col-md-3">
                                         </div>
                                         <div class="col-md-6">
                                             <!-- search form -->
-                                            <form action="#" method="get" class="sidebar-form">
+                                            <form method="get" class="sidebar-form" onsubmit="return false">
                                                 <div class="input-group">
-                                                    <input type="text" name="q" class="form-control" placeholder="School ID e.g. 20130000">
+                                                    <input id="admin-search-user" type="text" name="q" class="form-control" placeholder="search name/mname/lastname/email">
                                                     <span class="input-group-btn">
-                                                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                                                        <button onclick="searchUser();" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                                                         </button>
                                                     </span>
                                                 </div>
                                             </form>
                                             <!-- /.search form -->
                                         </div>
+
                                         <div class="col-md-3">
                                         </div>
-                                    </form>
+                                </div>
+
+                                <div id="view-user-table" class="col-md-11" style="margin-top:10px;display:none">
+                                    <table class="table">
+                                      <thead>
+                                        <tr>
+                                          <th>Firstname</th>
+                                          <th>Middlename</th>
+                                          <th>Lastname</th>
+                                          <th>Email</th>
+                                          <th>Role</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody id="view-user-table-body">
+                                      </tbody>
+                                    </table>
                                 </div>
 
                             </section>
