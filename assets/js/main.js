@@ -365,8 +365,8 @@ function searchUser(){
 
 			if(results.status == 'FAILED'){
 				$('#welcome-alert-admin').html(
-						'<div class="alert alert-danger"><strong>Failed to add ' +
-						fname + lname +
+						'<div class="alert alert-danger"><strong>Failed to search ' +
+						search +
 						 '!</strong>'+ results.message +'</div>');
 				$("#welcome-alert-admin").fadeTo(2000, 500).slideUp(500);
 			}
