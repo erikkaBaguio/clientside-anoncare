@@ -213,14 +213,6 @@ function signin(){
 }
 
 
-function createUsername(fname, lname) {
-	var username = fname + "." + lname;
-	username = username.toLocaleLowerCase();
-
-	return username
-}
-
-
 function storeUser(){
 
 	var fname = $('#registration-fname').val();
