@@ -29,7 +29,7 @@ function eraseCookie(name) {
 
 	var loginForm = document.getElementById("login-form");
 	loginForm.reset();
-	
+
 	$('#log-in-alert').html(
 		'<div class="alert alert-success"><strong>Success ' +
 		 '!</strong> Successfully logged out.</div>');
@@ -61,8 +61,6 @@ function decryptCookie(){
 	    },
 
 	    error: function(e, stats, err){
-	    	console.log(err);
-	    	console.log(stats);
 	    	$('#log-in-page').show();
 	    	$('#footer').show();
 	    	$('#login-loading-image').hide();
@@ -322,7 +320,6 @@ function storeUser(){
 
 		beforeSend: function (xhrObj){
 
-    		console.log(auth_user);
       		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
 
         }
