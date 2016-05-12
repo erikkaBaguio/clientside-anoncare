@@ -24,8 +24,14 @@ function eraseCookie(name) {
 	$('#log-in-page').show();
 	$('#view-user-table').hide();
 
+	var form = document.getElementById("registration-form");
+	form.reset();
+
+	var loginForm = document.getElementById("login-form");
+	loginForm.reset();
+
 	$('#log-in-alert').html(
-		'<div class="alert alert-warning"><strong>Success ' +
+		'<div class="alert alert-success"><strong>Success ' +
 		 '!</strong> Successfully logged out.</div>');
 
 	$('#footer').hide();
@@ -55,8 +61,6 @@ function decryptCookie(){
 	    },
 
 	    error: function(e, stats, err){
-	    	console.log(err);
-	    	console.log(stats);
 	    	$('#log-in-page').show();
 	    	$('#footer').show();
 	    	$('#login-loading-image').hide();
@@ -68,6 +72,8 @@ function decryptCookie(){
 
 
 function home(){
+
+	var myCookie = readCookie('user_tk');
 
 	$.ajax({
 
@@ -144,7 +150,6 @@ function siginDecryption(){
 
 	    success: function(results){
 	    	auth_user = results.token;
-	    	console.log('this is auth_user from siginDecryption: ' + auth_user);
 			$('#login-loading-image').hide();
 	    },
 
@@ -222,7 +227,6 @@ function signin(){
 
 				siginDecryption();
 
-				console.log('auth user from signin: ' + auth_user);
 			}
 
 			if(results.status == 'FAILED'){
@@ -258,6 +262,9 @@ function storeUser(){
 
 	var data = JSON.stringify({'fname':fname, 'mname':mname, 'lname':lname, 'username':username, 'email':email, 'password':password, 'role_id':role_id});
 
+	$('#home-loading-image').show();
+	$('#add-user-form').hide();
+
 	$.ajax({
 
 		type:"POST",
@@ -268,9 +275,10 @@ function storeUser(){
 
 		success: function(results){
 
-			console.log(results.status);
-
 			if(results.status == 'OK'){
+
+				$('#home-loading-image').hide();
+				$('#add-user-form').show();
 
 				$('#welcome-alert-admin').html(
 						'<div class="alert alert-success"><strong>Successfully added ' +
@@ -285,6 +293,9 @@ function storeUser(){
 			}
 
 			if(results.status == 'FAILED'){
+				$('#home-loading-image').hide();
+				$('#add-user-form').show();
+
 				$('#welcome-alert-admin').html(
 						'<div class="alert alert-danger"><strong>Failed to add ' +
 						fname + lname +
@@ -301,7 +312,6 @@ function storeUser(){
 
 		beforeSend: function (xhrObj){
 
-    		console.log(auth_user);
       		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
 
         }
@@ -316,6 +326,9 @@ function searchUser(){
 	var search = $('#admin-search-user').val();
 
 	var data = JSON.stringify({'search':search});
+
+	var form = document.getElementById("registration-form");
+	form.reset();
 
 	$.ajax({
 
@@ -374,7 +387,6 @@ function searchUser(){
 
 		beforeSend: function (xhrObj){
 
-    		console.log(auth_user);
       		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
 
         }
