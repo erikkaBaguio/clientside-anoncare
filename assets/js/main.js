@@ -521,3 +521,107 @@ function storeAssessment(){
 		alert("UNAUTHORIZE ACCESS");
 	}
 }
+
+function storePatient(){
+
+	var id = $('#patient-input-id').val();
+	var fname = $('#patient-input-fname').val();
+	var mname = $('#patient-input-mname').val();
+	var lname = $('#patient-input-lname').val();
+	var age = $('#patient-input-age').val();
+
+	if(document.getElementById('patient-female').checked) {
+	  	//Male radio button is checked
+		var sex = $('#patient-female').val();
+	}
+	else if(document.getElementById('patient-male').checked) {
+		  //Female radio button is checked
+		  var sex = $('#patient-male').val();
+	}
+
+	var patient_type = $('#patient-type').val();
+	var patient_department = $('#patient-department').val();
+	var patient_height = $('#patient-input-height').val();
+	var patient_weight = $('#patient-input-weight').val();
+	var patient_birth = $('#patient-birth').val();
+
+	if(document.getElementById('patient-single').checked) {
+		var patient_civil_status = $('#patient-single').val();
+	}
+	else if(document.getElementById('patient-married').checked) {
+		  var patient_civil_status = $('#patient-married').val();
+	}
+	else if(document.getElementById('patient-divorced').checked) {
+		  var patient_civil_status = $('#patient-divorced').val();
+	}
+	else if(document.getElementById('patient-widow').checked) {
+		  var patient_civil_status = $('#patient-widow').val();
+	}
+
+	var patient_gurdian = $('#patient-input-gurdian').val();
+	var address = $('#patient-input-address').val();
+	var asthma = $('#patient-input-asthma').val();
+	var ptb = $('#patient-input-ptb').val();
+	var heart = $('#patient-input-heart').val();
+	var hepa = $('#patient-input-hepa').val();
+	var chickenpox = $('#patient-input-chickenpox').val();
+	var mumps = $('#patient-input-mumps').val();
+	var typhoid = $('#patient-input-typhoid').val();
+	var headache = $('#patient-input-headache').val();
+	var seizure = $('#patient-input-seizure').val();
+	var dizziness = $('#patient-input-dizziness').val();
+	var consciousness = $('#patient-input-consciousness').val();
+	var smoking = $('#patient-input-smoking').val();
+	var allergies = $('#patient-input-allergies').val();
+	var alcohol = $('#patient-input-alcohol').val();
+	var medication = $('#patient-input-medication').val();
+	var drugs = $('#patient-input-drugs').val();
+	var cough = $('#input-patient-cough').val();
+	var dyspnea = $('#input-patient-dyspnea').val();
+	var hemo = $('#patient-input-hemo').val();
+	var tb = $('#patient-input-tb').val();
+	var frequency = $('#patient-input-frequency').val();
+	var flank = $('#patient-input-flank').val();
+	var discharge = $('#patient-input-discharge').val();
+	var dysuria = $('#patient-input-dysuria').val();
+	var nocturia = $('#patient-input-nocturia').val();
+	var urine = $('#patient-input-urine').val();
+	var chest_pain = $('#patient-input-chest').val();
+	var palpitations = $('#patient-input-palpitation').val();
+	var pedal = $('#patient-input-pedal').val();
+	var orthopnea = $('#patient-input-orthopnea').val();
+	var nocturnal = $('#patient-input-nocturnal').val();
+
+
+	var data = JSON.stringify({'school_id':id, 'fname':fname, 'mname':mname,
+							   'lname':lname, 'age':age, 'sex':sex,
+							   'department_id':patient_department,
+							   'patient_type_id':patient_type,
+							   'height':patient_height, 'weight':patient_weight,
+							   'date_of_bith':patient_birth,
+							   'civil_status':patient_civil_status,
+							   'name_of_guardian':patient_gurdian,
+							   'home_address':address,
+							   'smoking':smoking, 'allergies':allergies,
+							   'medications_taken':medication,
+							   'drugs':drugs, 'cough':cough, 'dyspnea':dyspnea,
+							   'hemoptysis':hemo, 'tb_exposure':tb,
+							   'frequency':frequency, 'flank_plan':flank,
+							   'discharge':discharge, 'dysuria':dysuria,
+							   'nocturia':nocturia,
+							   'dec_urine_amount':urine,
+							   'asthma':asthma, 'ptb':ptb, 'heart_problem':heart,
+							   'hepatitis_a_b':hepa, 'chicken_pox':chickenpox,
+							   'typhoid_fever':typhoid, 'chest_paint':chest_pain,
+							   'palpitations':palpitations, 'pedal_edema':pedal,
+							   'orthopnea':orthopnea, 'nocturnal_dyspnea':dyspnea,
+							   'headache':headache, 'seizure':seizure,
+							   'dizziness':dizziness,
+							   'loss_of_consciousness':consciousness,
+							   'mumps':mumps, 'alcohol':alcohol
+
+	});
+
+	console.log(data);
+
+}
