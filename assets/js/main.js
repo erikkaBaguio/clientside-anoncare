@@ -22,6 +22,7 @@ function eraseCookie(name) {
 	$('#doctor-page-page').hide(0);
 	$('#add-user-form').hide(0);
 	$('#log-in-page').show();
+	$('#view-user-table').hide();
 
 	$('#log-in-alert').html(
 		'<div class="alert alert-warning"><strong>Success ' +
@@ -68,8 +69,6 @@ function decryptCookie(){
 
 function home(){
 
-	var myCookie = readCookie('user_tk');
-
 	$.ajax({
 
 		type:"GET",
@@ -78,7 +77,8 @@ function home(){
 
 	    success: function(results){
 
-	    	console.log(results)
+	    	console.log(auth_user);
+	    	console.log(results);
 	    	console.log('check');
 	    	$('#login-form').hide();
 	    	$('#footer').show();
@@ -121,13 +121,42 @@ function home(){
 
     		console.log("this is print this " + auth_user);
       		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
-	    	
+
         }
 
 	});
 
 }
 
+
+function siginDecryption(){
+
+	var myCookie = readCookie('user_tk');
+	var data = JSON.stringify({'token':myCookie});
+
+	$.ajax({
+
+		type:"POST",
+	    url:"http://localhost:8051/decrypt",
+	    contentType: "application/json; charset=utf-8",
+	    data:data,
+	    dataType:"json",
+
+	    success: function(results){
+	    	auth_user = results.token;
+	    	console.log('this is auth_user from siginDecryption: ' + auth_user);
+			$('#login-loading-image').hide();
+	    },
+
+	    error: function(e, stats, err){
+	    	console.log(err);
+	    	console.log(stats);
+	    	console.log('error from siginDecryption');
+	    }
+
+	});
+
+}
 
 function signin(){
 	var username = $('#username').val();
@@ -148,8 +177,6 @@ function signin(){
 
 		success: function(results){
 
-			$('#login-loading-image').hide();
-
 			if(results.status == 'OK'){
 				var token = results.token;
 				//user_tk is abbrev of user_token
@@ -160,7 +187,7 @@ function signin(){
 				if(results.data[0].role == 1){
 					$('#admin-page').show(0);
 					$('#welcome-alert-admin').html(
-						'<div class="alert alert-success"><strong>Welcome ' + 
+						'<div class="alert alert-success"><strong>Welcome ' +
 						results.data[0].fname +
 						 '!</strong> Successfully logged in.</div>');
 
@@ -172,7 +199,7 @@ function signin(){
 				if(results.data[0].role == 2){
 					$('#doctor-page').show(0);
 					$('#welcome-alert-doctor').html(
-						'<div class="alert alert-success"><strong>Welcome ' + 
+						'<div class="alert alert-success"><strong>Welcome ' +
 						results.data[0].fname +
 						 '!</strong> Successfully logged in.</div>');
 
@@ -184,7 +211,7 @@ function signin(){
 				if(results.data[0].role == 3){
 					$('#nurse-page').show(0);
 					$('#welcome-alert-nurse').html(
-						'<div class="alert alert-success"><strong>Welcome ' + 
+						'<div class="alert alert-success"><strong>Welcome ' +
 						results.data[0].fname +
 						 '!</strong> Successfully logged in.</div>');
 
@@ -192,9 +219,15 @@ function signin(){
 
 					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
 				}
+
+				siginDecryption();
+
+				console.log('auth user from signin: ' + auth_user);
 			}
 
 			if(results.status == 'FAILED'){
+				$('#login-loading-image').hide();
+				$('#log-in-page').show();
 				$('#log-in-alert').html(
 					'<div class="alert alert-danger"><strong>FAILED ' +
 					 '!</strong> Invalid username or password.</div>');
@@ -240,7 +273,7 @@ function storeUser(){
 			if(results.status == 'OK'){
 
 				$('#welcome-alert-admin').html(
-						'<div class="alert alert-success"><strong>Successfully added ' + 
+						'<div class="alert alert-success"><strong>Successfully added ' +
 						fname + lname +
 						 '!</strong> with role id: '+ role_id +'</div>');
 				$("#welcome-alert-admin").fadeTo(2000, 500).slideUp(500);
@@ -253,7 +286,7 @@ function storeUser(){
 
 			if(results.status == 'FAILED'){
 				$('#welcome-alert-admin').html(
-						'<div class="alert alert-danger"><strong>Failed to add ' + 
+						'<div class="alert alert-danger"><strong>Failed to add ' +
 						fname + lname +
 						 '!</strong>'+ results.message +'</div>');
 				$("#welcome-alert-admin").fadeTo(2000, 500).slideUp(500);
@@ -270,12 +303,86 @@ function storeUser(){
 
     		console.log(auth_user);
       		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
-	    	
+
         }
 
 	});
 
 }
+
+
+function searchUser(){
+
+	var search = $('#admin-search-user').val();
+
+	var data = JSON.stringify({'search':search});
+
+	$.ajax({
+
+		type:"POST",
+		url:"http://localhost:8051/api/anoncare/user/search",
+		contentType:"application/json; charset=utf-8",
+		data:data,
+		dataType:"json",
+
+		success: function(results){
+
+			console.log(results.status);
+
+			if(results.status == 'OK'){
+
+				$('#view-user-table-body').html(function(){
+
+					var table = "";
+
+					for (var i = 0; i < results.data.length; i++) {
+						table_body = '<tr>'+
+										'<td>'+ results.data[i].fname +'</td>' +
+										'<td>'+ results.data[i].mname +'</td>' +
+										'<td>'+ results.data[i].lname +'</td>' +
+										'<td>'+ results.data[i].email +'</td>' +
+										'<td>'+ results.data[i].role +'</td>' +
+						 			+'</tr>'
+
+						table = table+=table_body;
+					}
+
+					return table;
+
+				});
+
+				$('#view-user-table').show();
+
+			}
+
+			if(results.status == 'FAILED'){
+				$('#welcome-alert-admin').html(
+						'<div class="alert alert-danger"><strong>Failed to search ' +
+						search +
+						 '!</strong>'+ results.message +'</div>');
+				$("#welcome-alert-admin").fadeTo(2000, 500).slideUp(500);
+			}
+
+		},
+
+		error: function(e, stats, err){
+			console.log(auth_user);
+			console.log(e);
+			console.log(err);
+			console.log(stats);
+		},
+
+		beforeSend: function (xhrObj){
+
+    		console.log(auth_user);
+      		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
+
+        }
+
+	});
+
+}
+
 
 function checkPass(){
 	var pass1 = document.getElementById('pass1');
@@ -316,8 +423,8 @@ function storeAssessment(){
     var attending_physician= $('#attending-physician').val();
 
 
-    var data = JSON.stringify({'school_id':school_id, 
-    						   'age':age, 
+    var data = JSON.stringify({'school_id':school_id,
+    						   'age':age,
     						   'temperature':temperature,
     						   'pulse_rate':pulse_rate,
     						   'respiration_rate':respiration_rate,
@@ -348,7 +455,7 @@ function storeAssessment(){
 
     		console.log(auth_user);
       		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
-	    	
+
         }
     })
 }
