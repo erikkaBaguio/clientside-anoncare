@@ -561,60 +561,59 @@
                                   </div><!-- /.box-header -->
                                   <div class="box-body">
                                       <div class="row">
-                                          <form role="form">
                                               <div class="col-md-4">
                                           <form id="assessment-form" class="bootstrap-form-with-validation">
                                               <div class="form-group">
                                                   <label class="control-label" for="text-input">School ID</label>
-                                                  <input class="form-control" type="text" name="text-input" id="school-id">
+                                                  <input class="form-control" type="text" name="text-input" id="school-id" required>
                                               </div>
                                               <div class="form-group">
                                                   <label class="control-label" for="text-input">Age </label>
-                                                  <input class="form-control" type="text" name="text-input" id="age">
+                                                  <input class="form-control" type="number" name="text-input" id="age" required>
                                               </div>
                                               <div class="form-group">
                                                   <label class="control-label" for="text-input">Temperature </label>
-                                                  <input class="form-control" type="text" name="text-input" id="temperature">
+                                                  <input class="form-control" type="number" name="text-input" id="temperature" required>
                                               </div>
                                               <div class="form-group">
                                                   <label class="control-label" for="text-input">Pulse Rate</label>
-                                                  <input class="form-control" type="text" name="text-input" id="pulse-rate">
+                                                  <input class="form-control" type="number" name="text-input" id="pulse-rate" required>
                                               </div>
                                               <div class="form-group">
                                                   <label class="control-label" for="text-input">Respiration Rate</label>
-                                                  <input class="form-control" type="text" name="text-input" id="respiration-rate">
+                                                  <input class="form-control" type="number" name="text-input" id="respiration-rate" required>
                                               </div>
                                               <div class="form-group">
                                                   <label class="control-label" for="text-input">Blood Pressure</label>
-                                                  <input class="form-control" type="text" name="text-input" id="blood-pressure">
+                                                  <input class="form-control" type="text" name="text-input" id="blood-pressure" required>
                                               </div>
                                               <div class="form-group">
                                                   <label class="control-label" for="text-input">Weight </label>
-                                                  <input class="form-control" type="text" name="text-input" id="weight">
+                                                  <input class="form-control" type="number" name="text-input" id="weight" required>
                                               </div>
                                           </form>
                                       </div>
                                       <div class="col-md-4">
-                                          <form class="bootstrap-form-with-validation">
+                                          <form id="assessment-form-2" class="bootstrap-form-with-validation">
                                               <div class="form-group">
                                                   <label class="control-label" for="textarea-input">Chief Complaint</label>
-                                                  <textarea class="form-control" name="textarea-input" id="chief-complaint"></textarea>
+                                                  <textarea class="form-control" name="textarea-input" id="chief-complaint" required></textarea>
                                               </div>
                                               <div class="form-group">
                                                   <label class="control-label" for="textarea-input">History of Present Illness</label>
-                                                  <textarea class="form-control" name="textarea-input" id="history-of-present-illness"></textarea>
+                                                  <textarea class="form-control" name="textarea-input" id="history-of-present-illness" required></textarea>
                                               </div>
                                               <div class="form-group">
                                                   <label class="control-label" for="textarea-input">Medications Taken</label>
-                                                  <textarea class="form-control" name="textarea-input" id="medications-taken"></textarea>
+                                                  <textarea class="form-control" name="textarea-input" id="medications-taken" required></textarea>
                                               </div>
                                               <div class="form-group">
                                                   <label class="control-label" for="textarea-input">Diagnosis </label>
-                                                  <textarea class="form-control" name="textarea-input" id="diagnosis"></textarea>
+                                                  <textarea class="form-control" name="textarea-input" id="diagnosis" required></textarea>
                                               </div>
                                               <div class="form-group">
                                                   <label class="control-label" for="textarea-input">Recommendation </label>
-                                                  <textarea class="form-control" name="textarea-input" id="recommendation"></textarea>
+                                                  <textarea class="form-control" name="textarea-input" id="recommendation" required></textarea>
                                               </div>
                                           </form>
                                       </div>
@@ -630,11 +629,10 @@
                                               </select>
                                           </div>
                                       </div>
-                                          </form><!-- /.form -->
                                       </div><!-- /.row -->
                                   </div><!-- /.box-body -->
                                   <div class="box-footer">
-                                      <button type="submit" class="btn btn-danger pull-right" style="margin: 5px">Clear</button>
+                                      <button type="submit" class="btn btn-danger pull-right" style="margin: 5px" onclick="clearAssessmentForm();">Clear</button>
                                       <button id="submit-button" type="submit" class="btn btn-success pull-right" onclick="storeAssessment();" style="margin: 5px">Submit</button>
                                   </div><!-- /.box-footer -->
                               </div><!-- /.box -->
