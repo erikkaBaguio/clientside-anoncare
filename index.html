@@ -322,22 +322,6 @@
                           <li>
                             <!-- inner menu: contains the actual data -->
                             <ul id="notification-menu" class="menu">
-                              <li>
-                                <a href="#">
-
-                                  <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-users text-red"></i> 5 new members joined
-                                </a>
-                              </li>
                             </ul>
                           </li>
                           <li class="footer"><a href="#">View all</a></li>
@@ -436,9 +420,32 @@
                                             <!-- /.search form -->
                                         </div>
                                     <div class="col-md-3"></div>
-                                </div>  
+                                </div>
 
-                                <!-- END PATIENT SEARCH BOX --> 
+                                <!-- END PATIENT SEARCH BOX -->
+
+                                <div id="view-assessment-table" class="col-md-11" style="margin-top:10px;display:none">
+                                    <table class="table">
+                                      <thead>
+                                        <tr>
+                                          <th>Assessment Id</th>
+                                          <th>Date</th>
+                                          <th>School ID</th>
+                                          <th>Age</th>
+                                          <th>Vital Signs id</th>
+                                          <th>Chief Complaint</th>
+                                          <th>History of Present Illness</th>
+                                          <th>Medications Taken</th>
+                                          <th>Diagnosis</th>
+                                          <th>Recommendation</th>
+                                          <th>Attending Physician</th>
+                                          <th>Is Read</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody id="view-assessment-table-body">
+                                      </tbody>
+                                    </table>
+                                </div>
 
                             </section>
                         </div>
@@ -1147,9 +1154,9 @@
                                             <!-- /.search form -->
                                         </div>
                                     <div class="col-md-3"></div>
-                                </div>  
+                                </div>
 
-                                <!-- END PATIENT SEARCH BOX --> 
+                                <!-- END PATIENT SEARCH BOX -->
 
                             </section>
 

@@ -755,7 +755,7 @@ function getNotification(){
 
 					for (var i = 0; i < results.entries.length; i++) {
 
-						notification = '<li><a href="#"><i class="fa fa-users text-aqua"></i>'+
+						notification = '<li><a href="#" onclick="showAssessmentById('+results.entries[i].assessment_id+');"'+'><i class="fa fa-users text-aqua"></i>'+
 
 						'Assessment #'+ results.entries[i].assessment_id+ 'Assessment request from user '+
 						results.entries[i].doctor_id;
@@ -794,4 +794,61 @@ function getNotification(){
 function stop() {
     clearTimeout(timer);
     timer = 0;
+}
+
+
+function showAssessmentById(id){
+
+	$.ajax({
+
+		type:"GET",
+		url:"http://localhost:8051/api/anoncare/assessment/by/" + id,
+		contentType: "application/json; charset=utf-8",
+		dataType:"json",
+
+		success: function(results){
+
+			$('#view-assessment-table-body').html(function(){
+
+				var assessment_row = '';
+				var assessment;
+
+				for (var i = 0; i < results.entries.length; i++) {
+
+					assessment = '<tr>'+
+
+									'<td>'+ results.entries[i].id + '</td>'+
+									'<td>'+ results.entries[i].date + '</td>'+
+									'<td>'+ results.entries[i].school_id + '</td>'+
+									'<td>'+ results.entries[i].age + '</td>'+
+									'<td>'+ results.entries[i].vital_signs_id + '</td>'+
+									'<td>'+ results.entries[i].chief_complaint + '</td>'+
+									'<td>'+ results.entries[i].history_of_present_illness + '</td>'+
+									'<td>'+ results.entries[i].medications_taken + '</td>'+
+									'<td>'+ results.entries[i].diagnosis + '</td>'+
+									'<td>'+ results.entries[i].recommendation + '</td>'+
+									'<td>'+ results.entries[i].attending_physician + '</td>'+
+									'<td>'+ results.entries[i].is_read + '</td>'+
+
+					 			+'</tr>';
+
+					assessment_row+=assessment;
+				}
+
+				return assessment_row;
+
+			});
+
+			$('#view-assessment-table').show();
+
+		},
+
+		beforeSend: function (xhrObj){
+
+			xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
+
+		}
+
+	});
+
 }
