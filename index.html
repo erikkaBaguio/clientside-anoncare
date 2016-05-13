@@ -32,7 +32,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
   <center>
       <div id="login-loading-image" style="vertical-align: middle;display:none">
-          <img src="assets/img/hourglass.gif">
+          <img src="assets/img/hourglass.gif"/>
       </div>
   </center>
 
@@ -142,7 +142,7 @@
 
                                 <center>
                                     <div id="home-loading-image" style="vertical-align: middle;display:none">
-                                        <img src="assets/img/hourglass.gif">
+                                        <img src="assets/img/hourglass.gif"/>
                                     </div>
                                 </center>
 
@@ -527,7 +527,7 @@
                             </a>
                           </li>
                           <li class="treeview">
-                            <a href="#" onclick="$('#add-assessment-form').show();$('#add-patient-form').hide();">
+                            <a href="#" onclick="$('#add-assessment-form').show();$('#add-patient-form').hide();getAllDoctors();">
                               <i class="fa fa-plus"></i> <span>Add Asssessments</span>
                               <i class="fa fa-angle-right pull-right"></i>
                             </a>
@@ -555,11 +555,11 @@
                                 </div>
                             </section>
 
-                            <div id="nurse-loading-image" style="vertical-align: middle;display:none">
-                                <img src="assets/img/hourglass.gif">
-                            </div
+                            <div id="nurse-loading-image" style="vertical-align: middle;display:none;">
+                                <img src="assets/img/hourglass.gif"/>
+                            </div>
 
-                            <section id="add-assessment-form" class="content-body">
+                            <section id="add-assessment-form" class="content-body" style="display:none;">
 
                               <!-- ASSESSMENT FORM -->
                               <div class="box box-primary">
@@ -628,11 +628,7 @@
                                           <div class="form-group">
                                               <label>Attending Physician</label>
                                               <select id="attending-physician" class="form-control select2" style="width: 100%;">
-                                                  <option selected="selected">Doctors</option>
-                                                  <option value="1">WWWW</option>
-                                                  <option value="2">XXXX</option>
-                                                  <option value="3">YYYY</option>
-                                                  <option value="4">ZZZZ</option>
+
                                               </select>
                                           </div>
                                       </div>

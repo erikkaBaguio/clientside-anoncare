@@ -221,6 +221,7 @@ function signin(){
 				}
 
 				if(results.data[0].role == 3){
+
 					$('#nurse-page').show(0);
 					$('#welcome-alert-nurse').html(
 						'<div class="alert alert-success"><strong>Welcome ' +
@@ -439,6 +440,53 @@ function clearAssessmentForm(){
 	var assessment_form_2 = document.getElementById("assessment-form-2");
 	assessment_form.reset();
 	assessment_form_2.reset();
+}
+
+function getAllDoctors(){
+
+	$.ajax({
+
+		type:"GET",
+		url:"http://localhost:8051/api/anoncare/doctors/",
+		contentType:"application/json; charset=utf-8",
+		dataType:"json",
+
+		success: function(results){
+			var doctor_row = '';
+			var doctor;
+
+			console.log(results);
+
+			$('#attending-physician').html(function(){
+
+				for (var i = 0; i < results.entries.length; i++) {
+					doctor = '<option value="'+ results.entries[i].id +'" >'+
+												results.entries[i].fname+ ' '+
+												results.entries[i].lname+
+							 '</option>';
+
+					doctor_row+=doctor;
+				}
+
+				console.log(doctor_row);
+				return doctor_row;
+
+			});
+
+		},
+
+		error: function(e){
+			alert('THIS IS NOT COOL. ERROR IN GETTING ALL DOCTORS.' + e + auth_user);
+		},
+
+		beforeSend: function (xhrObj){
+
+      		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
+
+        }
+
+	});
+
 }
 
 function storeAssessment(){
