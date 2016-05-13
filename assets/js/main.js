@@ -364,13 +364,13 @@ function searchUser(){
 
 					var table = "";
 
-					for (var i = 0; i < results.data.length; i++) {
+					for (var i = 0; i < results.entries.length; i++) {
 						table_body = '<tr>'+
-										'<td>'+ results.data[i].fname +'</td>' +
-										'<td>'+ results.data[i].mname +'</td>' +
-										'<td>'+ results.data[i].lname +'</td>' +
-										'<td>'+ results.data[i].email +'</td>' +
-										'<td>'+ results.data[i].role +'</td>' +
+										'<td>'+ results.entries[i].fname +'</td>' +
+										'<td>'+ results.entries[i].mname +'</td>' +
+										'<td>'+ results.entries[i].lname +'</td>' +
+										'<td>'+ results.entries[i].email +'</td>' +
+										'<td>'+ results.entries[i].role +'</td>' +
 						 			+'</tr>'
 
 						table = table+=table_body;
@@ -524,6 +524,8 @@ function storeAssessment(){
 
 function storePatient(){
 
+	$('#nurse-loading-image').show();
+
 	var id = $('#patient-input-id').val();
 	var fname = $('#patient-input-fname').val();
 	var mname = $('#patient-input-mname').val();
@@ -598,7 +600,7 @@ function storePatient(){
 							   'department_id':patient_department,
 							   'patient_type_id':patient_type,
 							   'height':patient_height, 'weight':patient_weight,
-							   'date_of_bith':patient_birth,
+							   'date_of_birth':patient_birth,
 							   'civil_status':patient_civil_status,
 							   'name_of_guardian':patient_gurdian,
 							   'home_address':address,
@@ -612,7 +614,7 @@ function storePatient(){
 							   'dec_urine_amount':urine,
 							   'asthma':asthma, 'ptb':ptb, 'heart_problem':heart,
 							   'hepatitis_a_b':hepa, 'chicken_pox':chickenpox,
-							   'typhoid_fever':typhoid, 'chest_paint':chest_pain,
+							   'typhoid_fever':typhoid, 'chest_pain':chest_pain,
 							   'palpitations':palpitations, 'pedal_edema':pedal,
 							   'orthopnea':orthopnea, 'nocturnal_dyspnea':dyspnea,
 							   'headache':headache, 'seizure':seizure,
@@ -633,13 +635,34 @@ function storePatient(){
 			dataType:"json",
 
 			success: function(results){
-				auth_user = results.token;
-				$('#login-loading-image').hide();
+
+				$('#nurse-loading-image').hide();
+
+				if(results.status == 'OK'){
+
+					$('#welcome-alert-nurse').html(
+						'<div class="alert alert-success"><strong>Successfull ' +
+						 '!</strong>'+ results.message +'</div>');
+
+					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
+
+				}
+
+				if(results.status == 'FAILED'){
+
+					$('#welcome-alert-nurse').html(
+						'<div class="alert alert-danger"><strong>Failed ' +
+						 '!</strong>'+ results.message +'</div>');
+
+					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
+				}
 			},
 
 			error: function(e, stats, err){
 				console.log(err);
 				console.log(stats);
+				$('#nurse-loading-image').hide();
+				alert('THIS IS NOT COOL. SOMETHING WENT WRONG');
 			},
 
 			beforeSend: function (xhrObj){
