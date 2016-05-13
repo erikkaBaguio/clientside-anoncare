@@ -792,8 +792,6 @@ function getNotification(){
 }
 
 function stop() {
-    if (timer) {
-        clearTimeout(timer);
-        timer = 0;
-    }
+    clearTimeout(timer);
+    timer = 0;
 }
