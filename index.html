@@ -32,7 +32,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
   <center>
       <div id="login-loading-image" style="vertical-align: middle;display:none">
-          <img src="assets/img/hourglass.gif">
+          <img src="assets/img/hourglass.gif"/>
       </div>
   </center>
 
@@ -139,9 +139,10 @@
                     <div class="row">
                         <div class="col-md-12">
                             <section class="content-header">
+
                                 <center>
                                     <div id="home-loading-image" style="vertical-align: middle;display:none">
-                                        <img src="assets/img/hourglass.gif">
+                                        <img src="assets/img/hourglass.gif"/>
                                     </div>
                                 </center>
 
@@ -399,7 +400,7 @@
                           </a>
                         </li>
                         <li class="treeview">
-                          <a href="#" onclick="$('#doctor-patient-search-box').show();"pati>
+                          <a href="#">
                             <i class="fa fa-list"></i> <span>View Patient</span>
                             <i class="fa fa-angle-right pull-right"></i>
                           </a>
@@ -411,39 +412,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <section class="content-header">
-                                <center>
-                                    <div id="home-loading-image" style="vertical-align: middle;display:none">
-                                        <img src="assets/img/hourglass.gif">
-                                    </div>
-                                </center>
-
                                 <div id="welcome-alert-doctor">
                                 </div>
-                            </section>
-                            <section class="content-body">
-
-                                <!-- PATIENT SEARCH BOX -->
-
-                                <div id="doctor-patient-search-box" class="col-md-11" style="margin-top: 10px">
-                                    <div class="col-md-3"></div>
-                                        <div class="col-md-6">
-                                            <!-- search form -->
-                                            <form method="get" class="sidebar-form" onsubmit="return false">
-                                                <div class="input-group">
-                                                    <input id="doctor-search-patient" type="text" name="q" class="form-control" placeholder="Enter School ID e.g. 20130000">
-                                                    <span class="input-group-btn">
-                                                        <button onclick="searchPatient();" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                                                        </button>
-                                                    </span>
-                                                </div>
-                                            </form>
-                                            <!-- /.search form -->
-                                        </div>
-                                    <div class="col-md-3"></div>
-                                </div>  
-
-                                <!-- END PATIENT SEARCH BOX --> 
-
                             </section>
                         </div>
                     </div>
@@ -557,7 +527,7 @@
                             </a>
                           </li>
                           <li class="treeview">
-                            <a href="#" onclick="$('#add-assessment-form').show();$('#add-patient-form').hide();">
+                            <a href="#" onclick="$('#add-assessment-form').show();$('#add-patient-form').hide();getAllDoctors();">
                               <i class="fa fa-plus"></i> <span>Add Asssessments</span>
                               <i class="fa fa-angle-right pull-right"></i>
                             </a>
@@ -569,7 +539,7 @@
                             </a>
                           </li>
                           <li class="treeview">
-                            <a href="#" onclick="$('#nurse-patient-search-box').show();">
+                            <a href="#">
                               <i class="fa fa-list"></i> <span>View Patient</span>
                               <i class="fa fa-angle-right pull-right"></i>
                             </a>
@@ -580,22 +550,16 @@
                 <div class="col-md-9" id="content-nurse">
                     <div class="row">
                         <div class="col-md-12">
-                            <section class="content-header">                            
-                                <center>
-                                    <div id="home-loading-image" style="vertical-align: middle;display:none">
-                                        <img src="assets/img/hourglass.gif">
-                                    </div>
-                                </center>
-
+                            <section class="content-header">
                                 <div id="welcome-alert-nurse">
                                 </div>
                             </section>
 
-                            <div id="nurse-loading-image" style="vertical-align: middle;display:none">
-                                <img src="assets/img/hourglass.gif">
-                            </div
+                            <div id="nurse-loading-image" style="vertical-align: middle;display:none;">
+                                <img src="assets/img/hourglass.gif"/>
+                            </div>
 
-                            <section id="add-assessment-form" class="content-body">
+                            <section id="add-assessment-form" class="content-body" style="display:none;">
 
                               <!-- ASSESSMENT FORM -->
                               <div class="box box-primary">
@@ -664,11 +628,7 @@
                                           <div class="form-group">
                                               <label>Attending Physician</label>
                                               <select id="attending-physician" class="form-control select2" style="width: 100%;">
-                                                  <option selected="selected">Doctors</option>
-                                                  <option value="1">WWWW</option>
-                                                  <option value="2">XXXX</option>
-                                                  <option value="3">YYYY</option>
-                                                  <option value="4">ZZZZ</option>
+
                                               </select>
                                           </div>
                                       </div>
@@ -682,33 +642,6 @@
                             </section>
 
                             <!-- END OF ASSESSMENT FORM -->
-
-
-                            <section class="content-body">
-
-                                <!-- PATIENT SEARCH BOX -->
-
-                                <div id="nurse-patient-search-box" class="col-md-11" style="margin-top: 10px">
-                                    <div class="col-md-3"></div>
-                                        <div class="col-md-6">
-                                            <!-- search form -->
-                                            <form method="get" class="sidebar-form" onsubmit="return false">
-                                                <div class="input-group">
-                                                    <input id="nurse-search-patient" type="text" name="q" class="form-control" placeholder="Enter School ID e.g. 20130000">
-                                                    <span class="input-group-btn">
-                                                        <button onclick="searchPatient();" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                                                        </button>
-                                                    </span>
-                                                </div>
-                                            </form>
-                                            <!-- /.search form -->
-                                        </div>
-                                    <div class="col-md-3"></div>
-                                </div>  
-
-                                <!-- END PATIENT SEARCH BOX --> 
-
-                            </section>
 
 
 
