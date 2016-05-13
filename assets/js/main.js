@@ -520,7 +520,6 @@ function storeAssessment(){
     						   'attending_physician':attending_physician
 						   });
 
-
 	if(user_role == 3){
 
 	    $.ajax({
