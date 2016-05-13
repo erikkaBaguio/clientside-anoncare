@@ -731,7 +731,7 @@ function storePatient(){
 
 }
 
-var interval = 2000;
+var interval = 5000;
 function getNotification(){
 	var myCookie = readCookie('user_tk');
 	$.ajax({
