@@ -1,5 +1,4 @@
 var auth_user = "";
-var user_role;
 
 $(document).ready(function(){
 
@@ -19,8 +18,8 @@ function eraseCookie(name) {
     document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 
 	$('#admin-page').hide(0);
-	$('#nurse-page').hide(0);
-	$('#doctor-page').hide(0);
+	$('#nurse-page-page').hide(0);
+	$('#doctor-page-page').hide(0);
 	$('#add-user-form').hide(0);
 	$('#log-in-page').show();
 	$('#view-user-table').hide();
@@ -30,8 +29,6 @@ function eraseCookie(name) {
 
 	var loginForm = document.getElementById("login-form");
 	loginForm.reset();
-
-	clearAssessmentForm();
 
 	$('#log-in-alert').html(
 		'<div class="alert alert-success"><strong>Success ' +
@@ -86,6 +83,9 @@ function home(){
 
 	    success: function(results){
 
+	    	console.log(auth_user);
+	    	console.log(results);
+	    	console.log('check');
 	    	$('#login-form').hide();
 	    	$('#footer').show();
 
@@ -93,26 +93,20 @@ function home(){
 				var token = results.token;
 				//user_tk is abbrev of user_token
 				document.cookie = "user_tk=" + token;
-
+				console.log(results.data[0].role);
 				$('#log-in-page').hide(0);
 
 				if(results.data[0].role == 1){
 					$('#admin-page').show(0);
 					$('#admin-name').html(results.data[0].fname + ' ' + results.data[0].lname);
-
-					user_role = results.data[0].role;
-
 				}
 
 				if(results.data[0].role == 2){
 					$('#doctor-page').show(0);
-
-					user_role = results.data[0].role;
 				}
 
 				if(results.data[0].role == 3){
 					$('#nurse-page').show();
-					user_role = results.data[0].role;
 				}
 			}
 
@@ -131,6 +125,7 @@ function home(){
 
 	    beforeSend: function (xhrObj){
 
+    		console.log("this is print this " + auth_user);
       		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
 
         }
@@ -161,6 +156,7 @@ function siginDecryption(){
 	    error: function(e, stats, err){
 	    	console.log(err);
 	    	console.log(stats);
+	    	console.log('error from siginDecryption');
 	    }
 
 	});
@@ -190,6 +186,7 @@ function signin(){
 				var token = results.token;
 				//user_tk is abbrev of user_token
 				document.cookie = "user_tk=" + token;
+				console.log(results.data[0].role);
 				$('#log-in-page').hide(0);
 
 				if(results.data[0].role == 1){
@@ -202,8 +199,6 @@ function signin(){
 					$('#admin-name').html(results.data[0].fname + ' ' + results.data[0].lname);
 
 					$("#welcome-alert-admin").fadeTo(2000, 500).slideUp(500);
-
-					user_role = results.data[0].role;
 				}
 
 				if(results.data[0].role == 2){
@@ -216,8 +211,6 @@ function signin(){
 					$('#doctor-name').html(results.data[0].fname + ' ' + results.data[0].lname);
 
 					$("#welcome-alert-doctor").fadeTo(2000, 500).slideUp(500);
-
-					user_role = results.data[0].role;
 				}
 
 				if(results.data[0].role == 3){
@@ -230,8 +223,6 @@ function signin(){
 					$('#nurse-name').html(results.data[0].fname + ' ' + results.data[0].lname);
 
 					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
-
-					user_role = results.data[0].role;
 				}
 
 				siginDecryption();
@@ -274,65 +265,58 @@ function storeUser(){
 	$('#home-loading-image').show();
 	$('#add-user-form').hide();
 
-	if(user_role == 1){
+	$.ajax({
 
-		$.ajax({
+		type:"POST",
+		url:"http://localhost:8051/api/anoncare/user",
+		contentType:"application/json; charset=utf-8",
+		data:data,
+		dataType:"json",
 
-			type:"POST",
-			url:"http://localhost:8051/api/anoncare/user",
-			contentType:"application/json; charset=utf-8",
-			data:data,
-			dataType:"json",
+		success: function(results){
 
-			success: function(results){
+			if(results.status == 'OK'){
 
-				if(results.status == 'OK'){
+				$('#home-loading-image').hide();
+				$('#add-user-form').show();
 
-					$('#home-loading-image').hide();
-					$('#add-user-form').show();
+				$('#welcome-alert-admin').html(
+						'<div class="alert alert-success"><strong>Successfully added ' +
+						fname + lname +
+						 '!</strong> with role id: '+ role_id +'</div>');
+				$("#welcome-alert-admin").fadeTo(2000, 500).slideUp(500);
 
-					$('#welcome-alert-admin').html(
-							'<div class="alert alert-success"><strong>Successfully added ' +
-							fname + lname +
-							 '!</strong> with role id: '+ role_id +'</div>');
-					$("#welcome-alert-admin").fadeTo(2000, 500).slideUp(500);
+				var form = document.getElementById("registration-form");
+				form.reset();
+				$('#confirmMessage').hide();
 
-					var form = document.getElementById("registration-form");
-					form.reset();
-					$('#confirmMessage').hide();
+			}
 
-				}
+			if(results.status == 'FAILED'){
+				$('#home-loading-image').hide();
+				$('#add-user-form').show();
 
-				if(results.status == 'FAILED'){
-					$('#home-loading-image').hide();
-					$('#add-user-form').show();
+				$('#welcome-alert-admin').html(
+						'<div class="alert alert-danger"><strong>Failed to add ' +
+						fname + lname +
+						 '!</strong>'+ results.message +'</div>');
+				$("#welcome-alert-admin").fadeTo(2000, 500).slideUp(500);
+			}
 
-					$('#welcome-alert-admin').html(
-							'<div class="alert alert-danger"><strong>Failed to add ' +
-							fname + lname +
-							 '!</strong>'+ results.message +'</div>');
-					$("#welcome-alert-admin").fadeTo(2000, 500).slideUp(500);
-				}
+		},
 
-			},
+		error: function(e, stats, err){
+			console.log(err);
+			console.log(stats);
+		},
 
-			error: function(e, stats, err){
-				console.log(err);
-				console.log(stats);
-			},
+		beforeSend: function (xhrObj){
 
-			beforeSend: function (xhrObj){
+      		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
 
-	      		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
+        }
 
-	        }
-
-		});
-	}
-
-	else{
-		alert("UNAUTHORIZE ACCESS");
-	}
+	});
 
 }
 
@@ -364,13 +348,13 @@ function searchUser(){
 
 					var table = "";
 
-					for (var i = 0; i < results.entries.length; i++) {
+					for (var i = 0; i < results.data.length; i++) {
 						table_body = '<tr>'+
-										'<td>'+ results.entries[i].fname +'</td>' +
-										'<td>'+ results.entries[i].mname +'</td>' +
-										'<td>'+ results.entries[i].lname +'</td>' +
-										'<td>'+ results.entries[i].email +'</td>' +
-										'<td>'+ results.entries[i].role +'</td>' +
+										'<td>'+ results.data[i].fname +'</td>' +
+										'<td>'+ results.data[i].mname +'</td>' +
+										'<td>'+ results.data[i].lname +'</td>' +
+										'<td>'+ results.data[i].email +'</td>' +
+										'<td>'+ results.data[i].role +'</td>' +
 						 			+'</tr>'
 
 						table = table+=table_body;
@@ -434,12 +418,6 @@ function checkPass(){
 	}
 }
 
-function clearAssessmentForm(){
-	var assessment_form = document.getElementById("assessment-form");
-	var assessment_form_2 = document.getElementById("assessment-form-2");
-	assessment_form.reset();
-	assessment_form_2.reset();
-}
 
 function storeAssessment(){
 	var school_id = $('#school-id').val();
@@ -464,219 +442,32 @@ function storeAssessment(){
     						   'respiration_rate':respiration_rate,
     						   'blood_pressure':blood_pressure,
     						   'weight':weight,
-    						   'chief_complaint':chief_complaint,
+    						   'chief_complaint':chief_complaint, 
     						   'history_of_present_illness':history_of_present_illness,
     						   'medications_taken':medications_taken,
     						   'diagnosis':diagnosis,
     						   'recommendation':recommendation,
     						   'attending_physician':attending_physician
-						   });
+    						})
 
+    $.ajax({
+    	type:"POST",
+    	url: "http://localhost:8051/api/anoncare/assessment",
+    	contentType:"application/json; charset=utf-8",
+		data:data,
+		dataType:"json",
 
-	if(user_role == 3){
+		success: function(){
 
-	    $.ajax({
-	    	type:"POST",
-	    	url: "http://localhost:8051/api/anoncare/assessment",
-	    	contentType:"application/json; charset=utf-8",
-			data:data,
-			dataType:"json",
+		},
+		error: function(){
 
-			success: function(results){
-				if (results.status == 'OK'){
+		},
+		beforeSend: function (xhrObj){
 
-					$('#welcome-alert-nurse').html(
-						'<div class="alert alert-success"><strong>Success ' +
-						 '!</strong>' + results.message +'</div>');
+    		console.log(auth_user);
+      		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
 
-					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
-
-					clearAssessmentForm();
-
-				}
-
-				if(results.status == 'FAILED'){
-
-					$('#welcome-alert-nurse').html(
-						'<div class="alert alert-danger"><strong>Failed ' +
-						 '!</strong>' + results.message +'</div>');
-
-					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
-
-				}
-			},
-			error: function(e){
-				alert("THIS IS NOT COOL. SOMETHING WENT WRONG: " + e);
-			},
-			beforeSend: function (xhrObj){
-
-	    		console.log(auth_user);
-	      		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
-
-	        }
-	    });
-	}
-
-	else {
-		alert("UNAUTHORIZE ACCESS");
-	}
-}
-
-function storePatient(){
-
-	$('#nurse-loading-image').show();
-
-	var id = $('#patient-input-id').val();
-	var fname = $('#patient-input-fname').val();
-	var mname = $('#patient-input-mname').val();
-	var lname = $('#patient-input-lname').val();
-	var age = $('#patient-input-age').val();
-
-	if(document.getElementById('patient-female').checked) {
-	  	//Male radio button is checked
-		var sex = $('#patient-female').val();
-	}
-	else if(document.getElementById('patient-male').checked) {
-		  //Female radio button is checked
-		  var sex = $('#patient-male').val();
-	}
-
-	var patient_type = $('#patient-type').val();
-	var patient_department = $('#patient-department').val();
-	var patient_height = $('#patient-input-height').val();
-	var patient_weight = $('#patient-input-weight').val();
-	var patient_birth = $('#patient-birth').val();
-
-	if(document.getElementById('patient-single').checked) {
-		var patient_civil_status = $('#patient-single').val();
-	}
-	else if(document.getElementById('patient-married').checked) {
-		  var patient_civil_status = $('#patient-married').val();
-	}
-	else if(document.getElementById('patient-divorced').checked) {
-		  var patient_civil_status = $('#patient-divorced').val();
-	}
-	else if(document.getElementById('patient-widow').checked) {
-		  var patient_civil_status = $('#patient-widow').val();
-	}
-
-	var patient_gurdian = $('#patient-input-gurdian').val();
-	var address = $('#patient-input-address').val();
-	var asthma = $('#patient-input-asthma').val();
-	var ptb = $('#patient-input-ptb').val();
-	var heart = $('#patient-input-heart').val();
-	var hepa = $('#patient-input-hepa').val();
-	var chickenpox = $('#patient-input-chickenpox').val();
-	var mumps = $('#patient-input-mumps').val();
-	var typhoid = $('#patient-input-typhoid').val();
-	var headache = $('#patient-input-headache').val();
-	var seizure = $('#patient-input-seizure').val();
-	var dizziness = $('#patient-input-dizziness').val();
-	var consciousness = $('#patient-input-consciousness').val();
-	var smoking = $('#patient-input-smoking').val();
-	var allergies = $('#patient-input-allergies').val();
-	var alcohol = $('#patient-input-alcohol').val();
-	var medication = $('#patient-input-medication').val();
-	var drugs = $('#patient-input-drugs').val();
-	var cough = $('#input-patient-cough').val();
-	var dyspnea = $('#input-patient-dyspnea').val();
-	var hemo = $('#patient-input-hemo').val();
-	var tb = $('#patient-input-tb').val();
-	var frequency = $('#patient-input-frequency').val();
-	var flank = $('#patient-input-flank').val();
-	var discharge = $('#patient-input-discharge').val();
-	var dysuria = $('#patient-input-dysuria').val();
-	var nocturia = $('#patient-input-nocturia').val();
-	var urine = $('#patient-input-urine').val();
-	var chest_pain = $('#patient-input-chest').val();
-	var palpitations = $('#patient-input-palpitation').val();
-	var pedal = $('#patient-input-pedal').val();
-	var orthopnea = $('#patient-input-orthopnea').val();
-	var nocturnal = $('#patient-input-nocturnal').val();
-
-
-	var data = JSON.stringify({'school_id':id, 'fname':fname, 'mname':mname,
-							   'lname':lname, 'age':age, 'sex':sex,
-							   'department_id':patient_department,
-							   'patient_type_id':patient_type,
-							   'height':patient_height, 'weight':patient_weight,
-							   'date_of_birth':patient_birth,
-							   'civil_status':patient_civil_status,
-							   'name_of_guardian':patient_gurdian,
-							   'home_address':address,
-							   'smoking':smoking, 'allergies':allergies,
-							   'medications_taken':medication,
-							   'drugs':drugs, 'cough':cough, 'dyspnea':dyspnea,
-							   'hemoptysis':hemo, 'tb_exposure':tb,
-							   'frequency':frequency, 'flank_plan':flank,
-							   'discharge':discharge, 'dysuria':dysuria,
-							   'nocturia':nocturia,
-							   'dec_urine_amount':urine,
-							   'asthma':asthma, 'ptb':ptb, 'heart_problem':heart,
-							   'hepatitis_a_b':hepa, 'chicken_pox':chickenpox,
-							   'typhoid_fever':typhoid, 'chest_pain':chest_pain,
-							   'palpitations':palpitations, 'pedal_edema':pedal,
-							   'orthopnea':orthopnea, 'nocturnal_dyspnea':dyspnea,
-							   'headache':headache, 'seizure':seizure,
-							   'dizziness':dizziness,
-							   'loss_of_consciousness':consciousness,
-							   'mumps':mumps, 'alcohol':alcohol
-
-	});
-
-	if(user_role == 3){
-
-		$.ajax({
-
-			type:"POST",
-			url:"http://localhost:8051/api/anoncare/patient",
-			contentType: "application/json; charset=utf-8",
-			data:data,
-			dataType:"json",
-
-			success: function(results){
-
-				$('#nurse-loading-image').hide();
-
-				if(results.status == 'OK'){
-
-					$('#welcome-alert-nurse').html(
-						'<div class="alert alert-success"><strong>Successfull ' +
-						 '!</strong>'+ results.message +'</div>');
-
-					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
-
-				}
-
-				if(results.status == 'FAILED'){
-
-					$('#welcome-alert-nurse').html(
-						'<div class="alert alert-danger"><strong>Failed ' +
-						 '!</strong>'+ results.message +'</div>');
-
-					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
-				}
-			},
-
-			error: function(e, stats, err){
-				console.log(err);
-				console.log(stats);
-				$('#nurse-loading-image').hide();
-				alert('THIS IS NOT COOL. SOMETHING WENT WRONG');
-			},
-
-			beforeSend: function (xhrObj){
-
-	      		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
-
-	        }
-
-		});
-
-	}
-
-	else{
-		alert('THIS IS NOT COOL SOMETHING WENT WRONG: UNAUTHORIZE ACCESS');
-	}
-
+        }
+    })
 }
