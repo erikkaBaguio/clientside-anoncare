@@ -25,48 +25,48 @@
     <link rel="stylesheet" href="assets/css/Pretty-Footer.css">
     <link rel="stylesheet" href="assets/css/Pretty-Registration-Form.css">
     <link rel="stylesheet" href="assets/css/Google-Style-Login.css">
-    <link rel="stylesheet" type="text/css" media="screen"
-     href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
-  <center>
-      <div id="login-loading-image" style="vertical-align: middle;display:none">
-          <img src="assets/img/hourglass.gif"/>
-      </div>
-  </center>
+    <center>
+        <div id="login-loading-image" style="vertical-align: middle;display:none">
+            <img src="assets/img/hourglass.gif" />
+        </div>
+    </center>
 
-  <div id="log-in-page" class="container" style="display:none">
+    <div id="log-in-page" class="container" style="display:none">
         <div class="page-header"></div>
-          <div id="log-in-page" class="container">
+        <div id="log-in-page" class="container">
 
-              <div class="page-header">
-                  <h1>Please Login</h1>
-              </div>
 
-              <div id="log-in-alert"></div>
-              <!-- Simple Login - START -->
-              <form id="login-form" class="col-md-12" method="post" onsubmit="return false">
-                  <div class="form-group">
-                      <input id="username" name="username" type="text" class="form-control input-lg" placeholder="Username">
-                  </div>
-                  <div class="form-group">
-                      <input id="password" name="password" type="password" class="form-control input-lg" placeholder="Password">
-                  </div>
-                  <div class="form-group">
-                      <button onclick="signin();" class="btn btn-primary btn-lg btn-block">Sign In</button>
-                  </div>
-              </form>
-              <!-- Simple Login - END -->
+            <!-- Simple Login - START -->
+            <form id="login-form" class="login-card" method="post" onsubmit="return false">
+                <div class="page-header">
+                    <h1>Please Login</h1>
+                </div>
 
-          </div>
+                <div id="log-in-alert"></div>
+                <div class="form-group">
+                    <input id="username" name="username" type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input id="password" name="password" type="password" class="form-control" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <button onclick="signin();" class="btn btn-primary btn-block btn-lg btn-signin">Sign In</button>
+                </div>
+            </form>
+            <!-- Simple Login - END -->
+
+        </div>
     </div>
 
 
-<!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
+    <!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
 
 
-<!-- ADMIN PAGE DIVISION -->
+    <!-- ADMIN PAGE DIVISION -->
 
     <div id="admin-page" style="display:none">
         <div class="container-fluid">
@@ -74,65 +74,65 @@
 
                 <!-- Logo -->
                 <a href="#/landing.html" class="logo">
-                  <!-- mini logo for sidebar mini 50x50 pixels -->
-                  <span class="logo-mini">A<b>C</b></span>
-                  <!-- logo for regular state and mobile devices -->
-                  <span class="logo-lg">Anon<b>Care</b></span>
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini">A<b>C</b></span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg">Anon<b>Care</b></span>
                 </a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top" role="navigation">
-                  <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                      <!-- User Account: style can be found in dropdown.less -->
-                      <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          <i class="fa fa-user"></i>
-                          <span id="admin-name" class="hidden-xs">
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                            <!-- User Account: style can be found in dropdown.less -->
+                            <li class="dropdown notifications-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-user"></i>
+                                    <span id="admin-name" class="hidden-xs">
 
                           </span>
-                          <i class="fa fa-chevron-down"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <!-- inner menu: contains the actual data -->
-                            <ul class="menu">
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-key"></i> Reset Password
+                                    <i class="fa fa-chevron-down"></i>
                                 </a>
-                              </li>
-                              <li>
-                                <a href="#" onclick="eraseCookie('user_tk');">
-                                  <i class="fa fa-sign-out"></i> Logout
-                                </a>
-                              </li>
-                            </ul>
-                          </li>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <!-- inner menu: contains the actual data -->
+                                        <ul class="menu">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-key"></i> Reset Password
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" onclick="eraseCookie('user_tk');">
+                                                    <i class="fa fa-sign-out"></i> Logout
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
-                      </li>
-                    </ul>
-                  </div>
+                    </div>
                 </nav>
             </header>
             <div class="row">
                 <div class="col-md-3">
                     <section id="sidebar-admin" class="sidebar">
                         <!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">
-            <li class="active treeview">
-              <a href="#" onclick="$('#user-search-box').show(); $('#add-user-form').hide();">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                <i class="fa fa-angle-right pull-right"></i>
-              </a>
-            </li>
-            <li class="treeview">
-              <a href="#" onclick="$('#add-user-form').show(); $('#user-search-box').hide();$('#view-user-table').hide();">
-                <i class="fa fa-plus"></i> <span>Add User</span>
-                <i class="fa fa-angle-right pull-right"></i>
-              </a>
-            </li>
-          </ul>
-          </section>
+                        <ul class="sidebar-menu">
+                            <li class="active treeview">
+                                <a href="#" onclick="$('#user-search-box').show(); $('#add-user-form').hide();">
+                                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                            </li>
+                            <li class="treeview">
+                                <a href="#" onclick="$('#add-user-form').show(); $('#user-search-box').hide();$('#view-user-table').hide();">
+                                    <i class="fa fa-plus"></i> <span>Add User</span>
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
 
                 </div>
                 <div class="col-md-9" id="content-admin">
@@ -142,7 +142,7 @@
 
                                 <center>
                                     <div id="home-loading-image" style="vertical-align: middle;display:none">
-                                        <img src="assets/img/hourglass.gif"/>
+                                        <img src="assets/img/hourglass.gif" />
                                     </div>
                                 </center>
 
@@ -237,39 +237,39 @@
                                 <!-- USER SEARCH BOX -->
 
                                 <div id="user-search-box" class="col-md-11" style="margin-top: 10px">
-                                        <div class="col-md-3">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <!-- search form -->
-                                            <form method="get" class="sidebar-form" onsubmit="return false">
-                                                <div class="input-group">
-                                                    <input id="admin-search-user" type="text" name="q" class="form-control" placeholder="search name/mname/lastname/email">
-                                                    <span class="input-group-btn">
+                                    <div class="col-md-3">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <!-- search form -->
+                                        <form method="get" class="sidebar-form" onsubmit="return false">
+                                            <div class="input-group">
+                                                <input id="admin-search-user" type="text" name="q" class="form-control" placeholder="search name/mname/lastname/email">
+                                                <span class="input-group-btn">
                                                         <button onclick="searchUser();" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                                                         </button>
                                                     </span>
-                                                </div>
-                                            </form>
-                                            <!-- /.search form -->
-                                        </div>
+                                            </div>
+                                        </form>
+                                        <!-- /.search form -->
+                                    </div>
 
-                                        <div class="col-md-3">
-                                        </div>
+                                    <div class="col-md-3">
+                                    </div>
                                 </div>
 
                                 <div id="view-user-table" class="col-md-11" style="margin-top:10px;display:none">
                                     <table class="table">
-                                      <thead>
-                                        <tr>
-                                          <th>Firstname</th>
-                                          <th>Middlename</th>
-                                          <th>Lastname</th>
-                                          <th>Email</th>
-                                          <th>Role</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody id="view-user-table-body">
-                                      </tbody>
+                                        <thead>
+                                            <tr>
+                                                <th>Firstname</th>
+                                                <th>Middlename</th>
+                                                <th>Lastname</th>
+                                                <th>Email</th>
+                                                <th>Role</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="view-user-table-body">
+                                        </tbody>
                                     </table>
                                 </div>
 
@@ -287,76 +287,76 @@
             </div>
         </div>
     </div>
-<!-- ADMIN PAGE DIVISION END -->
+    <!-- ADMIN PAGE DIVISION END -->
 
 
 
-<!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
+    <!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
 
 
-<!-- DOCTOR PAGE DIVISION -->
+    <!-- DOCTOR PAGE DIVISION -->
     <div id="doctor-page" style="display:none">
         <div class="container-fluid">
             <header id="main-header-doctor" class="main-header">
 
                 <!-- Logo -->
                 <a href="#/landing.html" class="logo">
-                  <!-- mini logo for sidebar mini 50x50 pixels -->
-                  <span class="logo-mini">A<b>C</b></span>
-                  <!-- logo for regular state and mobile devices -->
-                  <span class="logo-lg">Anon<b>Care</b></span>
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini">A<b>C</b></span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg">Anon<b>Care</b></span>
                 </a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top" role="navigation">
-                  <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
 
-                      <!-- Notifications: style can be found in dropdown.less -->
-                      <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          <i class="fa fa-bell-o"></i>
-                          <span id="notification-count" class="label label-warning"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li id="notification-message" class="header"></li>
-                          <li>
-                            <!-- inner menu: contains the actual data -->
-                            <ul id="notification-menu" class="menu">
-                            </ul>
-                          </li>
-                          <li class="footer"><a href="#">View all</a></li>
-                        </ul>
-                      </li>
+                            <!-- Notifications: style can be found in dropdown.less -->
+                            <li class="dropdown notifications-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-bell-o"></i>
+                                    <span id="notification-count" class="label label-warning"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li id="notification-message" class="header"></li>
+                                    <li>
+                                        <!-- inner menu: contains the actual data -->
+                                        <ul id="notification-menu" class="menu">
+                                        </ul>
+                                    </li>
+                                    <li class="footer"><a href="#">View all</a></li>
+                                </ul>
+                            </li>
 
-                      <!-- User Account: style can be found in dropdown.less -->
-                      <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          <i class="fa fa-user"></i>
-                          <span id="doctor-name" class="hidden-xs">
+                            <!-- User Account: style can be found in dropdown.less -->
+                            <li class="dropdown notifications-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-user"></i>
+                                    <span id="doctor-name" class="hidden-xs">
 
                           </span>
-                          <i class="fa fa-chevron-down"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <!-- inner menu: contains the actual data -->
-                            <ul class="menu">
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-key"></i> Reset Password
+                                    <i class="fa fa-chevron-down"></i>
                                 </a>
-                              </li>
-                              <li>
-                                <a href="#" onclick="eraseCookie('user_tk');">
-                                  <i class="fa fa-sign-out"></i> Logout
-                                </a>
-                              </li>
-                            </ul>
-                          </li>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <!-- inner menu: contains the actual data -->
+                                        <ul class="menu">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-key"></i> Reset Password
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" onclick="eraseCookie('user_tk');">
+                                                    <i class="fa fa-sign-out"></i> Logout
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
-                      </li>
-                    </ul>
-                  </div>
+                    </div>
                 </nav>
 
             </header>
@@ -364,32 +364,32 @@
                 <div class="col-md-3">
                     <section id="sidebar-doctor" class="sidebar">
                         <!-- sidebar menu: : style can be found in sidebar.less -->
-                      <ul class="sidebar-menu">
-                        <li class="active treeview">
-                          <a href="#">
-                            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                            <i class="fa fa-angle-right pull-right"></i>
-                          </a>
-                        </li>
-                        <li class="treeview">
-                          <a href="#">
-                            <i class="fa fa-user"></i> <span>Doctor Referral</span>
-                            <i class="fa fa-angle-right pull-right"></i>
-                          </a>
-                        </li>
-                        <li class="treeview">
-                          <a href="#">
-                            <i class="fa fa-list"></i> <span>View Asssessments</span>
-                            <i class="fa fa-angle-right pull-right"></i>
-                          </a>
-                        </li>
-                        <li class="treeview">
-                          <a href="#" onclick="$('#doctor-patient-search-box').show();">
-                            <i class="fa fa-list"></i> <span>View Patient</span>
-                            <i class="fa fa-angle-right pull-right"></i>
-                          </a>
-                        </li>
-                      </ul>
+                        <ul class="sidebar-menu">
+                            <li class="active treeview">
+                                <a href="#">
+                                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-user"></i> <span>Doctor Referral</span>
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-list"></i> <span>View Asssessments</span>
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                            </li>
+                            <li class="treeview">
+                                <a href="#" onclick="$('#doctor-patient-search-box').show();">
+                                    <i class="fa fa-list"></i> <span>View Patient</span>
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                            </li>
+                        </ul>
                     </section>
                 </div>
                 <div class="col-md-9" id="content-doctor">
@@ -406,19 +406,19 @@
 
                                 <div id="doctor-patient-search-box" class="col-md-11" style="margin-top: 10px">
                                     <div class="col-md-3"></div>
-                                        <div class="col-md-6">
-                                            <!-- search form -->
-                                            <form method="get" class="sidebar-form" onsubmit="return false">
-                                                <div class="input-group">
-                                                    <input id="doctor-search-patient" type="text" name="q" class="form-control" placeholder="Enter School ID e.g. 20130000">
-                                                    <span class="input-group-btn">
+                                    <div class="col-md-6">
+                                        <!-- search form -->
+                                        <form method="get" class="sidebar-form" onsubmit="return false">
+                                            <div class="input-group">
+                                                <input id="doctor-search-patient" type="text" name="q" class="form-control" placeholder="Enter School ID e.g. 20130000">
+                                                <span class="input-group-btn">
                                                         <button onclick="searchPatient();" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                                                         </button>
                                                     </span>
-                                                </div>
-                                            </form>
-                                            <!-- /.search form -->
-                                        </div>
+                                            </div>
+                                        </form>
+                                        <!-- /.search form -->
+                                    </div>
                                     <div class="col-md-3"></div>
                                 </div>
 
@@ -426,24 +426,24 @@
 
                                 <div id="view-assessment-table" class="col-md-11" style="margin-top:10px;display:none">
                                     <table class="table">
-                                      <thead>
-                                        <tr>
-                                          <th>Assessment Id</th>
-                                          <th>Date</th>
-                                          <th>School ID</th>
-                                          <th>Age</th>
-                                          <th>Vital Signs id</th>
-                                          <th>Chief Complaint</th>
-                                          <th>History of Present Illness</th>
-                                          <th>Medications Taken</th>
-                                          <th>Diagnosis</th>
-                                          <th>Recommendation</th>
-                                          <th>Attending Physician</th>
-                                          <th>Is Read</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody id="view-assessment-table-body">
-                                      </tbody>
+                                        <thead>
+                                            <tr>
+                                                <th>Assessment Id</th>
+                                                <th>Date</th>
+                                                <th>School ID</th>
+                                                <th>Age</th>
+                                                <th>Vital Signs id</th>
+                                                <th>Chief Complaint</th>
+                                                <th>History of Present Illness</th>
+                                                <th>Medications Taken</th>
+                                                <th>Diagnosis</th>
+                                                <th>Recommendation</th>
+                                                <th>Attending Physician</th>
+                                                <th>Is Read</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="view-assessment-table-body">
+                                        </tbody>
                                     </table>
                                 </div>
 
@@ -459,92 +459,92 @@
             </div>
         </div>
     </div>
-<!-- DOCTOR PAGE DIVISION END -->
+    <!-- DOCTOR PAGE DIVISION END -->
 
 
 
-<!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
+    <!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
 
 
-<!-- NURSE PAGE DIVISION -->
+    <!-- NURSE PAGE DIVISION -->
     <div id="nurse-page" style="display:none">
         <div class="container-fluid">
             <header id="main-header-nurse" class="main-header">
 
                 <!-- Logo -->
                 <a href="#/landing.html" class="logo">
-                  <!-- mini logo for sidebar mini 50x50 pixels -->
-                  <span class="logo-mini">A<b>C</b></span>
-                  <!-- logo for regular state and mobile devices -->
-                  <span class="logo-lg">Anon<b>Care</b></span>
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini">A<b>C</b></span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg">Anon<b>Care</b></span>
                 </a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top" role="navigation">
-                  <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
 
-                      <!-- Notifications: style can be found in dropdown.less -->
-                      <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          <i class="fa fa-bell-o"></i>
-                          <span class="label label-warning">3</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li class="header">You have 3 notifications</li>
-                          <li>
-                            <!-- inner menu: contains the actual data -->
-                            <ul class="menu">
-                              <li>
-                                <a href="#">
+                            <!-- Notifications: style can be found in dropdown.less -->
+                            <li class="dropdown notifications-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-bell-o"></i>
+                                    <span class="label label-warning">3</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="header">You have 3 notifications</li>
+                                    <li>
+                                        <!-- inner menu: contains the actual data -->
+                                        <ul class="menu">
+                                            <li>
+                                                <a href="#">
 
-                                  <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-users text-red"></i> 5 new members joined
-                                </a>
-                              </li>
-                            </ul>
-                          </li>
-                          <li class="footer"><a href="#">View all</a></li>
-                        </ul>
-                      </li>
+                                                    <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-users text-red"></i> 5 new members joined
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="footer"><a href="#">View all</a></li>
+                                </ul>
+                            </li>
 
-                      <!-- User Account: style can be found in dropdown.less -->
-                      <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          <i class="fa fa-user"></i>
-                          <span id="nurse-name" class="hidden-xs">
+                            <!-- User Account: style can be found in dropdown.less -->
+                            <li class="dropdown notifications-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-user"></i>
+                                    <span id="nurse-name" class="hidden-xs">
 
                           </span>
-                          <i class="fa fa-chevron-down"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <!-- inner menu: contains the actual data -->
-                            <ul class="menu">
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-key"></i> Reset Password
+                                    <i class="fa fa-chevron-down"></i>
                                 </a>
-                              </li>
-                              <li>
-                                <a href="#" onclick="eraseCookie('user_tk');">
-                                  <i class="fa fa-sign-out"></i> Logout
-                                </a>
-                              </li>
-                            </ul>
-                          </li>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <!-- inner menu: contains the actual data -->
+                                        <ul class="menu">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-key"></i> Reset Password
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" onclick="eraseCookie('user_tk');">
+                                                    <i class="fa fa-sign-out"></i> Logout
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
-                      </li>
-                    </ul>
-                  </div>
+                    </div>
                 </nav>
 
             </header>
@@ -553,30 +553,30 @@
                     <section id="sidebar-nurse" class="sidebar">
                         <!-- sidebar menu: : style can be found in sidebar.less -->
                         <ul class="sidebar-menu">
-                          <li class="active treeview">
-                            <a href="#">
-                              <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                              <i class="fa fa-angle-right pull-right"></i>
-                            </a>
-                          </li>
-                          <li class="treeview">
-                            <a href="#" onclick="$('#add-assessment-form').show();$('#add-patient-form').hide();getAllDoctors();">
-                              <i class="fa fa-plus"></i> <span>Add Asssessments</span>
-                              <i class="fa fa-angle-right pull-right"></i>
-                            </a>
-                          </li>
-                          <li class="treeview">
-                            <a href="#" onclick="$('#add-patient-form').show();$('#add-assessment-form').hide();">
-                              <i class="fa fa-plus"></i> <span>Add Patient File</span>
-                              <i class="fa fa-angle-right pull-right"></i>
-                            </a>
-                          </li>
-                          <li class="treeview">
-                            <a href="#" onclick="$('#nurse-patient-search-box').show();">
-                              <i class="fa fa-list"></i> <span>View Patient</span>
-                              <i class="fa fa-angle-right pull-right"></i>
-                            </a>
-                          </li>
+                            <li class="active treeview">
+                                <a href="#">
+                                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                            </li>
+                            <li class="treeview">
+                                <a href="#" onclick="$('#add-assessment-form').show();$('#add-patient-form').hide();getAllDoctors();">
+                                    <i class="fa fa-plus"></i> <span>Add Asssessments</span>
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                            </li>
+                            <li class="treeview">
+                                <a href="#" onclick="$('#add-patient-form').show();$('#add-assessment-form').hide();">
+                                    <i class="fa fa-plus"></i> <span>Add Patient File</span>
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                            </li>
+                            <li class="treeview">
+                                <a href="#" onclick="$('#nurse-patient-search-box').show();">
+                                    <i class="fa fa-list"></i> <span>View Patient</span>
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                            </li>
                         </ul>
                     </section>
                 </div>
@@ -589,89 +589,94 @@
                             </section>
 
                             <div id="nurse-loading-image" style="vertical-align: middle;display:none;">
-                                <img src="assets/img/hourglass.gif"/>
+                                <img src="assets/img/hourglass.gif" />
                             </div>
 
                             <section id="add-assessment-form" class="content-body" style="display:none;">
 
-                              <!-- ASSESSMENT FORM -->
-                              <div class="box box-primary">
-                                  <div class="box-header with-border">
-                                      <h3 class="box-title" style="padding: 5px">Assessment</h3>
-                                  </div><!-- /.box-header -->
-                                  <div class="box-body">
-                                      <div class="row">
-                                              <div class="col-md-4">
-                                          <form id="assessment-form" class="bootstrap-form-with-validation">
-                                              <div class="form-group">
-                                                  <label class="control-label" for="text-input">School ID</label>
-                                                  <input class="form-control" type="number" name="text-input" id="school-id" required>
-                                              </div>
-                                              <div class="form-group">
-                                                  <label class="control-label" for="text-input">Age </label>
-                                                  <input class="form-control" type="number" name="text-input" id="age" required>
-                                              </div>
-                                              <div class="form-group">
-                                                  <label class="control-label" for="text-input">Temperature </label>
-                                                  <input class="form-control" type="number" name="text-input" id="temperature" required>
-                                              </div>
-                                              <div class="form-group">
-                                                  <label class="control-label" for="text-input">Pulse Rate</label>
-                                                  <input class="form-control" type="number" name="text-input" id="pulse-rate" required>
-                                              </div>
-                                              <div class="form-group">
-                                                  <label class="control-label" for="text-input">Respiration Rate</label>
-                                                  <input class="form-control" type="number" name="text-input" id="respiration-rate" required>
-                                              </div>
-                                              <div class="form-group">
-                                                  <label class="control-label" for="text-input">Blood Pressure</label>
-                                                  <input class="form-control" type="text" name="text-input" id="blood-pressure" required>
-                                              </div>
-                                              <div class="form-group">
-                                                  <label class="control-label" for="text-input">Weight </label>
-                                                  <input class="form-control" type="number" name="text-input" id="weight" required>
-                                              </div>
-                                          </form>
-                                      </div>
-                                      <div class="col-md-4">
-                                          <form id="assessment-form-2" class="bootstrap-form-with-validation">
-                                              <div class="form-group">
-                                                  <label class="control-label" for="textarea-input">Chief Complaint</label>
-                                                  <textarea class="form-control" name="textarea-input" id="chief-complaint" required></textarea>
-                                              </div>
-                                              <div class="form-group">
-                                                  <label class="control-label" for="textarea-input">History of Present Illness</label>
-                                                  <textarea class="form-control" name="textarea-input" id="history-of-present-illness" required></textarea>
-                                              </div>
-                                              <div class="form-group">
-                                                  <label class="control-label" for="textarea-input">Medications Taken</label>
-                                                  <textarea class="form-control" name="textarea-input" id="medications-taken" required></textarea>
-                                              </div>
-                                              <div class="form-group">
-                                                  <label class="control-label" for="textarea-input">Diagnosis </label>
-                                                  <textarea class="form-control" name="textarea-input" id="diagnosis" required></textarea>
-                                              </div>
-                                              <div class="form-group">
-                                                  <label class="control-label" for="textarea-input">Recommendation </label>
-                                                  <textarea class="form-control" name="textarea-input" id="recommendation" required></textarea>
-                                              </div>
-                                          </form>
-                                      </div>
-                                      <div class="col-md-4">
-                                          <div class="form-group">
-                                              <label>Attending Physician</label>
-                                              <select id="attending-physician" class="form-control select2" style="width: 100%;">
+                                <!-- ASSESSMENT FORM -->
+                                <div class="box box-primary">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title" style="padding: 5px">Assessment</h3>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <form id="assessment-form" class="bootstrap-form-with-validation">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="text-input">School ID</label>
+                                                        <input class="form-control" type="number" name="text-input" id="school-id" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="text-input">Age </label>
+                                                        <input class="form-control" type="number" name="text-input" id="age" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="text-input">Temperature </label>
+                                                        <input class="form-control" type="number" name="text-input" id="temperature" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="text-input">Pulse Rate</label>
+                                                        <input class="form-control" type="number" name="text-input" id="pulse-rate" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="text-input">Respiration Rate</label>
+                                                        <input class="form-control" type="number" name="text-input" id="respiration-rate" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="text-input">Blood Pressure</label>
+                                                        <input class="form-control" type="text" name="text-input" id="blood-pressure" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="text-input">Weight </label>
+                                                        <input class="form-control" type="number" name="text-input" id="weight" required>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <form id="assessment-form-2" class="bootstrap-form-with-validation">
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="textarea-input">Chief Complaint</label>
+                                                        <textarea class="form-control" name="textarea-input" id="chief-complaint" required></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="textarea-input">History of Present Illness</label>
+                                                        <textarea class="form-control" name="textarea-input" id="history-of-present-illness" required></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="textarea-input">Medications Taken</label>
+                                                        <textarea class="form-control" name="textarea-input" id="medications-taken" required></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="textarea-input">Diagnosis </label>
+                                                        <textarea class="form-control" name="textarea-input" id="diagnosis" required></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="textarea-input">Recommendation </label>
+                                                        <textarea class="form-control" name="textarea-input" id="recommendation" required></textarea>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Attending Physician</label>
+                                                    <select id="attending-physician" class="form-control select2" style="width: 100%;">
 
                                               </select>
-                                          </div>
-                                      </div>
-                                      </div><!-- /.row -->
-                                  </div><!-- /.box-body -->
-                                  <div class="box-footer">
-                                      <button type="submit" class="btn btn-danger pull-right" style="margin: 5px" onclick="clearAssessmentForm();">Clear</button>
-                                      <button id="submit-button" type="submit" class="btn btn-success pull-right" onclick="storeAssessment();" style="margin: 5px">Submit</button>
-                                  </div><!-- /.box-footer -->
-                              </div><!-- /.box -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.row -->
+                                    </div>
+                                    <!-- /.box-body -->
+                                    <div class="box-footer">
+                                        <button type="submit" class="btn btn-danger pull-right" style="margin: 5px" onclick="clearAssessmentForm();">Clear</button>
+                                        <button id="submit-button" type="submit" class="btn btn-success pull-right" onclick="storeAssessment();" style="margin: 5px">Submit</button>
+                                    </div>
+                                    <!-- /.box-footer -->
+                                </div>
+                                <!-- /.box -->
                             </section>
 
                             <!-- END OF ASSESSMENT FORM -->
@@ -680,454 +685,449 @@
 
 
 
-
-
-
-
-
                             <section id="add-patient-form" class="content-body" style="display:none">
 
 
-                              <!-- Content Header (Page header) -->
-                              <section class="content-header">
-                                <h1>Add Patient</h1>
-                              </section>
+                                <!-- Content Header (Page header) -->
+                                <section class="content-header">
+                                    <h1>Add Patient</h1>
+                                </section>
 
 
-                              <!-- PATIENT FORM -->
-                              <div class="row">
-                                <!-- left column -->
-                                <div class="col-md-6">
-                                  <!-- general form elements -->
-                                  <div class="box box-primary">
-                                    <div class="box-header with-border">
-                                      <h3 class="box-title">Personal Info</h3>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <!-- form start -->
-                                    <form class="form-horizontal" role="form">
-                                      <div class="box-body">
-                                        <div class="form-group">
-                                          <label for="inputID" class="col-sm-3 control-label">ID</label>
-                                          <div class="col-sm-5">
-                                            <input type="number" class="form-control" id="patient-input-id">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="inputID" class="col-sm-3 control-label">First Name</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-fname">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="inputID" class="col-sm-3 control-label">Middle Name</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-mname">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="inputID" class="col-sm-3 control-label">Last Name</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-lname">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="inputage" class="col-sm-3 control-label">Age</label>
-                                      </form>
-                                          <div class="col-sm-2">
-                                            <input type="number" class="form-control" id="patient-input-age">
-                                          </div>
-                                       <form>
-                                           <label for="inputage" class="col-sm-2 control-label">Sex</label>
-                                           <div class="radio">
-                                            <label class="col-sm-2">
+                                <!-- PATIENT FORM -->
+                                <div class="row">
+                                    <!-- left column -->
+                                    <div class="col-md-6">
+                                        <!-- general form elements -->
+                                        <div class="box box-primary">
+                                            <div class="box-header with-border">
+                                                <h3 class="box-title">Personal Info</h3>
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <!-- form start -->
+                                            <form class="form-horizontal" role="form">
+                                                <div class="box-body">
+                                                    <div class="form-group">
+                                                        <label for="inputID" class="col-sm-3 control-label">ID</label>
+                                                        <div class="col-sm-5">
+                                                            <input type="number" class="form-control" id="patient-input-id">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputID" class="col-sm-3 control-label">First Name</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-fname">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputID" class="col-sm-3 control-label">Middle Name</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-mname">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputID" class="col-sm-3 control-label">Last Name</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-lname">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputage" class="col-sm-3 control-label">Age</label>
+                                            </form>
+                                            <div class="col-sm-2">
+                                                <input type="number" class="form-control" id="patient-input-age">
+                                            </div>
+                                            <form>
+                                                <label for="inputage" class="col-sm-2 control-label">Sex</label>
+                                                <div class="radio">
+                                                    <label class="col-sm-2">
                                               <input type="radio" name="optionsRadios" id="patient-female" value="female" checked>
                                               Female
                                             </label>
-                                            <label class="col-sm-2">
+                                                    <label class="col-sm-2">
                                               <input type="radio" name="optionsRadios" id="patient-male" value="male" checked>
                                               Male
                                             </label>
-                                          </div>
-                                      </form>
-                                      <form>
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="inputPatientType" class="col-sm-3 control-label">Patient Type</label>
+                                                </div>
+                                            </form>
+                                            <form>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputPatientType" class="col-sm-3 control-label">Patient Type</label>
 
-                                          <div class="col-sm-3">
-                                            <select id="patient-type" class="form-control select2" style="width: 100%;">
+                                                    <div class="col-sm-3">
+                                                        <select id="patient-type" class="form-control select2" style="width: 100%;">
                                                 <option value="1">Student</option>
                                                 <option value="2">Staff</option>
                                                 <option value="3">Faculty</option>
                                                 <option value="4">Outpatient Department</option>
                                             </select>
-                                           </div>
-                                           <label for="inputPatientType" class="col-sm-2 control-label">Department</label>
-                                           <div class="col-sm-3">
-                                            <select id="patient-department" class="form-control select2" style="width: 100%;">
+                                                    </div>
+                                                    <label for="inputPatientType" class="col-sm-2 control-label">Department</label>
+                                                    <div class="col-sm-3">
+                                                        <select id="patient-department" class="form-control select2" style="width: 100%;">
                                                 <option value="1">ComSci</option>
                                                 <option value="2">IT/IS</option>
                                                 <option value="3">ECETS</option>
                                             </select>
-                                          </div>
-                                         </div>
-                                          <div class="form-group">
-                                          <label for="inputfname" class="col-sm-3 control-label">Height</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputfname" class="col-sm-3 control-label">Height</label>
 
-                                          <div class="col-sm-3">
-                                            <input type="text" class="form-control" id="patient-input-height">
-                                          </div>
-                                          <label for="inputfname" class="col-sm-2 control-label">Weight</label>
+                                                    <div class="col-sm-3">
+                                                        <input type="text" class="form-control" id="patient-input-height">
+                                                    </div>
+                                                    <label for="inputfname" class="col-sm-2 control-label">Weight</label>
 
-                                          <div class="col-sm-3">
-                                            <input type="number" class="form-control" id="patient-input-weight">
-                                          </div>
-                                         </div>
-                                         <div class="form-group">
-                                          <label for="inputfname" class="col-sm-3 control-label">Date of Birth</label>
-                                          <div class="col-sm-5 input-group">
-                                              <div class='input-group' id='datetimepicker1'>
-                                                    <input type='text' class="form-control" id='patient-birth' />
-                                              </div>
-                                          </div>
-                                         </div>
-                                         <div class="form-group">
-                                          <label for="inputfname" class="col-sm-3 control-label">Civil Status</label>
-                                          <div class="radio">
-                                            <label class="col-sm-2">
+                                                    <div class="col-sm-3">
+                                                        <input type="number" class="form-control" id="patient-input-weight">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputfname" class="col-sm-3 control-label">Date of Birth</label>
+                                                    <div class="col-sm-5 input-group">
+                                                        <div class='input-group' id='datetimepicker1'>
+                                                            <input type='text' class="form-control" id='patient-birth' />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputfname" class="col-sm-3 control-label">Civil Status</label>
+                                                    <div class="radio">
+                                                        <label class="col-sm-2">
                                               <input type="radio" name="optionsRadios" id="patient-single" value="single" checked>
                                               Single
                                             </label>
-                                            <label class="col-sm-2">
+                                                        <label class="col-sm-2">
                                               <input type="radio" name="optionsRadios" id="patient-married" value="married" checked>
                                               Married
                                             </label>
-                                            <label class="col-sm-2">
+                                                        <label class="col-sm-2">
                                               <input type="radio" name="optionsRadios" id="patient-divorced" value="divorced" checked>
                                               Divorced
                                             </label>
-                                            <label class="col-sm-2">
+                                                        <label class="col-sm-2">
                                               <input type="radio" name="optionsRadios" id="patient-widow" value="widow" checked>
                                               Widow
                                             </label>
-                                          </div>
-                                        </div>
-                                         <div class="form-group">
-                                          <label for="inputfname" class="col-sm-4 control-label">Name of Guardian</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputfname" class="col-sm-4 control-label">Name of Guardian</label>
 
-                                          <div class="col-sm-7">
-                                            <input type="text" class="form-control" id="patient-input-gurdian">
-                                          </div>
-                                        </div>
-                                         <div class="form-group">
-                                          <label for="inputfname" class="col-sm-4 control-label">Home Address</label>
+                                                    <div class="col-sm-7">
+                                                        <input type="text" class="form-control" id="patient-input-gurdian">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputfname" class="col-sm-4 control-label">Home Address</label>
 
-                                          <div class="col-sm-7">
-                                            <input type="name" class="form-control" id="patient-input-address">
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <!-- /.box-body -->
+                                                    <div class="col-sm-7">
+                                                        <input type="name" class="form-control" id="patient-input-address">
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <!-- /.box-body -->
 
-                                      <div class="box-footer">
-                                      </div>
-                                    </form>
-                                  </div>
-                                  <!-- /.box -->
-
-                                  <!-- Form Element sizes -->
-                                  <div class="box box-success">
-                                    <div class="box-header with-border">
-                                      <h3 class="box-title">Illness</h3>
-                                    </div>
-                                    <form class="form-horizontal" role="form">
-                                      <div class="box-body">
-                                         <div class="form-group">
-                                          <label for="inputID" class="col-sm-3 control-label">Asthma</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-asthma">
-                                          </div>
-                                         </div>
-                                         <div class="form-group">
-                                          <label for="inputID" class="col-sm-3 control-label">Ptb</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-ptb">
-                                          </div>
-                                         </div>
-                                         <div class="form-group">
-                                          <label for="inputID" class="col-sm-3 control-label">Heart Problem</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-heart">
-                                          </div>
-                                         </div>
-                                         <div class="form-group">
-                                          <label for="inputID" class="col-sm-3 control-label">Hepatitis A B</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-hepa">
-                                          </div>
-                                         </div>
-                                         <div class="form-group">
-                                          <label for="inputID" class="col-sm-3 control-label">Chicken Pox</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-chickenpox">
-                                          </div>
-                                         </div>
-                                         <div class="form-group">
-                                          <label for="inputID" class="col-sm-3 control-label">Mumps</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-mumps">
-                                          </div>
-                                         </div>
-                                         <div class="form-group">
-                                          <label for="inputID" class="col-sm-3 control-label">Typhoid Fever</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-typhoid">
-                                          </div>
-                                         </div>
-                                       </div>
-                                    <!-- /.box-body -->
-                                         <div class="box-footer">
-                                         </div>
-                                     </form>
-                                  </div>
-
-
-                                  <!-- Box -->
-                                  <div class="box box-info">
-                                    <div class="box-header with-border">
-                                      <h3 class="box-title">Neurologic</h3>
-                                    </div>
-                                    <form class="form-horizontal" role="form">
-                                      <div class="box-body">
-                                        <div class="form-group">
-                                          <label for="inputID" class="col-sm-3 control-label">Headache</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-headache">
-                                          </div>
+                                                <div class="box-footer">
+                                                </div>
+                                            </form>
                                         </div>
-                                        <div class="form-group">
-                                          <label for="inputID" class="col-sm-3 control-label">Seizure</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-seizure">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="inputID" class="col-sm-3 control-label">Dizziness</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-dizziness">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="inputID" class="col-sm-5 control-label">Loss of Consciousness</label>
-                                          <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="patient-input-consciousness">
-                                          </div>
+                                        <!-- /.box -->
+
+                                        <!-- Form Element sizes -->
+                                        <div class="box box-success">
+                                            <div class="box-header with-border">
+                                                <h3 class="box-title">Illness</h3>
+                                            </div>
+                                            <form class="form-horizontal" role="form">
+                                                <div class="box-body">
+                                                    <div class="form-group">
+                                                        <label for="inputID" class="col-sm-3 control-label">Asthma</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-asthma">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputID" class="col-sm-3 control-label">Ptb</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-ptb">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputID" class="col-sm-3 control-label">Heart Problem</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-heart">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputID" class="col-sm-3 control-label">Hepatitis A B</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-hepa">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputID" class="col-sm-3 control-label">Chicken Pox</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-chickenpox">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputID" class="col-sm-3 control-label">Mumps</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-mumps">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputID" class="col-sm-3 control-label">Typhoid Fever</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-typhoid">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /.box-body -->
+                                                <div class="box-footer">
+                                                </div>
+                                            </form>
                                         </div>
 
+
+                                        <!-- Box -->
+                                        <div class="box box-info">
+                                            <div class="box-header with-border">
+                                                <h3 class="box-title">Neurologic</h3>
+                                            </div>
+                                            <form class="form-horizontal" role="form">
+                                                <div class="box-body">
+                                                    <div class="form-group">
+                                                        <label for="inputID" class="col-sm-3 control-label">Headache</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-headache">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputID" class="col-sm-3 control-label">Seizure</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-seizure">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputID" class="col-sm-3 control-label">Dizziness</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-dizziness">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputID" class="col-sm-5 control-label">Loss of Consciousness</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="patient-input-consciousness">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!-- /.box-body -->
+                                                <div class="box-footer">
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <!-- /.box-body -->
-                                       <div class="box-footer">
-                                         </div>
-                                     </form>
-                                  </div>
-                                  </div>
-                                  <!-- /.box -->
-                                <!--/.col (left) -->
-                                <!-- right column -->
-                                <div class="col-md-6">
-                                  <!-- Horizontal Form -->
-                                  <div class="box box-info">
-                                    <div class="box-header with-border">
-                                      <h3 class="box-title">Personal History</h3>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <!-- form start -->
-                                    <form class="form-horizontal">
-                                      <div class="box-body">
-                                        <div class="form-group">
-                                          <label for="inputfname" class="col-sm-3 control-label">Smoking</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-smoking">
-                                          </div>
+                                    <!-- /.box -->
+                                    <!--/.col (left) -->
+                                    <!-- right column -->
+                                    <div class="col-md-6">
+                                        <!-- Horizontal Form -->
+                                        <div class="box box-info">
+                                            <div class="box-header with-border">
+                                                <h3 class="box-title">Personal History</h3>
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <!-- form start -->
+                                            <form class="form-horizontal">
+                                                <div class="box-body">
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Smoking</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-smoking">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Allergies</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-allergies">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Alcohol</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-alcohol">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Medication Taken</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-medication">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Drugs</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-drugs">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /.box-body -->
+                                                <div class="box-footer">
+                                                </div>
+                                                <!-- /.box-footer -->
+                                            </form>
                                         </div>
-                                        <div class="form-group">
-                                          <label for="inputfname" class="col-sm-3 control-label">Allergies</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-allergies">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="inputfname" class="col-sm-3 control-label">Alcohol</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-alcohol">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="inputfname" class="col-sm-3 control-label">Medication Taken</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-medication">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="inputfname" class="col-sm-3 control-label">Drugs</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-drugs">
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <!-- /.box-body -->
-                                      <div class="box-footer">
-                                      </div>
-                                      <!-- /.box-footer -->
-                                    </form>
-                                  </div>
-                                  <!-- /.box -->
-                                  <!-- general form elements disabled -->
-                                  <div class="box box-warning">
-                                    <div class="box-header with-border">
-                                      <h3 class="box-title">Pulmonary</h3>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <div class="box-body">
-                                      <form class = "form-horizontal" role="form">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                           <label for="inputfname" class="col-sm-3 control-label">Cough</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="input-patient-cough">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                           <label for="inputfname" class="col-sm-3 control-label">Dyspnea</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="input-patient-dyspnea">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                           <label for="inputfname" class="col-sm-3 control-label">Hemoptysis</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-hemo">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                           <label for="inputfname" class="col-sm-3 control-label">TB Exposure</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-tb">
-                                          </div>
-                                        </div>
-                                        <div class="box-footer">
-                                      </div>
-                                      </form>
-                                    </div>
-                                    </div>
-                                    <!-- /.box-body -->
-                                    <div class="box box-primary">
-                                    <div class="box-header with-border">
-                                      <h3 class="box-title">Gut</h3>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <div class="box-body">
-                                      <form class = "form-horizontal" role="form">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                           <label for="inputfname" class="col-sm-3 control-label">Frequency</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-frequency">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                           <label for="inputfname" class="col-sm-3 control-label">Flank Plan</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-flank">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                           <label for="inputfname" class="col-sm-3 control-label">Discharge</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-discharge">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                           <label for="inputfname" class="col-sm-3 control-label">Dysuria</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-dysuria">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                           <label for="inputfname" class="col-sm-3 control-label">Nocturia</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-nocturia">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                           <label for="inputfname" class="col-sm-4 control-label">Dec Urine Amount</label>
-                                          <div class="col-sm-7">
-                                            <input type="text" class="form-control" id="patient-input-urine">
-                                          </div>
+                                        <!-- /.box -->
+                                        <!-- general form elements disabled -->
+                                        <div class="box box-warning">
+                                            <div class="box-header with-border">
+                                                <h3 class="box-title">Pulmonary</h3>
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body">
+                                                <form class="form-horizontal" role="form">
+                                                    <!-- text input -->
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Cough</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="input-patient-cough">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Dyspnea</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="input-patient-dyspnea">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Hemoptysis</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-hemo">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">TB Exposure</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-tb">
+                                                        </div>
+                                                    </div>
+                                                    <div class="box-footer">
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                         <!-- /.box-body -->
-                                      <div class="box-footer">
-                                      </div>
-                                      <!-- /.box-footer -->
-                                      </form>
+                                        <div class="box box-primary">
+                                            <div class="box-header with-border">
+                                                <h3 class="box-title">Gut</h3>
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body">
+                                                <form class="form-horizontal" role="form">
+                                                    <!-- text input -->
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Frequency</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-frequency">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Flank Plan</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-flank">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Discharge</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-discharge">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Dysuria</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-dysuria">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Nocturia</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-nocturia">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-4 control-label">Dec Urine Amount</label>
+                                                        <div class="col-sm-7">
+                                                            <input type="text" class="form-control" id="patient-input-urine">
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.box-body -->
+                                                    <div class="box-footer">
+                                                    </div>
+                                                    <!-- /.box-footer -->
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <!-- /.box -->
+                                        <!-- /.box-body -->
+                                        <div class="box box-success">
+                                            <div class="box-header with-border">
+                                                <h3 class="box-title">Cardiac</h3>
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <div class="box-body">
+                                                <form class="form-horizontal" role="form">
+                                                    <!-- text input -->
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Chest Pain</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-chest">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Palpitations</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-palpitation">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Pedal Edema</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-pedal">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-3 control-label">Orthopnea</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="patient-input-orthopnea">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputfname" class="col-sm-4 control-label">Nocturnal Dyspnea</label>
+                                                        <div class="col-sm-7">
+                                                            <input type="text" class="form-control" id="patient-input-nocturnal">
+                                                        </div>
+                                                    </div>
+                                                    <div class="box-footer">
+                                                    </div>
+                                                    <!-- /.box-footer -->
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
-                                  </div>
-                                  <!-- /.box -->
-                                   <!-- /.box-body -->
-                                    <div class="box box-success">
-                                    <div class="box-header with-border">
-                                      <h3 class="box-title">Cardiac</h3>
+                                    <div class="col-sm-6 box-footer">
+                                        <button type="submit" class="btn btn-info pull-right" onclick="storePatient();">Add Patient</button>
                                     </div>
-                                    <!-- /.box-header -->
-                                    <div class="box-body">
-                                      <form class = "form-horizontal" role="form">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                           <label for="inputfname" class="col-sm-3 control-label">Chest Pain</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-chest">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                           <label for="inputfname" class="col-sm-3 control-label">Palpitations</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-palpitation">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                           <label for="inputfname" class="col-sm-3 control-label">Pedal Edema</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-pedal">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                           <label for="inputfname" class="col-sm-3 control-label">Orthopnea</label>
-                                          <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="patient-input-orthopnea">
-                                          </div>
-                                        </div>
-                                        <div class="form-group">
-                                           <label for="inputfname" class="col-sm-4 control-label">Nocturnal Dyspnea</label>
-                                          <div class="col-sm-7">
-                                            <input type="text" class="form-control" id="patient-input-nocturnal">
-                                          </div>
-                                        </div>
-                                        <div class="box-footer">
-                                      </div>
-                                      <!-- /.box-footer -->
-                                      </form>
-                                    </div>
-                                  </div>
+                                    <!--/.col (right) -->
                                 </div>
-                                  <div class="col-sm-6 box-footer">
-                                <button type="submit" class="btn btn-info pull-right" onclick="storePatient();">Add Patient</button>
-                              </div>
-                                <!--/.col (right) -->
-                              </div>
 
 
-                              <!-- /.row -->
+                                <!-- /.row -->
                             </section>
 
                             <!-- END OF PATIENT FORM -->
@@ -1140,34 +1140,25 @@
 
                                 <div id="nurse-patient-search-box" class="col-md-11" style="margin-top: 10px">
                                     <div class="col-md-3"></div>
-                                        <div class="col-md-6">
-                                            <!-- search form -->
-                                            <form method="get" class="sidebar-form" onsubmit="return false">
-                                                <div class="input-group">
-                                                    <input id="nurse-search-patient" type="text" name="q" class="form-control" placeholder="Enter School ID e.g. 20130000">
-                                                    <span class="input-group-btn">
+                                    <div class="col-md-6">
+                                        <!-- search form -->
+                                        <form method="get" class="sidebar-form" onsubmit="return false">
+                                            <div class="input-group">
+                                                <input id="nurse-search-patient" type="text" name="q" class="form-control" placeholder="Enter School ID e.g. 20130000">
+                                                <span class="input-group-btn">
                                                         <button onclick="searchPatient();" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                                                         </button>
                                                     </span>
-                                                </div>
-                                            </form>
-                                            <!-- /.search form -->
-                                        </div>
+                                            </div>
+                                        </form>
+                                        <!-- /.search form -->
+                                    </div>
                                     <div class="col-md-3"></div>
                                 </div>
 
                                 <!-- END PATIENT SEARCH BOX -->
 
                             </section>
-
-
-
-
-
-
-
-
-
                         </div>
                     </div>
                     <div class="row">
@@ -1179,25 +1170,25 @@
             </div>
         </div>
     </div>
-<!-- NURSE PAGE DIVSION END -->
+    <!-- NURSE PAGE DIVSION END -->
 
 
 
-<!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
+    <!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
 
 
 
 
-<!-- FOOTER -->
-<div class="container-fluid">
-  <footer id="footer" class="text-muted" style="display:none">
-      <div class="pull-right hidden-xs">
-        <b>Version</b> 1.0.0
-      </div>
-      <strong>Copyright &copy; Anoncare 2016.</strong> All rights reserved.
-  </footer>
-</div>
-<!-- END FOOTER -->
+    <!-- FOOTER -->
+    <div class="container-fluid">
+        <footer id="footer" class="text-muted" style="display:none">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.0.0
+            </div>
+            <strong>Copyright &copy; Anoncare 2016.</strong> All rights reserved.
+        </footer>
+    </div>
+    <!-- END FOOTER -->
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -1218,11 +1209,9 @@
     <script src="assets/js/morris.min.js"></script>
     <script src="assets/js/select2.full.min.js"></script>
     <script src="assets/js/main.js"></script>
-    <script type="text/javascript"
-     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    <script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
     </script>
-    <script type="text/javascript"
-     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+    <script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
     </script>
 </body>
 
