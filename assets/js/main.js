@@ -622,6 +622,38 @@ function storePatient(){
 
 	});
 
-	console.log(data);
+	if(user_role == 3){
+
+		$.ajax({
+
+			type:"POST",
+			url:"http://localhost:8051/api/anoncare/patient",
+			contentType: "application/json; charset=utf-8",
+			data:data,
+			dataType:"json",
+
+			success: function(results){
+				auth_user = results.token;
+				$('#login-loading-image').hide();
+			},
+
+			error: function(e, stats, err){
+				console.log(err);
+				console.log(stats);
+			},
+
+			beforeSend: function (xhrObj){
+
+	      		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
+
+	        }
+
+		});
+
+	}
+
+	else{
+		alert('THIS IS NOT COOL SOMETHING WENT WRONG: UNAUTHORIZE ACCESS');
+	}
 
 }
