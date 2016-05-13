@@ -1,5 +1,6 @@
 var auth_user = "";
 var user_role;
+var timer = 0;
 
 $(document).ready(function(){
 
@@ -18,6 +19,7 @@ function readCookie(name) {
 function eraseCookie(name) {
     document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 
+	stop();
 	$('#admin-page').hide(0);
 	$('#nurse-page').hide(0);
 	$('#doctor-page').hide(0);
@@ -218,6 +220,7 @@ function signin(){
 					$("#welcome-alert-doctor").fadeTo(2000, 500).slideUp(500);
 
 					user_role = results.data[0].role;
+					getNotification();
 				}
 
 				if(results.data[0].role == 3){
@@ -726,4 +729,71 @@ function storePatient(){
 		alert('THIS IS NOT COOL SOMETHING WENT WRONG: UNAUTHORIZE ACCESS');
 	}
 
+}
+
+var interval = 2000;
+function getNotification(){
+	var myCookie = readCookie('user_tk');
+	$.ajax({
+
+		type:"GET",
+		url:"http://localhost:8051/api/anoncare/notifications/"+myCookie,
+		contentType: "application/json; charset=utf-8",
+		dataType:"json",
+
+		success: function(results){
+
+			if(results.status == 'OK'){
+
+				$('#notification-message').html(results.message);
+				$('#notification-count').html(results.entries.length);
+
+				$('#notification-menu').html(function(){
+
+					var notification_row = '';
+					var notification;
+
+					for (var i = 0; i < results.entries.length; i++) {
+
+						notification = '<li><a href="#"><i class="fa fa-users text-aqua"></i>'+
+
+						'Assessment #'+ results.entries[i].assessment_id+ 'Assessment request from user '+
+						results.entries[i].doctor_id;
+
+						notification_row+=notification;
+
+					}
+
+					return notification_row;
+
+				});
+			}
+		},
+
+		complete: function (data) {
+            // Schedule the next
+            timer = setTimeout(getNotification, interval);
+        },
+
+		error: function(e, stats, err){
+			console.log(err);
+			console.log(stats);
+			alert('THIS IS NOT COOL. SOMETHING WENT WRONG');
+		},
+
+		beforeSend: function (xhrObj){
+
+			xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
+
+		}
+
+	});
+
+}
+
+function stop() {
+    if (timer) {
+        clearTimeout(timer);
+        timer = 0;
+    }
 }
