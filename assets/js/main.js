@@ -852,3 +852,29 @@ function showAssessmentById(id){
 	});
 
 }
+
+
+function searchAssessment(){
+
+	var search = ('#doctor-search-assessment').val();
+
+	$.ajax({
+
+		type:"GET",
+		url:"http://localhost:8051/api/anoncare/assessment/"+search+"/",
+		contentType:"application/json; charset=utf-8",
+		data:data,
+		dataType:"json",
+
+		success: function(results){
+
+			if(results.status == 'OK'){
+				
+			}
+
+		},
+
+	});
+
+
+}
