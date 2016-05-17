@@ -650,7 +650,7 @@
                                 </a>
                             </li>
                             <li class="treeview">
-                                <a href="#">
+                                <a href="#" onclick="$('#doctor-referral-form').show();">
                                     <i class="fa fa-user"></i> <span>Doctor Referral</span>
                                     <i class="fa fa-angle-right pull-right"></i>
                                 </a>
@@ -679,6 +679,71 @@
                             </section>
 
                             <section class="content-body">
+
+                                <!-- DOCTOR REFERRAL -->
+                                <div id="doctor-referral-form" class="col-md-8 col-md-offset-2" style="display:none">
+                                                            <section id="add-assessment-form" class="content-body" style="display:none;">
+
+                                <!-- ASSESSMENT FORM -->
+                                <div class="box box-primary">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title" style="padding: 5px">Doctor Referral</h3>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                 <p><b><h4>Patient Name:  </h4>
+                                                    <h5><b>ID No. : <br><br>
+                                                    Age : <br><br>
+                                                    Temperature : <br><br>
+                                                    Pulse rate : <br><br>
+                                                    Respiration rate : <br><br>
+                                                    Blood pressure : <br><br>
+                                                    Weight : <br><br>
+                                                    </b></h5>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><b><h5><br><br>
+                                                    Chief of complaint : <br><br>
+                                                    History of present illness : <br><br>
+                                                    Medications Taken : <br><br>
+                                                    Diagnosis : <br><br>
+                                                    Recommendation : <br><br>
+                                                    Attending Physician : <br><br>
+                                                    </b></h5>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- /.row -->
+                                    </div>
+                                    <!-- /.box-body -->
+                                    <div class="box-footer">
+                                        <div class="col-md-12">
+
+
+                                            <div class="col-md-8">
+
+                                                            <label>Attending Physician</label><select id="attending-physician" class="form-control select2" style="width: 100%;">
+                                                            </select>
+
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <br>
+                                                    <button id="submit-button" type="submit" class="btn btn-warning" onclick="storeAssessment();" style="margin: 5px">Refer</button>OR
+                                                    <button id="submit-button" type="submit" class="btn btn-success" onclick="storeAssessment();" style="margin: 5px">Accept</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.box-footer -->
+                                </div>
+                                <!-- /.box -->
+                            </section>
+
+                                </div>
+                                <!-- END OF DOCTOR REFERRAL -->
 
                                 <!-- PATIENT SEARCH BOX -->
 

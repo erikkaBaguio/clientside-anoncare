@@ -492,6 +492,25 @@ function getAllDoctors(){
 
 }
 
+
+function doctorReferral() {
+	var attending_physician = $('#attending-physician').val();
+	var data = JSON.stringify({'attending_physician': attending_physician});
+
+	$('#doctor-referral-form').show();
+
+	$.ajax({
+		type: "POST",
+		url:"http://localhost:8051/api/anoncare/assessment",
+		dataType: json,
+
+		success: function(results) {
+			return results
+		},
+	});
+}
+
+
 function storeAssessment(){
 	var school_id = $('#school-id').val();
     var age = $('#age').val();
