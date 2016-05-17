@@ -67,7 +67,6 @@ function decryptCookie(){
 
 	    error: function(e, stats, err){
 	    	$('#log-in-page').show();
-	    	$('#footer').show();
 	    	$('#login-loading-image').hide();
 	    }
 
@@ -127,6 +126,7 @@ function home(){
 	    error: function(e, stats, err){
 	    	console.log(err);
 	    	console.log(stats);
+			eraseCookie();
 	    	$('#login-form').show();
 	    	$('#footer').hide();
 	    },
@@ -856,23 +856,74 @@ function showAssessmentById(id){
 
 function searchAssessment(){
 
-	var search = ('#doctor-search-assessment').val();
+	var search = $('#doctor-search-assessment').val();
+	console.log(search);
 
 	$.ajax({
 
 		type:"GET",
 		url:"http://localhost:8051/api/anoncare/assessment/"+search+"/",
 		contentType:"application/json; charset=utf-8",
-		data:data,
 		dataType:"json",
 
 		success: function(results){
-
+			console.log(results);
 			if(results.status == 'OK'){
-				
+
+				$('#assessment-data').html(function(){
+
+					var assessment_row = '';
+					var assessment;
+
+					for (var i = 0; i < results.entries.length; i++) {
+
+						assessment = '<div class="box-body jumbotron">'+
+										'<div class="row">'+
+											'<div class="col-md-6">'+
+												'<h5>'+
+												'<b>'+
+													'ID No.: '+results.entries[i].school_id+'<br><br>'+
+													'Age: '+results.entries[i].age+'<br><br>'+
+													'Temperature: '+results.entries[i].temperature+'<br><br>'+
+													'Pulse rate: '+results.entries[i].pulse_rate+'<br><br>'+
+													'Respiration rate: '+results.entries[i].respiration_rate+'<br><br>'+
+													'Blood pressure: '+results.entries[i].blood_pressure+'<br><br>'+
+													'Weight: '+results.entries[i].weight+'<br><br>'+
+												'</b>'+
+												+'</h5>'+
+											'</div>'+
+											'<div class="col-md-6">'+
+											'<h5>'+
+											'<b>'+
+												'Chief of chief-complaint: '+results.entries[i].chief_complaint+'<br><br>'+
+												'History of present illness: '+results.entries[i].history_of_present_illness+'<br><br>'+
+												'Medications taken: '+results.entries[i].medications_taken+'<br><br>'+
+												'Diagnosis: '+results.entries[i].diagnosis+'<br><br>'+
+												'Recommendation: '+results.entries[i].recommendation+'<br><br>'+
+												'Attending Physician: '+results.entries[i].attending_physician+'<br><br>'+
+											'</b>'+
+											+'</h5>'+
+											'</div>'+
+										'</div>'+
+									 '</div>';
+
+						assessment_row+=assessment;
+
+					}
+
+					return assessment_row;
+
+				});
+
 			}
 
 		},
+
+		beforeSend: function (xhrObj){
+
+			xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
+
+		}
 
 	});
 

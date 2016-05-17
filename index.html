@@ -366,7 +366,7 @@
                         <!-- sidebar menu: : style can be found in sidebar.less -->
                         <ul class="sidebar-menu">
                             <li class="active treeview">
-                                <a href="#">
+                                <a href="#" onclick="$('#doctor-patient-search-box').show();$('#doctor-assessment-search-box').hide();">
                                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                                     <i class="fa fa-angle-right pull-right"></i>
                                 </a>
@@ -378,7 +378,7 @@
                                 </a>
                             </li>
                             <li class="treeview">
-                                <a href="#">
+                                <a href="#" onclick="$('#doctor-patient-search-box').hide();$('#doctor-assessment-search-box').show();">
                                     <i class="fa fa-list"></i> <span>View Asssessments</span>
                                     <i class="fa fa-angle-right pull-right"></i>
                                 </a>
@@ -410,9 +410,9 @@
                                         <!-- search form -->
                                         <form method="get" class="sidebar-form" onsubmit="return false">
                                             <div class="input-group">
-                                                <input id="doctor-search-patient" type="text" name="q" class="form-control" placeholder="Enter School ID e.g. 20130000">
+                                                <input name="doctor-search-patient" id="doctor-search-patient" type="number" class="form-control" placeholder="Enter School ID e.g. 20130000">
                                                 <span class="input-group-btn">
-                                                        <button onclick="searchPatient();" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                                                        <button onclick="searchAssessment();" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                                                         </button>
                                                     </span>
                                             </div>
@@ -447,7 +447,7 @@
                                     </table>
                                 </div>
 
-                                <div id="doctor-assessment-search-box" class="col-md-11" style="margin-top: 10px">
+                                <div id="doctor-assessment-search-box" class="col-md-11" style="margin-top: 10px;display:None">
                                     <div class="col-md-3"></div>
                                         <div class="col-md-6">
                                             <!-- search form -->
@@ -455,7 +455,7 @@
                                                 <div class="input-group">
                                                     <input id="doctor-search-assessment" type="text" name="q" class="form-control" placeholder="Enter School ID e.g. 20130000">
                                                     <span class="input-group-btn">
-                                                        <button onclick="searchPatient();" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                                                        <button onclick="searchAssessment();" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                                                         </button>
                                                     </span>
                                                 </div>
@@ -463,6 +463,10 @@
                                             <!-- /.search form -->
                                         </div>
                                     <div class="col-md-3"></div>
+
+                                    <div id="assessment-data">
+
+                                    </div>
                                 </div>
 
                             </section>
