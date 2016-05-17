@@ -67,7 +67,6 @@ function decryptCookie(){
 
 	    error: function(e, stats, err){
 	    	$('#log-in-page').show();
-	    	$('#footer').show();
 	    	$('#login-loading-image').hide();
 	    }
 
@@ -127,6 +126,7 @@ function home(){
 	    error: function(e, stats, err){
 	    	console.log(err);
 	    	console.log(stats);
+			eraseCookie();
 	    	$('#login-form').show();
 	    	$('#footer').hide();
 	    },
@@ -808,29 +808,42 @@ function showAssessmentById(id){
 
 		success: function(results){
 
-			$('#view-assessment-table-body').html(function(){
+			$('#view-assessment-table').html(function(){
 
 				var assessment_row = '';
 				var assessment;
 
 				for (var i = 0; i < results.entries.length; i++) {
 
-					assessment = '<tr>'+
-
-									'<td>'+ results.entries[i].id + '</td>'+
-									'<td>'+ results.entries[i].date + '</td>'+
-									'<td>'+ results.entries[i].school_id + '</td>'+
-									'<td>'+ results.entries[i].age + '</td>'+
-									'<td>'+ results.entries[i].vital_signs_id + '</td>'+
-									'<td>'+ results.entries[i].chief_complaint + '</td>'+
-									'<td>'+ results.entries[i].history_of_present_illness + '</td>'+
-									'<td>'+ results.entries[i].medications_taken + '</td>'+
-									'<td>'+ results.entries[i].diagnosis + '</td>'+
-									'<td>'+ results.entries[i].recommendation + '</td>'+
-									'<td>'+ results.entries[i].attending_physician + '</td>'+
-									'<td>'+ results.entries[i].is_read + '</td>'+
-
-					 			+'</tr>';
+					assessment = '<div class="box-body jumbotron">'+
+									'<div class="row">'+
+										'<div class="col-md-6">'+
+											'<h5>'+
+											'<b>'+
+												'ID No.: '+results.entries[i].school_id+'<br><br>'+
+												'Age: '+results.entries[i].age+'<br><br>'+
+												'Temperature: '+results.entries[i].temperature+'<br><br>'+
+												'Pulse rate: '+results.entries[i].pulse_rate+'<br><br>'+
+												'Respiration rate: '+results.entries[i].respiration_rate+'<br><br>'+
+												'Blood pressure: '+results.entries[i].blood_pressure+'<br><br>'+
+												'Weight: '+results.entries[i].weight+'<br><br>'+
+											'</b>'+
+											+'</h5>'+
+										'</div>'+
+										'<div class="col-md-6">'+
+										'<h5>'+
+										'<b>'+
+											'Chief of chief-complaint: '+results.entries[i].chief_complaint+'<br><br>'+
+											'History of present illness: '+results.entries[i].history_of_present_illness+'<br><br>'+
+											'Medications taken: '+results.entries[i].medications_taken+'<br><br>'+
+											'Diagnosis: '+results.entries[i].diagnosis+'<br><br>'+
+											'Recommendation: '+results.entries[i].recommendation+'<br><br>'+
+											'Attending Physician: '+results.entries[i].attending_physician+'<br><br>'+
+										'</b>'+
+										+'</h5>'+
+										'</div>'+
+									'</div>'+
+								 '</div>';
 
 					assessment_row+=assessment;
 				}
@@ -840,6 +853,8 @@ function showAssessmentById(id){
 			});
 
 			$('#view-assessment-table').show();
+			$('#assessment-data').hide();
+
 
 		},
 
@@ -856,25 +871,188 @@ function showAssessmentById(id){
 
 function searchAssessment(){
 
-	var search = ('#doctor-search-assessment').val();
+	var search = $('#doctor-search-assessment').val();
+	console.log(search);
 
 	$.ajax({
 
 		type:"GET",
 		url:"http://localhost:8051/api/anoncare/assessment/"+search+"/",
 		contentType:"application/json; charset=utf-8",
-		data:data,
 		dataType:"json",
 
 		success: function(results){
-
+			console.log(results);
 			if(results.status == 'OK'){
-				
+
+				$('#assessment-name').html(results.entries[0].school_id +' | '+results.entries[0].patient_fname +' '+results.entries[0].patient_lname);
+
+				$('#assessment-body').html(function(){
+
+					var assessment_row = '';
+					var assessment;
+
+					for (var i = 0; i < results.entries.length; i++) {
+
+						// assessment = '<div class="box-body jumbotron">'+
+						// 				'<div class="row">'+
+						// 					'<div class="col-md-6">'+
+						// 						'<h5>'+
+						// 						'<b>'+
+						// 							'ID No.: '+results.entries[i].school_id+'<br><br>'+
+						// 							'Age: '+results.entries[i].age+'<br><br>'+
+						// 							'Temperature: '+results.entries[i].temperature+'<br><br>'+
+						// 							'Pulse rate: '+results.entries[i].pulse_rate+'<br><br>'+
+						// 							'Respiration rate: '+results.entries[i].respiration_rate+'<br><br>'+
+						// 							'Blood pressure: '+results.entries[i].blood_pressure+'<br><br>'+
+						// 							'Weight: '+results.entries[i].weight+'<br><br>'+
+						// 						'</b>'+
+						// 						+'</h5>'+
+						// 					'</div>'+
+						// 					'<div class="col-md-6">'+
+						// 					'<h5>'+
+						// 					'<b>'+
+						// 						'Chief of chief-complaint: '+results.entries[i].chief_complaint+'<br><br>'+
+						// 						'History of present illness: '+results.entries[i].history_of_present_illness+'<br><br>'+
+						// 						'Medications taken: '+results.entries[i].medications_taken+'<br><br>'+
+						// 						'Diagnosis: '+results.entries[i].diagnosis+'<br><br>'+
+						// 						'Recommendation: '+results.entries[i].recommendation+'<br><br>'+
+						// 						'Attending Physician: '+results.entries[i].attending_physician+'<br><br>'+
+						// 					'</b>'+
+						// 					+'</h5>'+
+						// 					'</div>'+
+						// 				'</div>'+
+						// 			 '</div>';
+
+						assessment = '<tr>'+
+										'<td>'+results.entries[i].attending_physician+'</td>'+
+										'<td>'+results.entries[i].assessment_date+'</td>'+
+										'<td>'+'<button onclick="showAssessmentById('+ results.entries[i].assessment_id +')"; class="btn btn-info pull-center">View</button>'+'</td>'+
+									 '</tr>';
+
+						assessment_row+=assessment;
+
+					}
+
+					return assessment_row;
+
+				});
+
+				$('#assessment-data').show();
+
 			}
 
 		},
 
+		beforeSend: function (xhrObj){
+
+			xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
+
+		}
+
 	});
 
+
+}
+
+function searchPatient(){
+
+	var search = $('#nurse-search-patient').val();
+
+	$.ajax({
+
+		type:"GET",
+	    url:"http://localhost:8051/api/anoncare/patient/"+search+"/",
+	    contentType: "application/json; charset=utf-8",
+	    dataType:"json",
+
+		success: function(results){
+
+			console.log(results);
+			if(results.status == 'OK'){
+
+				$('#patient-data').html(
+
+					'<div class="box-body jumbotron">'+
+							'<div class="row">'+
+								'<div class="col-md-4">'+
+									'<h5>'+
+									'<b>'+
+										'ID No.: '+results.entries[0].school_id+'<br><br>'+
+										'First Name: '+results.entries[0].fname+'<br><br>'+
+										'Middle Name: '+results.entries[0].mname+'<br><br>'+
+										'Last Name: '+results.entries[0].lname+'<br><br>'+
+										'Age: '+results.entries[0].age+'<br><br>'+
+										'Sex: '+results.entries[0].sex+'<br><br>'+
+										'Height: '+results.entries[0].height+'<br><br>'+
+										'Weight: '+results.entries[0].weight+'<br><br>'+
+										'Birthday: '+results.entries[0].date_of_birth+'<br><br>'+
+										'Civil Status: '+results.entries[0].civil_status+'<br><br>'+
+										'Guardian: '+results.entries[0].guardian+'<br><br>'+
+										'Home Address: '+results.entries[0].home_addr+'<br><br>'+
+									'</b>'+
+									+'</h5>'+
+								'</div>'+
+								'<div class="col-md-4">'+
+								'<h5>'+
+								'<b>'+
+									'Smoking: '+results.entries[1].smoking+'<br><br>'+
+									'Allergies: '+results.entries[1].allergies+'<br><br>'+
+									'Alcohol: '+results.entries[1].alcohol+'<br><br>'+
+									'Medications taken: '+results.entries[1].medications_taken+'<br><br>'+
+									'Drugs: '+results.entries[1].drugs+'<br><br>'+
+									'Cough: '+results.entries[2].cough+'<br><br>'+
+									'dyspnea: '+results.entries[2].dyspnea+'<br><br>'+
+									'hemoptysis: '+results.entries[2].hemoptysis+'<br><br>'+
+									'TB exposure: '+results.entries[2].tb_exposure+'<br><br>'+
+									'Frequency: '+results.entries[3].frequency+'<br><br>'+
+									'Flank Plan: '+results.entries[3].flank_plan+'<br><br>'+
+									'Discharge: '+results.entries[3].discharge+'<br><br>'+
+									'Dysuria: '+results.entries[3].dysuria+'<br><br>'+
+									'Nocturia: '+results.entries[3].nocturia+'<br><br>'+
+									'Decrease Urine Amount: '+results.entries[3].dec_urine_amount+'<br><br>'+
+								'</b>'+
+								+'</h5>'+
+								'</div>'+
+								'<div class="col-md-4">'+
+								'<h5>'+
+								'<b>'+
+									'Asthma: '+results.entries[4].asthma+'<br><br>'+
+									'PTB: '+results.entries[4].ptb+'<br><br>'+
+									'Heart Problem: '+results.entries[4].heart_problem+'<br><br>'+
+									'Hepa A,B: '+results.entries[4].hepa_a_b+'<br><br>'+
+									'Chicken Pox: '+results.entries[4].chicken_pox+'<br><br>'+
+									'Mumps: '+results.entries[4].mumps+'<br><br>'+
+									'Typhoid Fever: '+results.entries[4].typhoid_fever+'<br><br>'+
+									'Chest Pain: '+results.entries[5].chest_pain+'<br><br>'+
+									'Palpitations: '+results.entries[5].palpitations+'<br><br>'+
+									'Pedal Edema: '+results.entries[5].pedal_edema+'<br><br>'+
+									'Nocturnal Dyspnea: '+results.entries[5].nocturnal_dyspnea+'<br><br>'+
+									'Orthopnea: '+results.entries[5].orthopnea+'<br><br>'+
+									'Headache: '+results.entries[6].headache+'<br><br>'+
+									'Seizure: '+results.entries[6].seizure+'<br><br>'+
+									'Dizziness: '+results.entries[6].dizziness+'<br><br>'+
+									'Loss of Consciousness: '+results.entries[6].loss_of_consciousness+'<br><br>'+
+								'</b>'+
+								+'</h5>'+
+								'</div>'+
+							'</div>'+
+					'</div>'
+
+				);
+
+			}
+
+			$('#patient-data').show();
+
+		},
+
+		beforeSend: function (xhrObj){
+
+      		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
+
+        }
+
+	});
 
 }
