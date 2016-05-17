@@ -4,49 +4,47 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+        
 
-    <title>IIT | Anoncare</title>
-        <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="all">
-        
-        <!--web-font-->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="assets/css/Google-Style-Login.css">
-        <!--//web-font-->
-        
-        <!-- Custom Theme files -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="keywords" content="Hospice Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-            Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <!-- //Custom Theme files -->
-        
-        <!-- js -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/modernizr.custom.js"></script>
-        <!-- //js -->   
-        
-        <!-- start-smoth-scrolling-->
-        <script type="text/javascript" src="assets/js/move-top.js"></script>
-        <script type="text/javascript" src="assets/js/easing.js"></script> 
-        <script type="text/javascript" src="assets/js/modernizr.custom.53451.js"></script>
-        <script type="text/javascript">
-                jQuery(document).ready(function($) {
-                    $(".scroll").click(function(event){     
-                        event.preventDefault();
-                        $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-                    });
+    <link href="assets/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <!--web-font-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!--//web-font-->
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Hospice Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+        Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- //Custom Theme files -->
+    <!-- js -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/modernizr.custom.js"></script>
+    <!-- //js -->
+    <!-- start-smoth-scrolling-->
+    <script type="text/javascript" src="assets/js/move-top.js"></script>
+    <script type="text/javascript" src="assets/js/easing.js"></script>
+    <script type="text/javascript" src="assets/js/modernizr.custom.53451.js"></script>
+    <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".scroll").click(function(event){
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
                 });
-        </script>
-        <!--//end-smoth-scrolling-->
+            });
+    </script>
+    <!--//end-smoth-scrolling-->
 
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frontend</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,80">
+
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/_all-skins.css">
@@ -87,15 +85,14 @@
                 <div class="top-nav">
                     <span class="menu"><img src="assets/img/menu-icon.png" alt=""/></span>      
                     <ul class="nav1">
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Team</a></li>
-                    </ul>
-                    <!-- script-for-menu -->
+                        <li><a href="#" class="active" onclick="$('#log-in-page').show();$('#about-page').hide()">Home</a></li>
+                        <li><a href="#" onclick="$('#log-in-page').hide();$('#about-page').show()">About Us</a></li>
+                    </ul>                    <!-- script-for-menu -->
                      <script>
                        $( "span.menu" ).click(function() {
                          $( "ul.nav1" ).slideToggle( 300, function() {
                          // Animation complete.
+                             
                           });
                          });
                     </script>
@@ -130,26 +127,7 @@
 
             <!-- </div> -->
         </div>
-        <!--//login-->
-               
-        <!--smooth-scrolling-of-move-up-->
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    /*
-                    var defaults = {
-                        containerID: 'toTop', // fading element id
-                        containerHoverID: 'toTopHover', // fading element hover id
-                        scrollSpeed: 1200,
-                        easingType: 'linear' 
-                    };
-                    */
-                    
-                    $().UItoTop({ easingType: 'easeOutQuart' });
-                    
-                });
-            </script>
-            <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-        <!--//smooth-scrolling-of-move-up-->            
+        <!--//login-->   
     </div>
     <!--//end-landing-page-->
 
@@ -179,6 +157,188 @@
 
         </div>
     </div>
+
+    <!--about-->
+    <div id="about-page" style="display:none">
+        <div class="about-skills">
+            <div class="container">            
+            <div class="work-title">
+                <h3>VISION</h3>
+            </div>
+            <div class="about-text">
+                <div class="col-md-3 about-text-left">
+                </div>
+                <div class="col-md-6 about-text-right">
+                    <center>
+                        <h4><p>An efficient and committed health care unit of highly-qualified medical practitioners and personnel providing prompt, tender, loving care to MSU-IIT constituents backed by functional medical and dental facilities.</p></h4>
+                    </center>
+                </div>
+                <div class="col-md-3 about-text-left">
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="work-title">
+                <h3>ABOUT<span>US</span></h3>
+            </div>
+            <div class="about-choose">
+                <div class="col-md-4 about-choose-info">
+                    <h4>SERVICES</h4>
+                    <ul>
+                        <li>Medical and Dental Consultations</li>
+                        <li>Emergency Services</li>
+                        <li>Dispensary and Treatment</li>
+                        <li>Routine Laboratory Tests</li>
+                        <li>Physical/Medical Examinations</li>
+                        <li>Issuance of Medical and Dental Certificates</li>
+                        <li>Assistance during Official and Educational Trips</li>
+                        <li>Medical Missions/Free Clinic</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 about-choose-info">
+                    <h4>OBJECTIVES</h4>
+                    <ul>
+                        <li>To render quality medical and dental services among the constituents.</li>
+                        <li>To promote preventive medicine and focus on prophylaxis.</li>
+                        <li>To provide counseling on health education to maintain health and physical well-being.</li>
+                        <li>To foster the importance of healthy lifestyle and environmental sanitation, thus, addressing it in a holistic view of wellness.</li>
+                        <li>To render health services through medical missions in the adopted and neighboring Barangays.</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 about-choose-info">
+                    <h4>STRATEGIES</h4>
+                    <ul>
+                        <li>Continue trainings and seminars and be updated on new trends on health care management.</li>
+                        <li>Re-enforce existing personnel values on compassionate health care practices through reminders and meetings.</li>
+                        <li>Develop team building activities regularly.</li>
+                        <li>Conduct and strengthen programs and activities on free medical laboratory procedures.</li>
+                        <li>Maintain a pool of standby first-aiders with ambulance for emergency cases.</li>
+                        <li>Acquire high end and modern medical facilities.</li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            </div>
+        </div>        
+
+        <div class="about">
+            <div class="container">
+                <div class="work-title">
+                    <h3>OUR<span>TEAM</span></h3>
+                </div>
+                <div class="about-team">
+                    <div class="col-md-3 about-team-grids">
+                        <img src="assets/img/puting.png" alt=""/>
+                        <div class="team-text">
+                            <h4>MUHAMMAD M. PUTING, M.D.</h4>
+                            <h5>Chief Administrative Officer</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-3 about-team-grids">
+                        <img src="assets/img/canada.png" alt=""/>
+                        <div class="team-text">
+                            <h4>KAREN JILL B. CAÑADA, M.D. </h4>
+                            <h5>Medical Officer III</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-3 about-team-grids">
+                        <img src="assets/img/avatar_2x.png" alt=""/>
+                        <div class="team-text">
+                            <h4>JIMMY V. SASAM, D.M.D.</h4>
+                            <h5>Dentist II</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-3 about-team-grids">
+                        <img src="assets/img/mamoransing.png" alt=""/>
+                        <div class="team-text">
+                            <h4>SHALEMAR P. MAMORANSING, D.M.D.</h4>
+                            <h5>Dentist I</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-3 about-team-grids">
+                        <img src="assets/img/macote.png" alt=""/>
+                        <div class="team-text">
+                            <h4>ASRIFAH S. MACOTE, R.M.T.</h4>
+                            <h5>Medical Technologist I</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-3 about-team-grids">
+                        <img src="assets/img/portugaleza.png" alt=""/>
+                        <div class="team-text">
+                            <h4>FARIDA D. PORTUGALEZA</h4>
+                            <h5>Laboratory Inspector II</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-3 about-team-grids">
+                        <img src="assets/img/castillo.png" alt=""/>
+                        <div class="team-text">
+                            <h4>LOURDES MAE G. CASTILLO, R.N.</h4>
+                            <h5>Nurse II</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-3 about-team-grids">
+                        <img src="assets/img/cepe.png" alt=""/>
+                        <div class="team-text">
+                            <h4>CECILIA C. CEPE, R.N., MAN</h4>
+                            <h5>Nurse I</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-3 about-team-grids">
+                        <img src="assets/img/penola.png" alt=""/>
+                        <div class="team-text">
+                            <h4>DWANE JUNE D. PEÑOLA, R.N., MAN</h4>
+                            <h5>Nurse I</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-3 about-team-grids">
+                        <img src="assets/img/restauro.png" alt=""/>
+                        <div class="team-text">
+                            <h4>IRIS KIRSTIN A. RESTAURO, R.N.</h4>
+                            <h5>Nurse I</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-3 about-team-grids">
+                        <img src="assets/img/salazar.png" alt=""/>
+                        <div class="team-text">
+                            <h4>MIKKA ANGELA S. SALAZAR, R.N.</h4>
+                            <h5>Nurse I</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-3 about-team-grids">
+                        <img src="assets/img/acain.png" alt=""/>
+                        <div class="team-text">
+                            <h4>JOHN ROGER H. ACAIN, R.N.</h4>
+                            <h5>Nurse I</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-3 about-team-grids">
+                        <img src="assets/img/acaso.png" alt=""/>
+                        <div class="team-text">
+                            <h4>GRACE G. ACASO, R.M.</h4>
+                            <h5>Administrative Aide III (Dental Assistant)</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-3 about-team-grids">
+                        <img src="assets/img/omadle.png" alt=""/>
+                        <div class="team-text">
+                            <h4>ADONIS M. OMADLE</h4>
+                            <h5>Administrative Assistant</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-3 about-team-grids">
+                        <img src="assets/img/gorecho.png" alt=""/>
+                        <div class="team-text">
+                            <h4>IRENE B. GORECHO, MPA</h4>
+                            <h5>Administrative Aide VI</h5>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    </div>                
+    <!--//about-->
 
 
     <!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
@@ -1312,7 +1472,24 @@
 
     <!-- 10 SPACES EVERY MAIN DIV. MAIN DIVS ARE LOGIN ADMIN DOCTOR NURSE -->
 
-
+    <!--smooth-scrolling-of-move-up-->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            /*
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear' 
+            };
+            */
+            
+            $().UItoTop({ easingType: 'easeOutQuart' });
+            
+        });
+    </script>
+    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<!--//smooth-scrolling-of-move-up-->   
 
 
     <!-- FOOTER -->
@@ -1323,7 +1500,7 @@
                     <a href="index.html">AnonCare</a>
                 </div>
                 <div class="footer-right">
-                    <p>© 2015 All rights reserved | Template by <a href="http://w3layouts.com/"> W3layouts</a></p>
+                    <p>© 2016 All rights reserved <a href="index.html">AnonCare</a></p>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -1331,7 +1508,6 @@
     </div>
     <!-- END FOOTER -->
 
-    <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bootstrap-datepicker.js"></script>
     <script src="assets/js/daterangepicker.js"></script>
@@ -1340,10 +1516,8 @@
     <script src="assets/js/jquery.dataTables.min.js"></script>
     <script src="assets/js/jquery.inputmask.js"></script>
     <script src="assets/js/jquery.knob.js"></script>
-    <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.slimscroll.min.js"></script>
     <script src="assets/js/jquery.sparkline.min.js"></script>
-    <script src="assets/js/jQuery-2.1.4.min.js"></script>
     <script src="assets/js/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="assets/js/jquery-jvectormap-world-mill-en.js"></script>
     <script src="assets/js/moment.min.js"></script>
