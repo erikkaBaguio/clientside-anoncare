@@ -73,7 +73,7 @@
     </center>
 
     <!--landing-page-->
-    <div class="landing-page">
+    <div id="landing-page-header">
         <!--header-->
         <div class="header">
             <div class="container">
@@ -124,7 +124,7 @@
                     </div>
                 </form>
                 <!-- Simple Login - END -->
-
+            </div>        
             <!-- </div> -->
         </div>
         <!--//login-->   
@@ -535,20 +535,28 @@
                                     </div>
                                 </div>
 
-                                <div id="view-user-table" class="col-md-11" style="margin-top:10px;display:none">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Firstname</th>
-                                                <th>Middlename</th>
-                                                <th>Lastname</th>
-                                                <th>Email</th>
-                                                <th>Role</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="view-user-table-body">
-                                        </tbody>
-                                    </table>
+
+                                
+                                <div id="view-user-table" class="col-md-12" style="margin-top:10px;display:none">
+                                    <div class="box box-default">
+                                        <div class="box-body">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Firstname</th>
+                                                        <th>Middlename</th>
+                                                        <th>Lastname</th>
+                                                        <th>Email</th>
+                                                        <th>Role</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="view-user-table-body">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->                                    
                                 </div>
 
                                 <!-- END USER SEARCH BOX -->
@@ -906,9 +914,8 @@
                                 <img src="assets/img/hourglass.gif" />
                             </div>
 
+                            <!-- ASSESSMENT FORM -->
                             <section id="add-assessment-form" class="content-body" style="display:none;">
-
-                                <!-- ASSESSMENT FORM -->
                                 <div class="box box-primary">
                                     <div class="box-header with-border">
                                         <h3 class="box-title" style="padding: 5px">Assessment</h3>

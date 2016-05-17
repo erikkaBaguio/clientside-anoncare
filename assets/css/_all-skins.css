@@ -116,7 +116,7 @@
 
 .skin-blue .sidebar-form input[type="text"], .skin-blue .sidebar-form .btn{
   box-shadow:none;
-  background-color:#374850;
+  background-color:#eee;
   border:1px solid transparent;
   height:35px;
   -webkit-transition:all 0.3s ease-in-out;

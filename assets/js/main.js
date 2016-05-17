@@ -89,6 +89,7 @@ function home(){
 
 	    	$('#login-form').hide();
 	    	$('#footer').show();
+	    	$('#landing-page-header').hide();
 
 	    	if(results.status == 'OK'){
 				var token = results.token;
@@ -177,6 +178,7 @@ function signin(){
 
 	$('#login-loading-image').show();
 	$('#log-in-page').hide();
+	$('#landing-page-header').hide();
 
 	$.ajax({
 
