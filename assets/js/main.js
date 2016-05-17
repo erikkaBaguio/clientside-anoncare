@@ -808,29 +808,42 @@ function showAssessmentById(id){
 
 		success: function(results){
 
-			$('#view-assessment-table-body').html(function(){
+			$('#view-assessment-table').html(function(){
 
 				var assessment_row = '';
 				var assessment;
 
 				for (var i = 0; i < results.entries.length; i++) {
 
-					assessment = '<tr>'+
-
-									'<td>'+ results.entries[i].id + '</td>'+
-									'<td>'+ results.entries[i].date + '</td>'+
-									'<td>'+ results.entries[i].school_id + '</td>'+
-									'<td>'+ results.entries[i].age + '</td>'+
-									'<td>'+ results.entries[i].vital_signs_id + '</td>'+
-									'<td>'+ results.entries[i].chief_complaint + '</td>'+
-									'<td>'+ results.entries[i].history_of_present_illness + '</td>'+
-									'<td>'+ results.entries[i].medications_taken + '</td>'+
-									'<td>'+ results.entries[i].diagnosis + '</td>'+
-									'<td>'+ results.entries[i].recommendation + '</td>'+
-									'<td>'+ results.entries[i].attending_physician + '</td>'+
-									'<td>'+ results.entries[i].is_read + '</td>'+
-
-					 			+'</tr>';
+					assessment = '<div class="box-body jumbotron">'+
+									'<div class="row">'+
+										'<div class="col-md-6">'+
+											'<h5>'+
+											'<b>'+
+												'ID No.: '+results.entries[i].school_id+'<br><br>'+
+												'Age: '+results.entries[i].age+'<br><br>'+
+												'Temperature: '+results.entries[i].temperature+'<br><br>'+
+												'Pulse rate: '+results.entries[i].pulse_rate+'<br><br>'+
+												'Respiration rate: '+results.entries[i].respiration_rate+'<br><br>'+
+												'Blood pressure: '+results.entries[i].blood_pressure+'<br><br>'+
+												'Weight: '+results.entries[i].weight+'<br><br>'+
+											'</b>'+
+											+'</h5>'+
+										'</div>'+
+										'<div class="col-md-6">'+
+										'<h5>'+
+										'<b>'+
+											'Chief of chief-complaint: '+results.entries[i].chief_complaint+'<br><br>'+
+											'History of present illness: '+results.entries[i].history_of_present_illness+'<br><br>'+
+											'Medications taken: '+results.entries[i].medications_taken+'<br><br>'+
+											'Diagnosis: '+results.entries[i].diagnosis+'<br><br>'+
+											'Recommendation: '+results.entries[i].recommendation+'<br><br>'+
+											'Attending Physician: '+results.entries[i].attending_physician+'<br><br>'+
+										'</b>'+
+										+'</h5>'+
+										'</div>'+
+									'</div>'+
+								 '</div>';
 
 					assessment_row+=assessment;
 				}
@@ -840,6 +853,8 @@ function showAssessmentById(id){
 			});
 
 			$('#view-assessment-table').show();
+			$('#assessment-data').hide();
+
 
 		},
 
