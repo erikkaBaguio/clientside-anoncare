@@ -397,13 +397,13 @@
                     <section id="sidebar-admin" class="sidebar">
                         <!-- sidebar menu: : style can be found in sidebar.less -->
                         <ul class="sidebar-menu">
-                            <li class="active treeview">
+                            <li class="treeview">
                                 <a href="#" onclick="$('#user-search-box').show(); $('#add-user-form').hide();">
                                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                                     <i class="fa fa-angle-right pull-right"></i>
                                 </a>
                             </li>
-                            <li class="treeview">
+                            <li class="active treeview">
                                 <a href="#" onclick="$('#add-user-form').show(); $('#user-search-box').hide();$('#view-user-table').hide();">
                                     <i class="fa fa-plus"></i> <span>Add User</span>
                                     <i class="fa fa-angle-right pull-right"></i>
@@ -671,7 +671,7 @@
                                 </a>
                             </li>
                             <li class="treeview">
-                                <a href="#" onclick="$('#doctor-patient-search-box').hide();$('#doctor-assessment-search-box').show();">
+                                <a href="#" onclick="$('#doctor-patient-search-box').hide();$('#doctor-assessment-search-box').show();$('#doctor-patient-data').hide();">
                                     <i class="fa fa-list"></i> <span>View Asssessments</span>
                                     <i class="fa fa-angle-right pull-right"></i>
                                 </a>
@@ -695,71 +695,6 @@
 
                             <section class="content-body">
 
-                                <!-- DOCTOR REFERRAL -->
-                                <div id="doctor-referral-form" class="col-md-8 col-md-offset-2" style="display:none">
-                                                            <section id="add-assessment-form" class="content-body" style="display:none;">
-
-                                <!-- ASSESSMENT FORM -->
-                                <div class="box box-primary">
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title" style="padding: 5px">Doctor Referral</h3>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <div class="box-body">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                 <p><b><h4>Patient Name:  </h4>
-                                                    <h5><b>ID No. : <br><br>
-                                                    Age : <br><br>
-                                                    Temperature : <br><br>
-                                                    Pulse rate : <br><br>
-                                                    Respiration rate : <br><br>
-                                                    Blood pressure : <br><br>
-                                                    Weight : <br><br>
-                                                    </b></h5>
-                                                </p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><b><h5><br><br>
-                                                    Chief of complaint : <br><br>
-                                                    History of present illness : <br><br>
-                                                    Medications Taken : <br><br>
-                                                    Diagnosis : <br><br>
-                                                    Recommendation : <br><br>
-                                                    Attending Physician : <br><br>
-                                                    </b></h5>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <!-- /.row -->
-                                    </div>
-                                    <!-- /.box-body -->
-                                    <div class="box-footer">
-                                        <div class="col-md-12">
-
-
-                                            <div class="col-md-8">
-
-                                                            <label>Attending Physician</label><select id="attending-physician" class="form-control select2" style="width: 100%;">
-                                                            </select>
-
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <br>
-                                                    <button id="submit-button" type="submit" class="btn btn-warning" onclick="storeAssessment();" style="margin: 5px">Refer</button>OR
-                                                    <button id="submit-button" type="submit" class="btn btn-success" onclick="storeAssessment();" style="margin: 5px">Accept</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.box-footer -->
-                                </div>
-                                <!-- /.box -->
-                            </section>
-
-                                </div>
-                                <!-- END OF DOCTOR REFERRAL -->
-
                                 <!-- PATIENT SEARCH BOX -->
 
                                 <div id="doctor-patient-search-box" class="col-md-11" style="margin-top: 10px">
@@ -768,7 +703,7 @@
                                         <!-- search form -->
                                         <form method="get" class="sidebar-form" onsubmit="return false">
                                             <div class="input-group">
-                                                <input id="doctor-search-assessment" type="text" name="q" class="form-control" placeholder="Enter School ID e.g. 20130000">
+                                                <input id="doctor-search-patient" type="text" name="doctor-search-patient" class="form-control" placeholder="Enter School ID e.g. 20130000">
                                                 <span class="input-group-btn">
                                                     <button onclick="searchPatient();" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                                                     </button>
@@ -786,9 +721,13 @@
 
                                 </div>
 
+                                <div id="doctor-patient-data" class="col-md-11" style="margin-top:10px;display:none">
+
+                                </div>
+
                                 <div id="doctor-assessment-search-box" class="col-md-11" style="margin-top: 10px;display:None">
                                     <div class="col-md-3"></div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6" id="doctor-assessment-search">
                                             <!-- search form -->
                                             <form method="get" class="sidebar-form" onsubmit="return false">
                                                 <div class="input-group">
@@ -831,10 +770,6 @@
                                             </div>
                                         </section>
                                     </div>
-                                </div>
-
-                                <div id="assessment-list" class="col-md-11" style="display:None">
-
                                 </div>
 
                             </section>
@@ -943,15 +878,18 @@
                     <section id="sidebar-nurse" class="sidebar">
                         <!-- sidebar menu: : style can be found in sidebar.less -->
                         <ul class="sidebar-menu">
-                            <li class="active treeview">
+                            <li class="treeview">
                                 <a href="#">
                                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                                     <i class="fa fa-angle-right pull-right"></i>
                                 </a>
                             </li>
-                            <li class="treeview">
-                                <a href="#" onclick="$('#add-assessment-form').show();$('#add-patient-form').hide();getAllDoctors();
-                                                    $('#patient-data').hide();">
+                            <li class="active treeview">
+                                <a href="#" onclick="$('#add-assessment-form').show();
+                                                    $('#add-patient-form').hide();        
+                                                    getAllDoctors();
+                                                    $('#patient-data').hide();
+                                                    $('#nurse-patient-search-box').hide()">
                                     <i class="fa fa-plus"></i> <span>Add Asssessments</span>
                                     <i class="fa fa-angle-right pull-right"></i>
                                 </a>

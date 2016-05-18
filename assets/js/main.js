@@ -25,6 +25,7 @@ function eraseCookie(name) {
 	$('#doctor-page').hide(0);
 	$('#add-user-form').hide(0);
 	$('#log-in-page').show();
+	$('#landing-page-header').show();
 	$('#view-user-table').hide();
 
 	var form = document.getElementById("registration-form");
@@ -36,7 +37,7 @@ function eraseCookie(name) {
 	clearAssessmentForm();
 
 	$('#log-in-alert').html(
-		'<div class="alert alert-success"><strong>Success ' +
+		'<div class="alert alert-success" role="alert"><strong>Success ' +
 		 '!</strong> Successfully logged out.</div>');
 
 	$('#footer').hide();
@@ -68,6 +69,7 @@ function decryptCookie(){
 	    error: function(e, stats, err){
 	    	$('#log-in-page').show();
 	    	$('#login-loading-image').hide();
+	    	$('#landing-page-header').show();
 	    }
 
 	});
@@ -108,13 +110,14 @@ function home(){
 
 				if(results.data[0].role == 2){
 					$('#doctor-page').show(0);
-
+					$('#doctor-name').html(results.data[0].fname + ' ' + results.data[0].lname);
 					user_role = results.data[0].role;
 				}
 
 				if(results.data[0].role == 3){
 					$('#nurse-page').show();
 					user_role = results.data[0].role;
+					$('#nurse-name').html(results.data[0].fname + ' ' + results.data[0].lname);
 				}
 			}
 
@@ -250,6 +253,7 @@ function signin(){
 				$('#log-in-alert').html(
 					'<div class="alert alert-danger"><strong>FAILED ' +
 					 '!</strong> Invalid username or password.</div>');
+				$('#landing-page-header').show();
 			}
 
 
@@ -864,10 +868,13 @@ function showAssessmentById(id){
 										+'</h5>'+
 										'</div>'+
 									'</div>'+
-								 '</div>';
+								 '</div>'
+								 
 
 					assessment_row+=assessment;
 				}
+
+				$('#doctor-assessment-search').hide();
 
 				return assessment_row;
 
@@ -958,8 +965,20 @@ function searchAssessment(){
 					return assessment_row;
 
 				});
+				console.log(results)
 
 				$('#assessment-data').show();
+				
+
+			}
+
+			if(results.status == 'FAILED'){
+
+				$('#welcome-alert-doctor').html(
+						'<div class="alert alert-danger"><strong>FAILED ' +
+						
+						 '!</strong>'+ results.message +' </div>');
+				$("#welcome-alert-doctor").fadeTo(2000, 500).slideUp(500);
 
 			}
 
@@ -980,6 +999,12 @@ function searchPatient(){
 
 	var search = $('#nurse-search-patient').val();
 
+	if(search == ''){
+		search = $('#doctor-search-patient').val();
+	}
+
+	console.log(search);
+
 	$.ajax({
 
 		type:"GET",
@@ -991,80 +1016,157 @@ function searchPatient(){
 
 			console.log(results);
 			if(results.status == 'OK'){
+				if (user_role == 3){
+					$('#patient-data').html(
 
-				$('#patient-data').html(
-
-					'<div class="box-body jumbotron">'+
-							'<div class="row">'+
-								'<div class="col-md-4">'+
+						'<div class="box-body jumbotron">'+
+								'<div class="row">'+
+									'<div class="col-md-4">'+
+										'<h5>'+
+										'<b>'+
+											'ID No.: '+results.entries[0].school_id+'<br><br>'+
+											'First Name: '+results.entries[0].fname+'<br><br>'+
+											'Middle Name: '+results.entries[0].mname+'<br><br>'+
+											'Last Name: '+results.entries[0].lname+'<br><br>'+
+											'Age: '+results.entries[0].age+'<br><br>'+
+											'Sex: '+results.entries[0].sex+'<br><br>'+
+											'Height: '+results.entries[0].height+'<br><br>'+
+											'Weight: '+results.entries[0].weight+'<br><br>'+
+											'Birthday: '+results.entries[0].date_of_birth+'<br><br>'+
+											'Civil Status: '+results.entries[0].civil_status+'<br><br>'+
+											'Guardian: '+results.entries[0].guardian+'<br><br>'+
+											'Home Address: '+results.entries[0].home_addr+'<br><br>'+
+										'</b>'+
+										+'</h5>'+
+									'</div>'+
+									'<div class="col-md-4">'+
 									'<h5>'+
 									'<b>'+
-										'ID No.: '+results.entries[0].school_id+'<br><br>'+
-										'First Name: '+results.entries[0].fname+'<br><br>'+
-										'Middle Name: '+results.entries[0].mname+'<br><br>'+
-										'Last Name: '+results.entries[0].lname+'<br><br>'+
-										'Age: '+results.entries[0].age+'<br><br>'+
-										'Sex: '+results.entries[0].sex+'<br><br>'+
-										'Height: '+results.entries[0].height+'<br><br>'+
-										'Weight: '+results.entries[0].weight+'<br><br>'+
-										'Birthday: '+results.entries[0].date_of_birth+'<br><br>'+
-										'Civil Status: '+results.entries[0].civil_status+'<br><br>'+
-										'Guardian: '+results.entries[0].guardian+'<br><br>'+
-										'Home Address: '+results.entries[0].home_addr+'<br><br>'+
+										'Smoking: '+results.entries[1].smoking+'<br><br>'+
+										'Allergies: '+results.entries[1].allergies+'<br><br>'+
+										'Alcohol: '+results.entries[1].alcohol+'<br><br>'+
+										'Medications taken: '+results.entries[1].medications_taken+'<br><br>'+
+										'Drugs: '+results.entries[1].drugs+'<br><br>'+
+										'Cough: '+results.entries[2].cough+'<br><br>'+
+										'dyspnea: '+results.entries[2].dyspnea+'<br><br>'+
+										'hemoptysis: '+results.entries[2].hemoptysis+'<br><br>'+
+										'TB exposure: '+results.entries[2].tb_exposure+'<br><br>'+
+										'Frequency: '+results.entries[3].frequency+'<br><br>'+
+										'Flank Plan: '+results.entries[3].flank_plan+'<br><br>'+
+										'Discharge: '+results.entries[3].discharge+'<br><br>'+
+										'Dysuria: '+results.entries[3].dysuria+'<br><br>'+
+										'Nocturia: '+results.entries[3].nocturia+'<br><br>'+
+										'Decrease Urine Amount: '+results.entries[3].dec_urine_amount+'<br><br>'+
 									'</b>'+
 									+'</h5>'+
+									'</div>'+
+									'<div class="col-md-4">'+
+									'<h5>'+
+									'<b>'+
+										'Asthma: '+results.entries[4].asthma+'<br><br>'+
+										'PTB: '+results.entries[4].ptb+'<br><br>'+
+										'Heart Problem: '+results.entries[4].heart_problem+'<br><br>'+
+										'Hepa A,B: '+results.entries[4].hepa_a_b+'<br><br>'+
+										'Chicken Pox: '+results.entries[4].chicken_pox+'<br><br>'+
+										'Mumps: '+results.entries[4].mumps+'<br><br>'+
+										'Typhoid Fever: '+results.entries[4].typhoid_fever+'<br><br>'+
+										'Chest Pain: '+results.entries[5].chest_pain+'<br><br>'+
+										'Palpitations: '+results.entries[5].palpitations+'<br><br>'+
+										'Pedal Edema: '+results.entries[5].pedal_edema+'<br><br>'+
+										'Nocturnal Dyspnea: '+results.entries[5].nocturnal_dyspnea+'<br><br>'+
+										'Orthopnea: '+results.entries[5].orthopnea+'<br><br>'+
+										'Headache: '+results.entries[6].headache+'<br><br>'+
+										'Seizure: '+results.entries[6].seizure+'<br><br>'+
+										'Dizziness: '+results.entries[6].dizziness+'<br><br>'+
+										'Loss of Consciousness: '+results.entries[6].loss_of_consciousness+'<br><br>'+
+									'</b>'+
+									+'</h5>'+
+									'</div>'+
 								'</div>'+
-								'<div class="col-md-4">'+
-								'<h5>'+
-								'<b>'+
-									'Smoking: '+results.entries[1].smoking+'<br><br>'+
-									'Allergies: '+results.entries[1].allergies+'<br><br>'+
-									'Alcohol: '+results.entries[1].alcohol+'<br><br>'+
-									'Medications taken: '+results.entries[1].medications_taken+'<br><br>'+
-									'Drugs: '+results.entries[1].drugs+'<br><br>'+
-									'Cough: '+results.entries[2].cough+'<br><br>'+
-									'dyspnea: '+results.entries[2].dyspnea+'<br><br>'+
-									'hemoptysis: '+results.entries[2].hemoptysis+'<br><br>'+
-									'TB exposure: '+results.entries[2].tb_exposure+'<br><br>'+
-									'Frequency: '+results.entries[3].frequency+'<br><br>'+
-									'Flank Plan: '+results.entries[3].flank_plan+'<br><br>'+
-									'Discharge: '+results.entries[3].discharge+'<br><br>'+
-									'Dysuria: '+results.entries[3].dysuria+'<br><br>'+
-									'Nocturia: '+results.entries[3].nocturia+'<br><br>'+
-									'Decrease Urine Amount: '+results.entries[3].dec_urine_amount+'<br><br>'+
-								'</b>'+
-								+'</h5>'+
-								'</div>'+
-								'<div class="col-md-4">'+
-								'<h5>'+
-								'<b>'+
-									'Asthma: '+results.entries[4].asthma+'<br><br>'+
-									'PTB: '+results.entries[4].ptb+'<br><br>'+
-									'Heart Problem: '+results.entries[4].heart_problem+'<br><br>'+
-									'Hepa A,B: '+results.entries[4].hepa_a_b+'<br><br>'+
-									'Chicken Pox: '+results.entries[4].chicken_pox+'<br><br>'+
-									'Mumps: '+results.entries[4].mumps+'<br><br>'+
-									'Typhoid Fever: '+results.entries[4].typhoid_fever+'<br><br>'+
-									'Chest Pain: '+results.entries[5].chest_pain+'<br><br>'+
-									'Palpitations: '+results.entries[5].palpitations+'<br><br>'+
-									'Pedal Edema: '+results.entries[5].pedal_edema+'<br><br>'+
-									'Nocturnal Dyspnea: '+results.entries[5].nocturnal_dyspnea+'<br><br>'+
-									'Orthopnea: '+results.entries[5].orthopnea+'<br><br>'+
-									'Headache: '+results.entries[6].headache+'<br><br>'+
-									'Seizure: '+results.entries[6].seizure+'<br><br>'+
-									'Dizziness: '+results.entries[6].dizziness+'<br><br>'+
-									'Loss of Consciousness: '+results.entries[6].loss_of_consciousness+'<br><br>'+
-								'</b>'+
-								+'</h5>'+
-								'</div>'+
-							'</div>'+
-					'</div>'
+						'</div>'
 
-				);
+					);
+
+					$('#patient-data').show();
+				}
+
+
+				if (user_role == 2){
+					$('#doctor-patient-data').html(
+
+						'<div class="box-body jumbotron">'+
+								'<div class="row">'+
+									'<div class="col-md-4">'+
+										'<h5>'+
+										'<b>'+
+											'ID No.: '+results.entries[0].school_id+'<br><br>'+
+											'First Name: '+results.entries[0].fname+'<br><br>'+
+											'Middle Name: '+results.entries[0].mname+'<br><br>'+
+											'Last Name: '+results.entries[0].lname+'<br><br>'+
+											'Age: '+results.entries[0].age+'<br><br>'+
+											'Sex: '+results.entries[0].sex+'<br><br>'+
+											'Height: '+results.entries[0].height+'<br><br>'+
+											'Weight: '+results.entries[0].weight+'<br><br>'+
+											'Birthday: '+results.entries[0].date_of_birth+'<br><br>'+
+											'Civil Status: '+results.entries[0].civil_status+'<br><br>'+
+											'Guardian: '+results.entries[0].guardian+'<br><br>'+
+											'Home Address: '+results.entries[0].home_addr+'<br><br>'+
+										'</b>'+
+										+'</h5>'+
+									'</div>'+
+									'<div class="col-md-4">'+
+									'<h5>'+
+									'<b>'+
+										'Smoking: '+results.entries[1].smoking+'<br><br>'+
+										'Allergies: '+results.entries[1].allergies+'<br><br>'+
+										'Alcohol: '+results.entries[1].alcohol+'<br><br>'+
+										'Medications taken: '+results.entries[1].medications_taken+'<br><br>'+
+										'Drugs: '+results.entries[1].drugs+'<br><br>'+
+										'Cough: '+results.entries[2].cough+'<br><br>'+
+										'dyspnea: '+results.entries[2].dyspnea+'<br><br>'+
+										'hemoptysis: '+results.entries[2].hemoptysis+'<br><br>'+
+										'TB exposure: '+results.entries[2].tb_exposure+'<br><br>'+
+										'Frequency: '+results.entries[3].frequency+'<br><br>'+
+										'Flank Plan: '+results.entries[3].flank_plan+'<br><br>'+
+										'Discharge: '+results.entries[3].discharge+'<br><br>'+
+										'Dysuria: '+results.entries[3].dysuria+'<br><br>'+
+										'Nocturia: '+results.entries[3].nocturia+'<br><br>'+
+										'Decrease Urine Amount: '+results.entries[3].dec_urine_amount+'<br><br>'+
+									'</b>'+
+									+'</h5>'+
+									'</div>'+
+									'<div class="col-md-4">'+
+									'<h5>'+
+									'<b>'+
+										'Asthma: '+results.entries[4].asthma+'<br><br>'+
+										'PTB: '+results.entries[4].ptb+'<br><br>'+
+										'Heart Problem: '+results.entries[4].heart_problem+'<br><br>'+
+										'Hepa A,B: '+results.entries[4].hepa_a_b+'<br><br>'+
+										'Chicken Pox: '+results.entries[4].chicken_pox+'<br><br>'+
+										'Mumps: '+results.entries[4].mumps+'<br><br>'+
+										'Typhoid Fever: '+results.entries[4].typhoid_fever+'<br><br>'+
+										'Chest Pain: '+results.entries[5].chest_pain+'<br><br>'+
+										'Palpitations: '+results.entries[5].palpitations+'<br><br>'+
+										'Pedal Edema: '+results.entries[5].pedal_edema+'<br><br>'+
+										'Nocturnal Dyspnea: '+results.entries[5].nocturnal_dyspnea+'<br><br>'+
+										'Orthopnea: '+results.entries[5].orthopnea+'<br><br>'+
+										'Headache: '+results.entries[6].headache+'<br><br>'+
+										'Seizure: '+results.entries[6].seizure+'<br><br>'+
+										'Dizziness: '+results.entries[6].dizziness+'<br><br>'+
+										'Loss of Consciousness: '+results.entries[6].loss_of_consciousness+'<br><br>'+
+									'</b>'+
+									+'</h5>'+
+									'</div>'+
+								'</div>'+
+						'</div>'
+
+					);
+
+					$('#doctor-patient-data').show();
+				}
+
 
 			}
-
-			$('#patient-data').show();
 
 		},
 
