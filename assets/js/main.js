@@ -1279,3 +1279,66 @@ function searchPatient(){
 	});
 
 }
+
+
+function updateAssessment(){
+    var medications_taken = $('#medications-taken').val();
+    var diagnosis = $('#diagnosis').val();
+    var recommendation = $('#recommendation').val();
+    var attending_physician= $('#attending-physician').val();
+
+
+    var data = JSON.stringify({'medications_taken':medications_taken,
+    						   'diagnosis':diagnosis,
+    						   'recommendation':recommendation,
+    						   'attending_physician':attending_physician
+						   });
+
+	if(user_role == 2){
+
+	    $.ajax({
+	    	type:"PUT",
+	    	url: "http://localhost:8051/api/anoncare/assessment",
+	    	contentType:"application/json; charset=utf-8",
+			data:data,
+			dataType:"json",
+
+			success: function(results){
+				if (results.status == 'OK'){
+
+					$('#welcome-alert-nurse').html(
+						'<div class="alert alert-success"><strong>Success ' +
+						 '!</strong>' + results.message +'</div>');
+
+					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
+
+					clearAssessmentForm();
+
+				}
+
+				if(results.status == 'FAILED'){
+
+					$('#welcome-alert-nurse').html(
+						'<div class="alert alert-danger"><strong>Failed ' +
+						 '!</strong>' + results.message +'</div>');
+
+					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
+
+				}
+			},
+			error: function(e){
+				alert("THIS IS NOT COOL. SOMETHING WENT WRONG: " + e);
+			},
+			beforeSend: function (xhrObj){
+
+	    		console.log(auth_user);
+	      		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
+
+	        }
+	    });
+	}
+
+	else {
+		alert("UNAUTHORIZE ACCESS");
+	}
+}
