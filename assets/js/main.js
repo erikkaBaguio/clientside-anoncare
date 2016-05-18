@@ -516,6 +516,25 @@ function doctorReferral() {
 	});
 }
 
+function readNotification(id){
+
+	$.ajax({
+
+		type:"POST",
+		url:"http://localhost:8051/api/anoncare/read/notification/"+id,
+		contentType: "application/json; charset=utf-8",
+		dataType:"json",
+
+		beforeSend: function (xhrObj){
+
+			xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
+
+		}
+
+	});
+
+}
+
 //this function will return an option tag.
 function showAllDoctors(){
 		$.ajax({
@@ -881,7 +900,7 @@ function getNotification(){
 
 					for (var i = 0; i < results.entries.length; i++) {
 
-						notification = '<li><a href="#" onclick="showDoctorReferral('+results.entries[i].assessment_id+');"'+'><i class="fa fa-users text-aqua"></i>'+
+						notification = '<li><a href="#" onclick="showDoctorReferral('+results.entries[i].assessment_id+');readNotification('+results.entries[i].id+')"'+'><i class="fa fa-users text-aqua"></i>'+
 
 						'Assessment #'+ results.entries[i].assessment_id+ 'Assessment request from user '+
 						results.entries[i].doctor_id;
