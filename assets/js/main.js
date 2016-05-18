@@ -516,6 +516,106 @@ function doctorReferral() {
 	});
 }
 
+//this function will return a option tag.
+function showAllDoctors(){
+		$.ajax({
+			type:"GET",
+			url:"http://localhost:8051/api/anoncare/doctors/",
+			contentType:"application/json; charset=utf-8",
+			dataType:"json",
+			success: function(results){
+				var doctor_row = '';
+				var doctor;
+				for (var i = 0; i < results.entries.length; i++) {
+					doctor = '<option value="'+ results.entries[i].id +'" >'+
+												results.entries[i].fname+ ' '+
+												results.entries[i].lname+
+							 '</option>';
+
+					doctor_row+=doctor;
+				}
+
+				return doctor_row;
+			},
+			error: function(e){
+				alert('ERROR LOADING DOCTORS: '+e);
+			},
+			beforeSend: function (xhrObj){
+				xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
+			}
+		});
+}
+
+function showDoctorReferral(id){
+
+	$.ajax({
+
+		type:"GET",
+		url:"http://localhost:8051/api/anoncare/assessment/by/" + id,
+		contentType: "application/json; charset=utf-8",
+		dataType:"json",
+
+		success: function(results){
+
+			$('#doctor-referral-data1').html(function(){
+
+				var data = '<p>'+
+							'<b>'+
+								'<h4>Patient Name: '+results.entries[0].patient_fname +' '+ results.entries[0].patient_lname +'</h4>'+
+								'<h5><b>ID No. : '
+									+ results.entries[0].school_id + '<br><br>'+
+									'Age: '+results.entries[0].age+ '<br><br>'+
+									'Temperature : '+results.entries[0].temperature+ 'ºC<br><br>'+
+									'Pulse rate: '+results.entries[0].pulse_rate+ '<br><br>'+
+									'Respiration rate: '+results.entries[0].respiration_rate+ '<br><br>'+
+									'Blood pressure: '+ results.entries[0].blood_pressure+ '<br><br>'+
+									'Weight: '+results.entries[0].weight+'<br><br>'+
+								'</b></h5>'
+							+'</b>'
+						  +'</p>';
+
+				return data;
+
+			});
+
+			$('#doctor-referral-data2').html(function(){
+
+				var data = '<p>'+
+							'<b>'+
+								'<h5><b><br><br>Chief of complaint : '
+									+ results.entries[0].chief_complaint + '<br><br>'+
+									'History of Present Illness: '+results.entries[0].history_of_present_illness+ '<br><br>'+
+									'Medications taken : '+results.entries[0].temperature+ 'ºC<br><br>'+
+									'Diagnosis: '+results.entries[0].diagnosis+ '<br><br>'+
+									'Recommendation: '+results.entries[0].recommendation+ '<br><br>'+
+								'</b></h5>'
+							+'</b>'
+						  +'</p>';
+
+				return data;
+
+			});
+
+			$('#refer-physician').html(function(){
+				return showAllDoctors();
+			});
+
+			$('#doctor-view-assessment-form').show();
+
+		},
+		error: function(e){
+			alert('ERROR LOADING DOCTOR REFERRAL INFORMATION: ' + e);
+		},
+		beforeSend: function (xhrObj){
+
+			xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
+
+		}
+
+	});
+
+}
+
 
 function storeAssessment(){
 	var school_id = $('#school-id').val();
@@ -780,7 +880,7 @@ function getNotification(){
 
 					for (var i = 0; i < results.entries.length; i++) {
 
-						notification = '<li><a href="#" onclick="showAssessmentById('+results.entries[i].assessment_id+');"'+'><i class="fa fa-users text-aqua"></i>'+
+						notification = '<li><a href="#" onclick="showDoctorReferral('+results.entries[i].assessment_id+');"'+'><i class="fa fa-users text-aqua"></i>'+
 
 						'Assessment #'+ results.entries[i].assessment_id+ 'Assessment request from user '+
 						results.entries[i].doctor_id;
@@ -869,7 +969,7 @@ function showAssessmentById(id){
 										'</div>'+
 									'</div>'+
 								 '</div>'
-								 
+
 
 					assessment_row+=assessment;
 				}
@@ -968,7 +1068,7 @@ function searchAssessment(){
 				console.log(results)
 
 				$('#assessment-data').show();
-				
+
 
 			}
 
@@ -976,7 +1076,7 @@ function searchAssessment(){
 
 				$('#welcome-alert-doctor').html(
 						'<div class="alert alert-danger"><strong>FAILED ' +
-						
+
 						 '!</strong>'+ results.message +' </div>');
 				$("#welcome-alert-doctor").fadeTo(2000, 500).slideUp(500);
 
