@@ -919,7 +919,6 @@ function getNotification(){
 
 function stop() {
     clearTimeout(timer);
-    timer = 0;
 }
 
 
