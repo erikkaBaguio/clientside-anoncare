@@ -516,7 +516,7 @@ function doctorReferral() {
 	});
 }
 
-//this function will return a option tag.
+//this function will return an option tag.
 function showAllDoctors(){
 		$.ajax({
 			type:"GET",
@@ -526,16 +526,18 @@ function showAllDoctors(){
 			success: function(results){
 				var doctor_row = '';
 				var doctor;
-				for (var i = 0; i < results.entries.length; i++) {
-					doctor = '<option value="'+ results.entries[i].id +'" >'+
-												results.entries[i].fname+ ' '+
-												results.entries[i].lname+
-							 '</option>';
+				$('#refer-physician').html(function(){
+					for (var i = 0; i < results.entries.length; i++) {
+						doctor = '<option value="'+ results.entries[i].id +'" >'+
+													results.entries[i].fname+ ' '+
+													results.entries[i].lname+
+								 '</option>';
 
-					doctor_row+=doctor;
-				}
+						doctor_row+=doctor;
+					}
 
-				return doctor_row;
+					return doctor_row;
+				});
 			},
 			error: function(e){
 				alert('ERROR LOADING DOCTORS: '+e);
@@ -547,6 +549,8 @@ function showAllDoctors(){
 }
 
 function showDoctorReferral(id){
+
+	showAllDoctors();
 
 	$.ajax({
 
@@ -596,9 +600,6 @@ function showDoctorReferral(id){
 
 			});
 
-			$('#refer-physician').html(function(){
-				return showAllDoctors();
-			});
 
 			$('#doctor-view-assessment-form').show();
 
