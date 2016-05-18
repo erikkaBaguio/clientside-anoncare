@@ -506,7 +506,7 @@ function doctorReferral() {
 	$('#doctor-referral-form').show();
 
 	$.ajax({
-		type: "POST",
+		type: "PUT",
 		url:"http://localhost:8051/api/anoncare/assessment",
 		dataType: json,
 
