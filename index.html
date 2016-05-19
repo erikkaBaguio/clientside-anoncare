@@ -673,7 +673,8 @@
                         <ul class="sidebar-menu">
                             <li class="active treeview">
                                 <a href="#" onclick="$('#doctor-patient-search-box').show();
-                                                     $('#doctor-assessment-search-box').hide();">
+                                                     $('#doctor-assessment-search-box').hide();
+                                                     $('#doctor-view-assessment-form').hide();">
                                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                                     <i class="fa fa-angle-right pull-right"></i>
                                 </a>
@@ -681,14 +682,16 @@
                             <li class="treeview">
                                 <a href="#" onclick="$('#doctor-patient-search-box').hide();
                                                      $('#doctor-assessment-search-box').show();
-                                                     $('#doctor-patient-data').hide();">
+                                                     $('#doctor-patient-data').hide();
+                                                     $('#doctor-view-assessment-form').hide();">
                                     <i class="fa fa-list"></i> <span>View Asssessments</span>
                                     <i class="fa fa-angle-right pull-right"></i>
                                 </a>
                             </li>
                             <li class="treeview">
                                 <a href="#" onclick="$('#doctor-patient-search-box').show();
-                                                     $('#doctor-assessment-search-box').hide()">
+                                                     $('#doctor-assessment-search-box').hide();
+                                                     $('#doctor-view-assessment-form').hide();">
                                     <i class="fa fa-list"></i> <span>View Patient</span>
                                     <i class="fa fa-angle-right pull-right"></i>
                                 </a>
@@ -740,7 +743,7 @@
 
                                 <!--VIEW ASSESSMENT FORM-->
                                 <div id="doctor-view-assessment-form" class="col-md-11" style="margin-top:10px;display:none">
-                                    <section id="update-assessment-form" class="content-body">
+                                    <section id="add-assessment-form" class="content-body">
 
                                             <!-- ASSESSMENT FORM -->
                                             <div class="box box-primary">
@@ -754,7 +757,7 @@
 
                                                         </div>
                                                         <div id="doctor-referral-data2" class="col-md-6">
-                                                            
+
                                                         </div>
                                                     </div>
                                                     <!-- /.row -->
@@ -771,7 +774,7 @@
                                                             </select>
                                                             <div class="col-md-4">
                                                                 <br>
-                                                                <button id="submit-button" type="submit" class="btn btn-warning" onclick="storeAssessment();" style="margin: 5px">Refer</button>OR
+                                                                <button id="submit-button" type="submit" class="btn btn-warning" onclick="doctorReferral();" style="margin: 5px">Refer</button>OR
                                                                 <button id="submit-button" type="submit" class="btn btn-success" onclick="$('#accept-assessment-form').show();
                                                                                   $('#update-assessment-form').hide();" style="margin: 5px">Accept</button>
                                                             </div>
@@ -802,15 +805,15 @@
                                                             <form id="assessment-form-2" class="bootstrap-form-with-validation">
                                                                 <div class="form-group">
                                                                     <label class="control-label" for="textarea-input">Medications Taken</label>
-                                                                    <textarea class="form-control" name="textarea-input" id="medications-taken"></textarea>
+                                                                    <textarea class="form-control" name="textarea-input" id="referral-medications-taken"></textarea>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label class="control-label" for="textarea-input">Diagnosis </label>
-                                                                    <textarea class="form-control" name="textarea-input" id="diagnosis" required></textarea>
+                                                                    <textarea class="form-control" name="textarea-input" id="referral-diagnosis" required></textarea>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label class="control-label" for="textarea-input">Recommendation </label>
-                                                                    <textarea class="form-control" name="textarea-input" id="recommendation" required></textarea>
+                                                                    <textarea class="form-control" name="referral-textarea-input" id="referral-recommendation" required></textarea>
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -818,9 +821,8 @@
                                                     <!-- /.row -->
                                                 </div>
                                                 <!-- /.box-body -->
-                                                <div class="box-footer">
-                                                    <button type="submit" class="btn btn-danger pull-right" style="margin: 5px" onclick="clearAssessmentForm();">Clear</button>
-                                                    <button id="submit-button" type="submit" class="btn btn-success pull-right" onclick="storeAssessment();" style="margin: 5px">Submit</button>
+                                                <div id="btn-submit-updated-assessment" class="box-footer">
+                                                    <button class="btn btn-success pull-right" onclick="updateAssessment();" style="margin: 5px">Submit</button>
                                                 </div>
                                                 <!-- /.box-footer -->
                                             </div>
