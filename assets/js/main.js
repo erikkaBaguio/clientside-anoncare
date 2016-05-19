@@ -112,6 +112,7 @@ function home(){
 					$('#doctor-page').show(0);
 					$('#doctor-name').html(results.data[0].fname + ' ' + results.data[0].lname);
 					user_role = results.data[0].role;
+					getNotification();
 				}
 
 				if(results.data[0].role == 3){
@@ -500,73 +501,20 @@ function getAllDoctors(){
 
 
 function doctorReferral() {
-	var school_id = $('#school-id').val();
-    var recommendation = $('#recommendation').val();
-    var attending_physician= $('#attending-physician').val();
+	var attending_physician = $('#attending-physician').val();
+	var data = JSON.stringify({'attending_physician': attending_physician});
 
+	$('#doctor-referral-form').show();
 
-    var data = JSON.stringify({'school_id':school_id,
-    						   'age':age,
-    						   'temperature':temperature,
-    						   'pulse_rate':pulse_rate,
-    						   'respiration_rate':respiration_rate,
-    						   'blood_pressure':blood_pressure,
-    						   'weight':weight,
-    						   'chief_complaint':chief_complaint,
-    						   'history_of_present_illness':history_of_present_illness,
-    						   'medications_taken':medications_taken,
-    						   'diagnosis':diagnosis,
-    						   'recommendation':recommendation,
-    						   'attending_physician':attending_physician
-						   });
+	$.ajax({
+		type: "POST",
+		url:"http://localhost:8051/api/anoncare/assessment",
+		dataType: json,
 
-	if(user_role == 3){
-
-	    $.ajax({
-	    	type:"POST",
-	    	url: "http://localhost:8051/api/anoncare/assessment",
-	    	contentType:"application/json; charset=utf-8",
-			data:data,
-			dataType:"json",
-
-			success: function(results){
-				if (results.status == 'OK'){
-
-					$('#welcome-alert-nurse').html(
-						'<div class="alert alert-success"><strong>Success ' +
-						 '!</strong>' + results.message +'</div>');
-
-					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
-
-					clearAssessmentForm();
-
-				}
-
-				if(results.status == 'FAILED'){
-
-					$('#welcome-alert-nurse').html(
-						'<div class="alert alert-danger"><strong>Failed ' +
-						 '!</strong>' + results.message +'</div>');
-
-					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
-
-				}
-			},
-			error: function(e){
-				alert("THIS IS NOT COOL. SOMETHING WENT WRONG: " + e);
-			},
-			beforeSend: function (xhrObj){
-
-	    		console.log(auth_user);
-	      		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
-
-	        }
-	    });
-	}
-
-	else {
-		alert("UNAUTHORIZE ACCESS");
-	}
+		success: function(results) {
+			return results
+		},
+	});
 }
 
 function readNotification(id){
@@ -578,6 +526,9 @@ function readNotification(id){
 		contentType: "application/json; charset=utf-8",
 		dataType:"json",
 
+		success: function(results){
+			getNotification();
+		},
 		beforeSend: function (xhrObj){
 
 			xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
@@ -672,7 +623,7 @@ function showDoctorReferral(id){
 
 			});
 
-
+			$('#btn-submit-updated-assessment').html('<button class="btn btn-success pull-right" onclick="updateAssessment('+id+');" style="margin: 5px">Submit</button>');
 			$('#doctor-view-assessment-form').show();
 
 		},
@@ -1353,17 +1304,17 @@ function searchPatient(){
 }
 
 
-function updateAssessment(){
-    var medications_taken = $('#medications-taken').val();
-    var diagnosis = $('#diagnosis').val();
-    var recommendation = $('#recommendation').val();
-    var attending_physician= $('#attending-physician').val();
+function updateAssessment(id){
+    var medications_taken = $('#referral-medications-taken').val();
+    var diagnosis = $('#referral-diagnosis').val();
+    var recommendation = $('#referral-recommendation').val();
+	var assessment_id = id;
 
 
     var data = JSON.stringify({'medications_taken':medications_taken,
     						   'diagnosis':diagnosis,
     						   'recommendation':recommendation,
-    						   'attending_physician':attending_physician
+    						   'assessment_id':assessment_id
 						   });
 
 	if(user_role == 2){
@@ -1378,11 +1329,11 @@ function updateAssessment(){
 			success: function(results){
 				if (results.status == 'OK'){
 
-					$('#welcome-alert-nurse').html(
+					$('#welcome-alert-doctor').html(
 						'<div class="alert alert-success"><strong>Success ' +
 						 '!</strong>' + results.message +'</div>');
 
-					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
+					$("#welcome-alert-doctor").fadeTo(2000, 500).slideUp(500);
 
 					clearAssessmentForm();
 
@@ -1390,11 +1341,11 @@ function updateAssessment(){
 
 				if(results.status == 'FAILED'){
 
-					$('#welcome-alert-nurse').html(
+					$('#welcome-alert-doctor').html(
 						'<div class="alert alert-danger"><strong>Failed ' +
 						 '!</strong>' + results.message +'</div>');
 
-					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
+					$("#welcome-alert-doctor").fadeTo(2000, 500).slideUp(500);
 
 				}
 			},
@@ -1403,7 +1354,6 @@ function updateAssessment(){
 			},
 			beforeSend: function (xhrObj){
 
-	    		console.log(auth_user);
 	      		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
 
 	        }
