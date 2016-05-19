@@ -500,20 +500,29 @@ function getAllDoctors(){
 }
 
 
-function doctorReferral() {
-	var attending_physician = $('#attending-physician').val();
-	var data = JSON.stringify({'attending_physician': attending_physician});
+function doctorReferral(assessment_id) {
+	var attending_physician = $('#refer-physician').val();
 
 	$('#doctor-referral-form').show();
 
 	$.ajax({
 		type: "POST",
-		url:"http://localhost:8051/api/anoncare/assessment",
-		dataType: json,
+		url:"http://localhost:8051/api/anoncare/refer/"+attending_physician+"/"+assessment_id,
+		dataType: 'json',
 
 		success: function(results) {
-			return results
+			$('#welcome-alert-doctor').html(
+				'<div class="alert alert-success"><strong>Success ' +
+				 '!</strong>' + results.message +'</div>');
+
+			$("#welcome-alert-doctor").fadeTo(2000, 500).slideUp(500);
+
 		},
+		beforeSend: function (xhrObj){
+
+			xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
+
+		}
 	});
 }
 
@@ -624,6 +633,7 @@ function showDoctorReferral(id){
 			});
 
 			$('#btn-submit-updated-assessment').html('<button class="btn btn-success pull-right" onclick="updateAssessment('+id+');" style="margin: 5px">Submit</button>');
+			$('#referral-btn').html('<button id="submit-button" class="btn btn-warning" onclick="doctorReferral('+id+');" style="margin: 5px">Refer</button>');
 			$('#doctor-view-assessment-form').show();
 
 		},
@@ -709,7 +719,6 @@ function storeAssessment(){
 			},
 			beforeSend: function (xhrObj){
 
-	    		console.log(auth_user);
 	      		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
 
 	        }
