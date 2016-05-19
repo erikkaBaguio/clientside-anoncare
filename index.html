@@ -78,14 +78,18 @@
         <div class="header">
             <div class="container">
                 <div class="top-middle">
-                    <a href="index.html">
+                    <a href="#" onclick="$('#log-in-page').show();
+                                         $('#landing-page-header').show();
+                                         $('#about-page').hide()">
                         <h3>AnonCare</h3>
                     </a>
                 </div>
                 <div class="top-nav">
                     <span class="menu"><img src="assets/img/menu-icon.png" alt=""/></span>
                     <ul class="nav1">
-                        <li><a href="#" class="active" onclick="$('#landing-page-header').show();$('#about-page').hide()">Home</a></li>
+                        <li><a href="#" class="active" onclick="$('#log-in-page').show();
+                                                                $('#landing-page-header').show();
+                                                                $('#about-page').hide()">Home</a></li>
                         <li><a href="#" onclick="$('#log-in-page').hide();$('#about-page').show()">About Us</a></li>
                     </ul>                    <!-- script-for-menu -->
                      <script>
@@ -398,13 +402,16 @@
                         <!-- sidebar menu: : style can be found in sidebar.less -->
                         <ul class="sidebar-menu">
                             <li class="treeview">
-                                <a href="#" onclick="$('#user-search-box').show(); $('#add-user-form').hide();">
+                                <a href="#" onclick="$('#user-search-box').show(); 
+                                                     $('#add-user-form').hide();">
                                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                                     <i class="fa fa-angle-right pull-right"></i>
                                 </a>
                             </li>
                             <li class="active treeview">
-                                <a href="#" onclick="$('#add-user-form').show(); $('#user-search-box').hide();$('#view-user-table').hide();">
+                                <a href="#" onclick="$('#add-user-form').show(); 
+                                                     $('#user-search-box').hide();
+                                                     $('#view-user-table').hide();">
                                     <i class="fa fa-plus"></i> <span>Add User</span>
                                     <i class="fa fa-angle-right pull-right"></i>
                                 </a>

@@ -24,8 +24,8 @@ function eraseCookie(name) {
 	$('#nurse-page').hide(0);
 	$('#doctor-page').hide(0);
 	$('#add-user-form').hide(0);
-	$('#log-in-page').show();
 	$('#landing-page-header').show();
+	$('#log-in-page').show();
 	$('#view-user-table').hide();
 
 	var form = document.getElementById("registration-form");
@@ -974,7 +974,7 @@ function showAssessmentById(id){
 					assessment_row+=assessment;
 				}
 
-				$('#doctor-assessment-search').hide();
+				$('#doctor-assessment-search').show();
 
 				return assessment_row;
 
@@ -1013,7 +1013,12 @@ function searchAssessment(){
 			console.log(results);
 			if(results.status == 'OK'){
 
-				$('#assessment-name').html(results.entries[0].school_id +' | '+results.entries[0].patient_fname +' '+results.entries[0].patient_lname);
+				$('#assessment-name').html(
+					'<p><h3>ID No. :'+ results.entries[0].school_id +
+					'<br>Name:'+results.entries[0].patient_fname +
+					' '+results.entries[0].patient_lname + 
+					'</p></h3>'
+				);
 
 				$('#assessment-body').html(function(){
 
