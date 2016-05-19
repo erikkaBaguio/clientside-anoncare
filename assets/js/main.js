@@ -1164,7 +1164,7 @@ function searchPatient(){
                                             'Age: '+results.entries[0].age+'<br><br>'+
                                             'Sex: '+results.entries[0].sex+'<br><br>'+
                                         '</b>'+
-                                        +'</h5>'+
+                                        '</h5>'+
                                         '</p>' +
                                     '</div>' +
                                     '<div class="col-md-6"><br><br><br>' +
@@ -1178,7 +1178,7 @@ function searchPatient(){
                                             'Guardian: '+results.entries[0].guardian+'<br><br>'+
                                             'Home Address: '+results.entries[0].home_addr+'<br><br>'+
                                         '</b>'+
-                                        +'</h5>'+
+                                        '</h5>'+
                                         '</p>' +                                        
                                     '</div>' +
                                 '</div>' +                                       
@@ -1293,11 +1293,6 @@ function searchPatient(){
 
 				if (user_role == 2){
 					$('#doctor-patient-data').html(
-
-
-						'<div class="box-header with-border">' +
-                          	'<h3 class="box-title" style="padding: 5px"></h3>' +
-                        '</div>' +
                             '<div class="box-body">' +
                                 '<div class="row">' +
                                     '<div class="col-md-6">' +
@@ -1312,7 +1307,7 @@ function searchPatient(){
                                             'Age: '+results.entries[0].age+'<br><br>'+
                                             'Sex: '+results.entries[0].sex+'<br><br>'+
                                         '</b>'+
-                                        +'</h5>'+
+                                        '</h5>'+
                                         '</p>' +
                                     '</div>' +
                                     '<div class="col-md-6"><br><br><br>' +
@@ -1326,7 +1321,7 @@ function searchPatient(){
                                             'Guardian: '+results.entries[0].guardian+'<br><br>'+
                                             'Home Address: '+results.entries[0].home_addr+'<br><br>'+
                                         '</b>'+
-                                        +'</h5>'+
+                                        '</h5>'+
                                         '</p>' +                                        
                                     '</div>' +
                                 '</div>' +                                       

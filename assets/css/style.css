@@ -786,6 +786,13 @@ a.callbacks_nav.callbacks3_nav.next {
 }
 /*--//content--*/
 /*--footer--*/
+.notif-footer{
+	padding: 0;
+	color: #292c2f;
+	text-align: center;
+	padding: 5px;
+}
+
 .footer {
   	background: #292c2f;
   	padding: 2em 0;

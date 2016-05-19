@@ -632,7 +632,7 @@
                                         <ul id="notification-menu" class="menu">
                                         </ul>
                                     </li>
-                                    <li class="footer"><a href="#">View all</a></li>
+                                    <li class="notif-footer"><a href="#">View all</a></li>
                                 </ul>
                             </li>
 
@@ -712,34 +712,42 @@
                             <section class="content-body">
 
                                 <!-- PATIENT SEARCH BOX -->
-                                <div id="doctor-patient-search-box" class="col-md-11" style="margin-top: 10px">
-                                    <div class="col-md-3"></div>
-                                    <div class="col-md-6">
-                                        <!-- search form -->
-                                        <form method="get" class="sidebar-form" onsubmit="return false">
-                                            <div class="input-group">
-                                                <input id="doctor-search-patient" type="text" name="doctor-search-patient" class="form-control" placeholder="Enter School ID e.g. 20130000">
-                                                <span class="input-group-btn">
-                                                    <button onclick="searchPatient();" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                                                    </button>
-                                                </span>
-                                            </div>
-                                        </form>
-                                        <!-- /.search form -->
-                                    </div>
-                                    <div class="col-md-3"></div>
+                                <div class="row">
+                                    <div id="doctor-patient-search-box" class="col-md-11" style="margin-top: 10px">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-6">
+                                            <!-- search form -->
+                                            <form method="get" class="sidebar-form" onsubmit="return false">
+                                                <div class="input-group">
+                                                    <input id="doctor-search-patient" type="text" name="doctor-search-patient" class="form-control" placeholder="Enter School ID e.g. 20130000">
+                                                    <span class="input-group-btn">
+                                                        <button onclick="searchPatient();" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </form>
+                                            <!-- /.search form -->
+                                        </div>
+                                        <div class="col-md-3"></div>
+                                    </div>                                    
                                 </div>
                                 <!-- END PATIENT SEARCH BOX -->
 
                                 <!--VIEW ASSESSMENT TABLE-->
-                                <div id="view-assessment-table" class="col-md-11" style="margin-top:10px;display:none">
+                                <div class="row">
+                                    <div id="view-assessment-table" class="col-md-11" style="margin-top:10px;display:none">
 
-                                </div>
+                                    </div>
+                                </div>                                
                                 <!--END VIEW ASSESSMENT TABLE-->
 
                                 <!--PATIENT DATA-->
-                                <div id="doctor-patient-data" class="col-md-11" style="margin-top:10px;display:none">
+                                <div class="row">
+                                    
+                                    <div id="doctor-patient-data" class="box box-default" style="margin-top:10px;display:none">
 
+                                    </div>
+                                    <!-- /.box -->                                    
                                 </div>
                                 <!--END PATIENT DATA-->
 
@@ -769,13 +777,12 @@
                                                     <div class="col-md-12">
 
 
-                                                        <div class="col-md-8">
+                                                        <div class="col-md-6">
 
                                                             <label>Attending Physician</label>
                                                             <select id="refer-physician" class="form-control select2" style="width: 100%;">
                                                             </select>
-                                                            <div class="col-md-4">
-                                                                <br>
+                                                            <div class="col-md-6">
                                                                 <div id="referral-btn"></div>
                                                                 OR
                                                                 <button id="submit-button" type="submit" class="btn btn-success" onclick="$('#accept-assessment-form').show();" style="margin: 5px">Accept</button>
@@ -949,7 +956,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="footer"><a href="#">View all</a></li>
+                                    <li class="notif-footer"><a href="#">View all</a></li>
                                 </ul>
                             </li>
 
