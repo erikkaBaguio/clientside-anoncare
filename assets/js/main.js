@@ -501,73 +501,20 @@ function getAllDoctors(){
 
 
 function doctorReferral() {
-	var school_id = $('#school-id').val();
-    var recommendation = $('#recommendation').val();
-    var attending_physician= $('#attending-physician').val();
+	var attending_physician = $('#attending-physician').val();
+	var data = JSON.stringify({'attending_physician': attending_physician});
 
+	$('#doctor-referral-form').show();
 
-    var data = JSON.stringify({'school_id':school_id,
-    						   'age':age,
-    						   'temperature':temperature,
-    						   'pulse_rate':pulse_rate,
-    						   'respiration_rate':respiration_rate,
-    						   'blood_pressure':blood_pressure,
-    						   'weight':weight,
-    						   'chief_complaint':chief_complaint,
-    						   'history_of_present_illness':history_of_present_illness,
-    						   'medications_taken':medications_taken,
-    						   'diagnosis':diagnosis,
-    						   'recommendation':recommendation,
-    						   'attending_physician':attending_physician
-						   });
+	$.ajax({
+		type: "POST",
+		url:"http://localhost:8051/api/anoncare/assessment",
+		dataType: json,
 
-	if(user_role == 3){
-
-	    $.ajax({
-	    	type:"POST",
-	    	url: "http://localhost:8051/api/anoncare/assessment",
-	    	contentType:"application/json; charset=utf-8",
-			data:data,
-			dataType:"json",
-
-			success: function(results){
-				if (results.status == 'OK'){
-
-					$('#welcome-alert-nurse').html(
-						'<div class="alert alert-success"><strong>Success ' +
-						 '!</strong>' + results.message +'</div>');
-
-					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
-
-					clearAssessmentForm();
-
-				}
-
-				if(results.status == 'FAILED'){
-
-					$('#welcome-alert-nurse').html(
-						'<div class="alert alert-danger"><strong>Failed ' +
-						 '!</strong>' + results.message +'</div>');
-
-					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
-
-				}
-			},
-			error: function(e){
-				alert("THIS IS NOT COOL. SOMETHING WENT WRONG: " + e);
-			},
-			beforeSend: function (xhrObj){
-
-	    		console.log(auth_user);
-	      		xhrObj.setRequestHeader("Authorization", "Basic " + btoa( auth_user ));
-
-	        }
-	    });
-	}
-
-	else {
-		alert("UNAUTHORIZE ACCESS");
-	}
+		success: function(results) {
+			return results
+		},
+	});
 }
 
 function readNotification(id){
