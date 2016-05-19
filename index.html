@@ -87,7 +87,7 @@
                 <div class="top-nav">
                     <span class="menu"><img src="assets/img/menu-icon.png" alt=""/></span>
                     <ul class="nav1">
-                        <li><a href="#" class="active tree" onclick="$('#log-in-page').show();
+                        <li><a href="#" class="active treeview" onclick="$('#log-in-page').show();
                                                                 $('#landing-page-header').show();
                                                                 $('#about-page').hide()">Home</a></li>
                         <li><a href="#" onclick="$('#log-in-page').hide();$('#about-page').show()">About Us</a></li>
@@ -422,7 +422,7 @@
                     </section>
 
                 </div>
-                <div class="col-md-9" id="content-admin" style="background-color: white; min-height: 650px; width: 990px">
+                <div class="col-md-9" id="content-admin">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-11">
@@ -1129,18 +1129,16 @@
 
 
 
-
+                            <!-- ADD PATIENT FORM -->
                             <section id="add-patient-form" class="content-body" style="display:none">
-
-
-                                <!-- Content Header (Page header) -->
-                                <section class="content-header">
-                                    <h1>Add Patient</h1>
-                                </section>
-
-
-                                <!-- PATIENT FORM -->
-                                <div class="row">
+                            
+                                <div class="box box-primary">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title" style="padding: 5px">Add Patient File</h3>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body">
+                                        <div class="row">
                                     <!-- left column -->
                                     <div class="col-md-6">
                                         <!-- general form elements -->
@@ -1565,21 +1563,24 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 box-footer">
-                                        <button type="submit" class="btn btn-info pull-right" onclick="storePatient();">Add Patient</button>
-                                    </div>
                                     <!--/.col (right) -->
                                 </div>
-
-
-                                <!-- /.row -->
+                                        <!-- /.row -->
+                                    </div>
+                                    <!-- /.box-body -->
+                                    <div class="box-footer">
+                                        <button type="submit" class="btn btn-info pull-right" onclick="storePatient();">Add Patient</button>
+                                    </div>
+                                    <!-- /.box-footer -->
+                                </div>
+                                <!-- /.box -->
                             </section>
 
                             <!-- END OF PATIENT FORM -->
 
 
 
-                            <section class="content-body" style="background-color: white; min-height: 650px; width: 980px">
+                            <section class="content-body">
 
                                 <!-- PATIENT SEARCH BOX -->
 
@@ -1649,9 +1650,9 @@
         $(document).ready(function(){
           $('ul li a').click(function(){
             $('li a').removeClass("active");
-            $('li a').removeClass("tree");
+            $('li a').removeClass("treeview");
             $(this).addClass("active");
-            $(this).addClass("tree");
+            $(this).addClass("treeview");
         });
         });
     </script>
