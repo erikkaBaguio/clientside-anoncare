@@ -1131,7 +1131,7 @@
 
                             <!-- ADD PATIENT FORM -->
                             <section id="add-patient-form" class="content-body" style="display:none">
-                            
+
                                 <div class="box box-primary">
                                     <div class="box-header with-border">
                                         <h3 class="box-title" style="padding: 5px">Add Patient File</h3>
@@ -1569,7 +1569,7 @@
                                     </div>
                                     <!-- /.box-body -->
                                     <div class="box-footer">
-                                        <button type="submit" class="btn btn-info pull-right" onclick="storePatient();">Add Patient</button>
+                                        <button type="submit" class="btn btn-success pull-right" onclick="storePatient();">Add Patient</button>
                                     </div>
                                     <!-- /.box-footer -->
                                 </div>
@@ -1583,35 +1583,36 @@
                             <section class="content-body">
 
                                 <!-- PATIENT SEARCH BOX -->
-
-                                <div id="nurse-patient-search-box" class="col-md-11" style="margin-top: 10px">
-                                    <div class="col-md-3"></div>
-                                    <div class="col-md-6">
-                                        <!-- search form -->
-                                        <form method="get" class="sidebar-form" onsubmit="return false">
-                                            <div class="input-group">
-                                                <input id="nurse-search-patient" type="number" name="q" class="form-control" placeholder="Enter School ID e.g. 20130000">
-                                                <span class="input-group-btn">
-                                                        <button onclick="searchPatient();" name="search" id="search-patient-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                                                        </button>
-                                                    </span>
-                                            </div>
-                                        </form>
-                                        <!-- /.search form -->
-                                    </div>
-                                    <div class="col-md-3"></div>
+                                <div class="row">
+                                    <div id="nurse-patient-search-box" class="col-md-11" style="margin-top: 10px">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-6">
+                                            <!-- search form -->
+                                            <form method="get" class="sidebar-form" onsubmit="return false">
+                                                <div class="input-group">
+                                                    <input id="nurse-search-patient" type="number" name="q" class="form-control" placeholder="Enter School ID e.g. 20130000">
+                                                    <span class="input-group-btn">
+                                                            <button onclick="searchPatient();" name="search" id="search-patient-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                                                            </button>
+                                                        </span>
+                                                </div>
+                                            </form>
+                                            <!-- /.search form -->
+                                        </div>
+                                        <div class="col-md-3"></div>
+                                    </div>                                    
                                 </div>
-
-
-                                <!-- VIEW PATIENT FILE -->
-                                <div id="patient-data" class="box box-primary" style="display:none">
-                                    
-                                </div>
-                                <!-- /.box -->
-                                <!--END VIEW PATIENT FILE -->
-
-
                                 <!-- END PATIENT SEARCH BOX -->
+                                
+                                <!-- VIEW PATIENT FILE -->
+                                <div class="row">
+                                    
+                                    <div id="patient-data" class="box box-default" style="margin-top:10px;display:none">
+
+                                    </div>
+                                    <!-- /.box -->                                    
+                                </div>
+                                <!--END VIEW PATIENT FILE -->
 
                             </section>
                         </div>
