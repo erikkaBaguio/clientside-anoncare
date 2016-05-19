@@ -87,7 +87,7 @@
                 <div class="top-nav">
                     <span class="menu"><img src="assets/img/menu-icon.png" alt=""/></span>
                     <ul class="nav1">
-                        <li><a href="#" class="active" onclick="$('#log-in-page').show();
+                        <li><a href="#" class="active tree" onclick="$('#log-in-page').show();
                                                                 $('#landing-page-header').show();
                                                                 $('#about-page').hide()">Home</a></li>
                         <li><a href="#" onclick="$('#log-in-page').hide();$('#about-page').show()">About Us</a></li>
@@ -99,6 +99,8 @@
 
                           });
                          });
+
+
                     </script>
                     <!-- /script-for-menu -->
                 </div>
@@ -412,7 +414,7 @@
                                 <a href="#" onclick="$('#add-user-form').show(); 
                                                      $('#user-search-box').hide();
                                                      $('#view-user-table').hide();">
-                                    <i class="fa fa-plus"></i> <span>Add User</span>
+                                    <i class="fa fa-plus"></i><span>Add User</span>
                                     <i class="fa fa-angle-right pull-right"></i>
                                 </a>
                             </li>
@@ -1642,6 +1644,15 @@
 
             $().UItoTop({ easingType: 'easeOutQuart' });
 
+        });
+
+        $(document).ready(function(){
+          $('ul li a').click(function(){
+            $('li a').removeClass("active");
+            $('li a').removeClass("tree");
+            $(this).addClass("active");
+            $(this).addClass("tree");
+        });
         });
     </script>
     <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
