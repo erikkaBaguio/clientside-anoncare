@@ -1484,7 +1484,25 @@ function searchPatient(){
 					$('#doctor-patient-data').show();
 				}
 
+			}
 
+			if(results.status == 'FAILED'){
+				if (user_role == 3){
+					$('#welcome-alert-nurse').html(
+						'<div class="alert alert-danger"><strong>Failed ' +
+						 '!</strong>' + results.message +'</div>');
+
+					$("#welcome-alert-doctor").fadeTo(2000, 500).slideUp(500);
+				}
+
+				if (user_role == 2){
+					$('#welcome-alert-doctor').html(
+						'<div class="alert alert-danger"><strong>Failed ' +
+						 '!</strong>' + results.message +'</div>');
+
+					$("#welcome-alert-doctor").fadeTo(2000, 500).slideUp(500);
+				}
+				
 			}
 
 		},
