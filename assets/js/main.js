@@ -1306,44 +1306,59 @@ function searchPatient(){
 
 				if (user_role == 2){
 					$('#doctor-patient-data').html(
-                            '<div class="box-body">' +
-                                '<div class="row">' +
-                                    '<div class="col-md-6">' +
+					        '<div class="box box-info">' +
+                                '<div class="box-header with-border">' +
                                     '<h3 class="box-title" style="padding: 5px">Personal Info</h3>' +
-                                        '<p>' +
-                                        '<h5>'+
-                                        '<b>'+
-                                            'ID No.: '+results.entries[0].school_id+'<br><br>'+
-                                            'First Name: '+results.entries[0].fname+'<br><br>'+
-                                            'Middle Name: '+results.entries[0].mname+'<br><br>'+
-                                            'Last Name: '+results.entries[0].lname+'<br><br>'+
-                                            'Age: '+results.entries[0].age+'<br><br>'+
-                                            'Sex: '+results.entries[0].sex+'<br><br>'+
-                                        '</b>'+
-                                        '</h5>'+
-                                        '</p>' +
+                                '</div>' +
+                                '<div class="box-body">' +  
+                                    '<div class="row">' +
+                                        '<div class="col-md-4">' +                    
+                                            '<p>' +
+                                            '<h5>'+
+                                            '<b>'+
+                                                'ID No.: '+results.entries[0].school_id+'<br><br>'+
+                                                'First Name: '+results.entries[0].fname+'<br><br>'+
+                                                'Middle Name: '+results.entries[0].mname+'<br><br>'+
+                                                'Last Name: '+results.entries[0].lname+'<br><br>'+
+                                            '</b>'+
+                                            '</h5>'+
+                                            '</p>' +
+                                        '</div>' +
+                                        '<div class="col-md-4">' +                    
+                                            '<p>' +
+                                            '<h5>'+
+                                            '<b>'+
+                                                'Age: '+results.entries[0].age+'<br><br>'+
+                                                'Sex: '+results.entries[0].sex+'<br><br>'+
+                                                'Height: '+results.entries[0].height+'<br><br>'+
+                                                'Weight: '+results.entries[0].weight+'<br><br>'+
+                                            '</b>'+
+                                            '</h5>'+
+                                            '</p>' +
+                                        '</div>' +
+                                        '<div class="col-md-4">' +
+                                            '<p>' +
+                                            '<h5>'+
+                                            '<b>'+                            
+                                                'Birthday: '+results.entries[0].date_of_birth+'<br><br>'+
+                                                'Civil Status: '+results.entries[0].civil_status+'<br><br>'+
+                                                'Guardian: '+results.entries[0].guardian+'<br><br>'+
+                                                'Home Address: '+results.entries[0].home_addr+'<br><br>'+
+                                            '</b>'+
+                                            '</h5>'+
+                                            '</p>' +                                        
+                                        '</div>' +
                                     '</div>' +
-                                    '<div class="col-md-6"><br><br><br>' +
-                                        '<p>' +
-                                        '<h5>'+
-                                        '<b>'+
-                                            'Height: '+results.entries[0].height+'<br><br>'+
-                                            'Weight: '+results.entries[0].weight+'<br><br>'+
-                                            'Birthday: '+results.entries[0].date_of_birth+'<br><br>'+
-                                            'Civil Status: '+results.entries[0].civil_status+'<br><br>'+
-                                            'Guardian: '+results.entries[0].guardian+'<br><br>'+
-                                            'Home Address: '+results.entries[0].home_addr+'<br><br>'+
-                                        '</b>'+
-                                        '</h5>'+
-                                        '</p>' +                                        
-                                    '</div>' +
-                                '</div>' +                                       
-                            '</div>' + 
-                            '<div class="box-body">' +
-                                '<div class="row">' +
-                                    '<div class="col-md-6">' +
-                                        '<h3 class="box-title" style="padding: 5px">Personal History</h3>' +
-                                             '<p>'+
+                                '</div>' +
+                            '</div>' +
+                            '<div class="row">' +
+                                '<div class="col-md-6">' +
+                                    '<div class="box box-info">' +
+                                        '<div class="box-header with-border">' +
+                                            '<h3 class="box-title" style="padding: 5px">Personal History</h3>' +
+                                        '</div>' +
+                                        '<div class="box-body">' + 
+                                            '<p>'+
                                                 '<h5>'+
                                                 '<b>'+
                                                     'Smoking: '+results.entries[1].smoking+'<br><br>'+
@@ -1354,27 +1369,36 @@ function searchPatient(){
                                                 '</h5>'+
                                                 '</b>'+
                                             '</p>'+
-                                    '</div>' +
-                                    '<div class="col-md-6">' +
-                                        '<h3 class="box-title" style="padding: 5px">Pulmonary</h3>' +
+                                        '</div>' +
+                                    '</div>'+
+                                '</div>' +
+                                '<div class="col-md-6">' +
+                                    '<div class="box box-warning">' +
+                                        '<div class="box-header with-border">' +
+                                            '<h3 class="box-title" style="padding: 5px">Pulmonary</h3>' +
+                                        '</div>' +
+                                        '<div class="box-body">' + 
                                             '<p>'+
                                                 '<h5>'+
                                                 '<b>'+
                                                     'Cough: '+results.entries[2].cough+'<br><br>'+
-                                                    'dyspnea: '+results.entries[2].dyspnea+'<br><br>'+
-                                                    'hemoptysis: '+results.entries[2].hemoptysis+'<br><br>'+
+                                                    'Dyspnea: '+results.entries[2].dyspnea+'<br><br>'+
+                                                    'Hemoptysis: '+results.entries[2].hemoptysis+'<br><br>'+
                                                     'TB exposure: '+results.entries[2].tb_exposure+'<br><br>'+
                                                 '</b>'+
                                                 '</h5>'+
-                                            '</p>'+                                        
-                                    '</div>' +
-                                '</div>' +                                       
+                                            '</p>'+  
+                                        '</div>' +
+                                    '</div>'+    
+                                '</div>' +
                             '</div>' +
-
-                            '<div class="box-body">' +
-                                '<div class="row">' +
-                                    '<div class="col-md-6">' +
-                                        '<h3 class="box-title" style="padding: 5px">Gut</h3>' +
+                            '<div class="row">' +
+                                '<div class="col-md-6">' +
+                                    '<div class="box box-success">' +
+                                        '<div class="box-header with-border">' +
+                                            '<h3 class="box-title" style="padding: 5px">Gut</h3>' +
+                                        '</div>' +
+                                        '<div class="box-body">' +             
                                             '<p>'+
                                                 '<h5>'+
                                                 '<b>'+
@@ -1386,10 +1410,16 @@ function searchPatient(){
                                                     'Decrease Urine Amount: '+results.entries[3].dec_urine_amount+'<br><br>'+
                                                 '</b>'+
                                                 '</h5>'+
-                                            '</p>'+                                    
-                                    '</div>' +
-                                    '<div class="col-md-6">' +
-                                        '<h3 class="box-title" style="padding: 5px">Illness</h3>' +
+                                            '</p>'+     
+                                        '</div>' +
+                                    '</div>'+
+                                '</div>' +
+                                '<div class="col-md-6">' +
+                                    '<div class="box box-info">' +
+                                        '<div class="box-header with-border">' +
+                                            '<h3 class="box-title" style="padding: 5px">Illness</h3>' +
+                                        '</div>' +
+                                        '<div class="box-body">' + 
                                             '<p>'+
                                                 '<h5>'+
                                                 '<b>'+
@@ -1403,29 +1433,37 @@ function searchPatient(){
                                                 '</b>'+
                                                 '</h5>'+
                                             '</p>'+
-                                    '</div>' +
-                                '</div>' +                                       
+                                        '</div>' +
+                                    '</div>'+    
+                                '</div>' +            
                             '</div>' +
-
-                            '<div class="box-body">' +
-                                '<div class="row">' +
-                                    '<div class="col-md-6">' +
-                                        '<h3 class="box-title" style="padding: 5px">Neurologic</h3>' +
-                                        '<p>'+
-                                            '<h5>'+
-                                            '<b>'+
-                                                'Chest Pain: '+results.entries[5].chest_pain+'<br><br>'+
-                                                'Palpitations: '+results.entries[5].palpitations+'<br><br>'+
-                                                'Pedal Edema: '+results.entries[5].pedal_edema+'<br><br>'+
-                                                'Orthopnea: '+results.entries[5].orthopnea+'<br><br>'+
-                                                'Nocturnal Dyspnea: '+results.entries[5].nocturnal_dyspnea+'<br><br>'+
-                                            '</b>'+
-                                            '</h5>'+
-                                        '</p>'+
-                                    
-                                    '</div>' +
-                                    '<div class="col-md-6">' +
-                                        '<h3 class="box-title" style="padding: 5px">Cardiac</h3>' +
+                            '<div class="row">' +
+                                '<div class="col-md-6">' +
+                                    '<div class="box box-warning">' +
+                                        '<div class="box-header with-border">' +
+                                            '<h3 class="box-title" style="padding: 5px">Neurologic</h3>' +
+                                        '</div>' +
+                                        '<div class="box-body">' + 
+                                            '<p>'+
+                                                '<h5>'+
+                                                '<b>'+
+                                                    'Chest Pain: '+results.entries[5].chest_pain+'<br><br>'+
+                                                    'Palpitations: '+results.entries[5].palpitations+'<br><br>'+
+                                                    'Pedal Edema: '+results.entries[5].pedal_edema+'<br><br>'+
+                                                    'Orthopnea: '+results.entries[5].orthopnea+'<br><br>'+
+                                                    'Nocturnal Dyspnea: '+results.entries[5].nocturnal_dyspnea+'<br><br>'+
+                                                '</b>'+
+                                                '</h5>'+
+                                            '</p>'+
+                                        '</div>' +
+                                    '</div>'+
+                                '</div>' +
+                                '<div class="col-md-6">' +
+                                    '<div class="box box-success">' +
+                                        '<div class="box-header with-border">' +
+                                            '<h3 class="box-title" style="padding: 5px">Cardiac</h3>' +
+                                        '</div>' +
+                                        '<div class="box-body">' + 
                                             '<p>'+
                                                 '<h5>'+
                                                 '<b>'+
@@ -1436,9 +1474,10 @@ function searchPatient(){
                                                 '</b>'+
                                                 '</h5>'+
                                             '</p>'+
-                                    '</div>' +
-                                '</div>' +                                       
-                            '</div>' 
+                                        '</div>' +
+                                    '</div>'+    
+                                '</div>' +            
+                            '</div>'
 
 					);
 
