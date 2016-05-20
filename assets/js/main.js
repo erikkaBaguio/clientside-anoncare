@@ -1492,7 +1492,7 @@ function searchPatient(){
 						'<div class="alert alert-danger"><strong>Failed ' +
 						 '!</strong>' + results.message +'</div>');
 
-					$("#welcome-alert-doctor").fadeTo(2000, 500).slideUp(500);
+					$("#welcome-alert-nurse").fadeTo(2000, 500).slideUp(500);
 				}
 
 				if (user_role == 2){
