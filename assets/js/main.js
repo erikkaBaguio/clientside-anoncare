@@ -617,11 +617,11 @@ function showDoctorReferral(id){
 			$('#doctor-referral-data2').html(function(){
 
 				var data = '<p>'+
-							'<b>'+
+							'<b><br><br>'+
 								'<h5><b><br><br>Chief of complaint : '
 									+ results.entries[0].chief_complaint + '<br><br>'+
 									'History of Present Illness: '+results.entries[0].history_of_present_illness+ '<br><br>'+
-									'Medications taken : '+results.entries[0].temperature+ 'ºC<br><br>'+
+									'Medications taken : '+results.entries[0].medications_taken+ '<br><br>'+
 									'Diagnosis: '+results.entries[0].diagnosis+ '<br><br>'+
 									'Recommendation: '+results.entries[0].recommendation+ '<br><br>'+
 								'</b></h5>'
