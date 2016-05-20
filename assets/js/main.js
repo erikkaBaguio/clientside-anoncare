@@ -833,6 +833,7 @@ function storePatient(){
 	});
 
 	if(user_role == 3){
+		console.log(data);
 
 		$.ajax({
 
@@ -950,7 +951,7 @@ function getNotification(){
 }
 
 function stop() {
-    clearTimeout(timer);
+    clearInterval(timer);
 }
 
 
